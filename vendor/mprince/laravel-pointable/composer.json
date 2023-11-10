@@ -1,0 +1,22 @@
+{
+    "name": "mprince/laravel-pointable",
+    "description": "Point system for Laravel 8",
+    "keywords": ["points", "pointable", "laravel", "loyalty", "reward"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohammad Prince",
+            "email": "mprince2k16@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "~8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mprince\\Pointable\\": "src/"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "name": "mprince/laravel-barcode-generator",
+    "description": "Barcode generate in Laravel 8",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moinuddin Chowdhury",
+            "email": "moinuddin7@gmail.com"
+        },
+        {
+            "name": "Mohammad Prince",
+            "email": "mprince2k16@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "peal\\barcodegenerator\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "peal\\barcodegenerator\\BarcodeServiceProvider"
+            ],
+            "aliases": {
+                "BarCode": "peal\\BarcodeServiceProvider\\Facades\\BarCode"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/framework": "5.2.*|5.6.*|5.7.*|5.8.*|6.*|7.*|8.*"
+    }
+}
