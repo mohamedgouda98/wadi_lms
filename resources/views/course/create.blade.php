@@ -82,19 +82,11 @@
             {{-- Course Thumbnail --}}
             <div class="form-group row">
                 <label class="col-lg-3 col-form-label" for="val-img">
-                    @translate(Course Thumbnail) <span class="text-danger">*</span></label>
+                    @translate(Course Cover) <span class="text-danger">*</span></label>
                 <div class="col-lg-9">
-                    <input type="hidden" required value="{{ old('image') }}" class="form-control course_image @error('image') is-invalid @enderror" id="val-img" name="image">
+                    <input type="file" required value="{{ old('image') }}" class="form-control course_image @error('image') is-invalid @enderror" id="val-img" name="image">
                     <img class="w-50 course_thumb_preview rounded shadow-sm d-none" src="" alt="#Course thumbnail">
                     @error('image') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
-
-                      <input type="hidden" name="course_thumb_url" class="course_thumb_url" value="">
-                    <br>
-
-                      @if (MediaActive())
-                       {{-- media --}}
-                      <a href="javascript:void()" onclick="openNav('{{ route('media.slide') }}', 'thumbnail')" class="btn btn-primary media-btn mt-2 p-2">Upload From Media <i class="fa fa-cloud-upload ml-2" aria-hidden="true"></i> </a>
-                      @endif
                 </div>
             </div>
 

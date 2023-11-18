@@ -9,7 +9,15 @@ class Course extends Model
 {
     use SoftDeletes;
 
+    const PATH = 'certifications';
+
     protected $guarded = ['id'];
+
+
+    protected function getImageAttribute($value)
+    {
+        return env('APP_URL') . $this::PATH.DIRECTORY_SEPARATOR. $value;
+    }
 
     /*Check the course is published*/
     public function scopePublished($query)

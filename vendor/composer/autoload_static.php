@@ -865,6 +865,7 @@ class ComposerStaticInit39292d17f18bbb20ae33f26af827a14b
         'App\\Http\\Resources\\SliderResource' => __DIR__ . '/../..' . '/app/Http/Resources/SliderResource.php',
         'App\\Http\\Resources\\StudentResource' => __DIR__ . '/../..' . '/app/Http/Resources/StudentResource.php',
         'App\\Http\\Resources\\WishlistResource' => __DIR__ . '/../..' . '/app/Http/Resources/WishlistResource.php',
+        'App\\Http\\Traits\\ImageTrait' => __DIR__ . '/../..' . '/app/Http/Traits/ImageTrait.php',
         'App\\Mail\\ZoomMeetingMail' => __DIR__ . '/../..' . '/app/Mail/ZoomMeetingMail.php',
         'App\\Models\\Addon' => __DIR__ . '/../..' . '/app/Models/Addon.php',
         'App\\Models\\AdminEarning' => __DIR__ . '/../..' . '/app/Models/AdminEarning.php',

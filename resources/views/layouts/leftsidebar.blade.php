@@ -233,30 +233,30 @@
 
                             @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
                                 {{-- Package area --}}
-                                <li><a href="{{ route('packages.index') }}"
-                                        class="{{ request()->is('dashboard/package*') ? 'active' : null }}">
-                                        <!-- <i class="fa fa-briefcase"></i>  -->
-                                        <lord-icon src="https://cdn.lordicon.com/pvbjsfif.json" trigger="hover"
-                                            target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                        </lord-icon>
-                                        <span>@translate(Instructor Package)</span>
-                                    </a>
-                                </li>
+{{--                                <li><a href="{{ route('packages.index') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/package*') ? 'active' : null }}">--}}
+{{--                                        <!-- <i class="fa fa-briefcase"></i>  -->--}}
+{{--                                        <lord-icon src="https://cdn.lordicon.com/pvbjsfif.json" trigger="hover"--}}
+{{--                                            target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                        </lord-icon>--}}
+{{--                                        <span>@translate(Instructor Package)</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
-                                <li><a href="{{ route('payments.index') }}"
-                                        class="{{ request()->is('dashboard/payment*') ? 'active' : null }}">
-                                        <!-- <i class="fa fa-money"></i> -->
-                                        <lord-icon src="https://cdn.lordicon.com/zwhkzizg.json" trigger="hover"
-                                            target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                        </lord-icon>
-                                        <span>@translate(Instructors Payment)
-                                            @if (\App\Models\Payment::where('status', 'Request')->count() > 0)
-                                                <sup class="badge badge-info">{{ \App\Models\Payment::where('status', 'Request')->count() }}
-                                                </sup>
-                                            @endif
-                                        </span>
-                                    </a>
-                                </li>
+{{--                                <li><a href="{{ route('payments.index') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/payment*') ? 'active' : null }}">--}}
+{{--                                        <!-- <i class="fa fa-money"></i> -->--}}
+{{--                                        <lord-icon src="https://cdn.lordicon.com/zwhkzizg.json" trigger="hover"--}}
+{{--                                            target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                        </lord-icon>--}}
+{{--                                        <span>@translate(Instructors Payment)--}}
+{{--                                            @if (\App\Models\Payment::where('status', 'Request')->count() > 0)--}}
+{{--                                                <sup class="badge badge-info">{{ \App\Models\Payment::where('status', 'Request')->count() }}--}}
+{{--                                                </sup>--}}
+{{--                                            @endif--}}
+{{--                                        </span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
                             @endif
 
@@ -280,102 +280,102 @@
                                     </a>
                                 </li>
                                 {{-- Payment request area --}}
-                                <li><a href="{{ route('payments.index') }}"
-                                        class="{{ request()->is('dashboard/payment*') ? 'active' : null }}">
-                                        <i class="fa fa-money"></i> <span>@translate(Request Payment)</span>
+{{--                                <li><a href="{{ route('payments.index') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/payment*') ? 'active' : null }}">--}}
+{{--                                        <i class="fa fa-money"></i> <span>@translate(Request Payment)</span>--}}
 
-                                        @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
-                                            <sup
-                                                class="badge badge-info">{{ \App\Models\Payment::where('status', 'Request')->count() }}</sup>
-                                        @endif
-                                    </a>
-                                </li>
+{{--                                        @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')--}}
+{{--                                            <sup--}}
+{{--                                                class="badge badge-info">{{ \App\Models\Payment::where('status', 'Request')->count() }}</sup>--}}
+{{--                                        @endif--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
                                 {{-- Instructor Earning area --}}
-                                <li><a href="{{ route('instructor.earning') }}"
-                                        class="{{ request()->is('dashboard/instructor*') ? 'active' : null }}">
-                                        <i class="fa fa-history"></i>
-                                        <span>@translate(Earning History)</span>
-                                    </a>
-                                </li>
+{{--                                <li><a href="{{ route('instructor.earning') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/instructor*') ? 'active' : null }}">--}}
+{{--                                        <i class="fa fa-history"></i>--}}
+{{--                                        <span>@translate(Earning History)</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
                             @endif
 
 
                             {{-- affiliate --}}
-                            @if (affiliateStatus() && \Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
-                                <li class="{{ request()->is('dashboard/affiliate*') ? 'active' : null }}">
-                                    <a href="javaScript:void();">
-                                        <!-- <i class="la la-adn"></i> -->
-                                        <lord-icon src="https://cdn.lordicon.com/maaepxge.json" trigger="hover"
-                                            target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                        </lord-icon>
-                                        <span>@translate(Affiliate Area)</span>
-                                        @if (\App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() > 0 || \App\Models\AffiliatePayment::where('status', 'Request')->count() > 0)
-                                            <sup
-                                                class="badge badge-info">{{ (int) \App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() + (int) \App\Models\AffiliatePayment::where('status', 'Request')->count() }}</sup>
-                                        @endif
-                                    </a>
-                                    <ul class="vertical-submenu">
-                                        {{-- settings --}}
-                                        <li><a href="{{ route('affiliate.setting.create') }}"
-                                                class="{{ request()->is('dashboard/affiliate/setting*') ? 'active' : null }}">@translate(Settings)</a>
-                                        </li>
+{{--                            @if (affiliateStatus() && \Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')--}}
+{{--                                <li class="{{ request()->is('dashboard/affiliate*') ? 'active' : null }}">--}}
+{{--                                    <a href="javaScript:void();">--}}
+{{--                                        <!-- <i class="la la-adn"></i> -->--}}
+{{--                                        <lord-icon src="https://cdn.lordicon.com/maaepxge.json" trigger="hover"--}}
+{{--                                            target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                        </lord-icon>--}}
+{{--                                        <span>@translate(Affiliate Area)</span>--}}
+{{--                                        @if (\App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() > 0 || \App\Models\AffiliatePayment::where('status', 'Request')->count() > 0)--}}
+{{--                                            <sup--}}
+{{--                                                class="badge badge-info">{{ (int) \App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() + (int) \App\Models\AffiliatePayment::where('status', 'Request')->count() }}</sup>--}}
+{{--                                        @endif--}}
+{{--                                    </a>--}}
+{{--                                    <ul class="vertical-submenu">--}}
+{{--                                        --}}{{-- settings --}}
+{{--                                        <li><a href="{{ route('affiliate.setting.create') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/affiliate/setting*') ? 'active' : null }}">@translate(Settings)</a>--}}
+{{--                                        </li>--}}
 
 
-                                        <li><a href="{{ route('affiliate.request.list') }}"
-                                                class="{{ request()->is('dashboard/affiliate/index') ? 'active' : null }}">@translate(Requests)
-                                                @if (\App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() > 0)
-                                                    <sup
-                                                        class="badge badge-info">{{ \App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() }}</sup>
-                                                @endif
-                                            </a>
-                                        </li>
+{{--                                        <li><a href="{{ route('affiliate.request.list') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/affiliate/index') ? 'active' : null }}">@translate(Requests)--}}
+{{--                                                @if (\App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() > 0)--}}
+{{--                                                    <sup--}}
+{{--                                                        class="badge badge-info">{{ \App\Models\Affiliate::where('is_confirm', false)->where('is_cancel', false)->count() }}</sup>--}}
+{{--                                                @endif--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
 
 
-                                        <li><a href="{{ route('affiliate.payment.request') }}"
-                                                class="{{ request()->is('dashboard/affiliate/payment*') ? 'active' : null }}">@translate(Payment
-                                            request)
-                                                @if (\App\Models\AffiliatePayment::where('status', 'Request')->count() > 0)
-                                                    <sup
-                                                        class="badge badge-info">{{ \App\Models\AffiliatePayment::where('status', 'Request')->count() }}</sup>
-                                                @endif
-                                            </a>
-                                        </li>
+{{--                                        <li><a href="{{ route('affiliate.payment.request') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/affiliate/payment*') ? 'active' : null }}">@translate(Payment--}}
+{{--                                            request)--}}
+{{--                                                @if (\App\Models\AffiliatePayment::where('status', 'Request')->count() > 0)--}}
+{{--                                                    <sup--}}
+{{--                                                        class="badge badge-info">{{ \App\Models\AffiliatePayment::where('status', 'Request')->count() }}</sup>--}}
+{{--                                                @endif--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
 
 
-                                    </ul>
-                                </li>
-                            @endif
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
 
 
-                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
-                                {{-- Admin Earning area --}}
-                                <li><a href="{{ route('admin.earning.index') }}"
-                                        class="{{ request()->is('dashboard/admin*') ? 'active' : null }}">
-                                        <!-- <i class="fa fa-history"></i>  -->
-                                        <lord-icon src="https://cdn.lordicon.com/sihdhmit.json" trigger="hover"
-                                            target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                        </lord-icon>
-                                        <span>@translate(Admin Earning)</span>
-                                    </a>
-                                </li>
+{{--                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')--}}
+{{--                                --}}{{-- Admin Earning area --}}
+{{--                                <li><a href="{{ route('admin.earning.index') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/admin*') ? 'active' : null }}">--}}
+{{--                                        <!-- <i class="fa fa-history"></i>  -->--}}
+{{--                                        <lord-icon src="https://cdn.lordicon.com/sihdhmit.json" trigger="hover"--}}
+{{--                                            target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                        </lord-icon>--}}
+{{--                                        <span>@translate(Admin Earning)</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
 
-                                @if (themeManager() == 'rumbok')
-                                    <li><a href="{{ route('know.index') }}"
-                                            class="{{ request()->is('dashboard/know*') ? 'active' : null }}">
-                                            <i class="fa fa-sticky-note"></i> <span>@translate(Home Page Content)</span>
-                                        </a>
-                                    </li>
-                                    @if (env('BLOG_ACTIVE') == 'YES')
-                                        <li><a href="{{ route('blog.index') }}"
-                                                class="{{ request()->is('dashboard/blog*') ? 'active' : null }}">
-                                                <i class="fa fa-contao"></i> <span>@translate(Blog)</span>
-                                            </a>
-                                        </li>
-                                    @endif
-                                @endif
-                            @endif
+{{--                                @if (themeManager() == 'rumbok')--}}
+{{--                                    <li><a href="{{ route('know.index') }}"--}}
+{{--                                            class="{{ request()->is('dashboard/know*') ? 'active' : null }}">--}}
+{{--                                            <i class="fa fa-sticky-note"></i> <span>@translate(Home Page Content)</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    @if (env('BLOG_ACTIVE') == 'YES')--}}
+{{--                                        <li><a href="{{ route('blog.index') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/blog*') ? 'active' : null }}">--}}
+{{--                                                <i class="fa fa-contao"></i> <span>@translate(Blog)</span>--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    @endif--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
 
                             {{-- Support Ticket --}}
                             <li><a href="{{ route('tickets.index') }}"
@@ -388,6 +388,7 @@
                                 </a>
                             </li>
 
+                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
 
                             {{-- Settings Area --}}
                             <li
@@ -409,7 +410,6 @@
                                     <span>@translate(Settings)</span><i class="feather icon-chevron-right"></i>
                                 </a>
                                 <ul class="vertical-submenu">
-                                    @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
                                         <li><a href="{{ route('app.setting') }}"
                                                 class="{{ request()->is('dashboard/app*') ? 'active' : null }}">@translate(Gateway
                                             Settings)</a>
@@ -446,18 +446,13 @@
                                                 class="{{ request()->is('dashboard/other*') ? 'active' : null }}">@translate(Other
                                             Settings)</a>
                                         </li>
-                                    @else
-                                        {{-- Instructor Earning area --}}
-                                        <li><a href="{{ route('account.create') }}"
-                                                class="{{ request()->is('dashboard/account*') ? 'active' : null }}">@translate(Payment
-                                            Account Setup)
-                                            </a>
-                                        </li>
-                                    @endif
                                 </ul>
                             </li>
 
-                            @if (env('FORUM_PANEL') == 'YES')
+                            @endif
+
+
+                        @if (env('FORUM_PANEL') == 'YES')
                                 {{-- Forum manager --}}
                                 @if (Auth::user()->user_type === 'Admin' || Auth::user()->user_type === 'Instructor')
                                     <li class="{{ request()->is('dashboard/forum*') ? 'active' : null }}">
@@ -581,101 +576,101 @@
                                         </ul>
                                     </li>
                                 @endif
-                            @endif
+{{--                            @endif--}}
 
-                            @if (env('ADDONS_MANAGER') == 'YES')
-                                {{-- Zoom manager --}}
-                                @if (Auth::user()->user_type === 'Admin')
-                                    {{-- Addons manager --}}
-                                    <li><a href="{{ route('addons.manager.index') }}"
-                                            class="{{ request()->is('dashboard/addon*') ? 'active' : null }}">
-                                            <!-- <i class="fa fa-puzzle-piece"></i>  -->
-                                            <lord-icon src="https://cdn.lordicon.com/wurbjznp.json" trigger="hover"
-                                                target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                            </lord-icon>
-                                            <span>@translate(Addon Manager)</span>
-                                        </a>
-                                    </li>
-                                @endif
-                            @endif
+{{--                            @if (env('ADDONS_MANAGER') == 'YES')--}}
+{{--                                --}}{{-- Zoom manager --}}
+{{--                                @if (Auth::user()->user_type === 'Admin')--}}
+{{--                                    --}}{{-- Addons manager --}}
+{{--                                    <li><a href="{{ route('addons.manager.index') }}"--}}
+{{--                                            class="{{ request()->is('dashboard/addon*') ? 'active' : null }}">--}}
+{{--                                            <!-- <i class="fa fa-puzzle-piece"></i>  -->--}}
+{{--                                            <lord-icon src="https://cdn.lordicon.com/wurbjznp.json" trigger="hover"--}}
+{{--                                                target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                            </lord-icon>--}}
+{{--                                            <span>@translate(Addon Manager)</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
 
-                            @if (env('WALLET_ACTIVE') == 'YES')
-                                {{-- Forum manager --}}
-                                @if (Auth::user()->user_type === 'Admin')
-                                    <li class="{{ request()->is('dashboard/wallet*') ? 'active' : null }}">
-                                        <a href="javaScript:void();">
-                                            <!-- <i class="fa fa-question-circle"></i> -->
-                                            <lord-icon src="https://cdn.lordicon.com/ryyjawhw.json" trigger="hover"
-                                                target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                            </lord-icon>
-                                            <span>@translate(Wallet Settings)</span>
-                                            <i class="feather icon-chevron-right"></i>
-                                        </a>
-                                        <ul class="vertical-submenu">
-                                            <li>
-                                                <a href="{{ route('dashboard.wallet') }}"
-                                                    class="{{ request()->is('dashboard/wallet') ? 'active' : null }}">
-                                                    @translate(Wallet Options)
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                @endif
-                            @endif
+{{--                            @if (env('WALLET_ACTIVE') == 'YES')--}}
+{{--                                --}}{{-- Forum manager --}}
+{{--                                @if (Auth::user()->user_type === 'Admin')--}}
+{{--                                    <li class="{{ request()->is('dashboard/wallet*') ? 'active' : null }}">--}}
+{{--                                        <a href="javaScript:void();">--}}
+{{--                                            <!-- <i class="fa fa-question-circle"></i> -->--}}
+{{--                                            <lord-icon src="https://cdn.lordicon.com/ryyjawhw.json" trigger="hover"--}}
+{{--                                                target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                            </lord-icon>--}}
+{{--                                            <span>@translate(Wallet Settings)</span>--}}
+{{--                                            <i class="feather icon-chevron-right"></i>--}}
+{{--                                        </a>--}}
+{{--                                        <ul class="vertical-submenu">--}}
+{{--                                            <li>--}}
+{{--                                                <a href="{{ route('dashboard.wallet') }}"--}}
+{{--                                                    class="{{ request()->is('dashboard/wallet') ? 'active' : null }}">--}}
+{{--                                                    @translate(Wallet Options)--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
+{{--                                @endif--}}
+{{--                            @endif--}}
 
                             {{-- Forum manager --}}
 
                             @if (env('GAME_ACTIVE') == 'YES')
-                                @if (Auth::user()->user_type === 'Admin')
+{{--                                @if (Auth::user()->user_type === 'Admin')--}}
                                     <li class="{{ request()->is('dashboard/games*') ? 'active' : null }}">
                                         <a href="javaScript:void();">
                                             <!-- <i class="fa fa-question-circle"></i> -->
                                             <lord-icon src="https://cdn.lordicon.com/abgtphux.json" trigger="hover"
                                                 target="a" style="width:25px; height:25px; margin-right: 5px;">
                                             </lord-icon>
-                                            <span>@translate(Game Zone)</span>
+{{--                                            <span>@translate(Game Zone)</span>--}}
                                             <i class="feather icon-chevron-right"></i>
                                         </a>
                                         <ul class="vertical-submenu">
                                             <li>
-                                                <a href="{{ route('dashboard.games.index') }}"
+{{--                                                <a href="{{ route('dashboard.games.index') }}"--}}
                                                     class="{{ request()->is('dashboard/games*') ? 'active' : null }}">
-                                                    @translate(Games)
+{{--                                                    @translate(Games)--}}
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
-                                @endif
+{{--                                @endif--}}
                             @endif
 
 
                             @if (env('THEME_MANAGER') == 'YES')
-                                @if (Auth::user()->user_type === 'Admin')
+{{--                                @if (Auth::user()->user_type === 'Admin')--}}
                                     {{-- THEME manager --}}
-                                    <li><a href="{{ route('theme.manager.index') }}"
+{{--                                    <li><a href="{{ route('theme.manager.index') }}"--}}
                                             class="{{ request()->is('dashboard/theme*') ? 'active' : null }}">
                                             <!-- <i class="fa  fa-pie-chart"></i>  -->
                                             <lord-icon src="https://cdn.lordicon.com/maaepxge.json" trigger="hover"
                                                 target="a" style="width:25px; height:25px; margin-right: 5px;">
                                             </lord-icon>
-                                            <span>@translate(Theme Manager)</span>
+{{--                                            <span>@translate(Theme Manager)</span>--}}
                                         </a>
                                     </li>
-                                @endif
+{{--                                @endif--}}
                             @endif
 
 
                             {{-- Activity Log Manager --}}
-                            @if (Auth::user()->user_type === 'Admin' || Auth::user()->user_type === 'Instructor')
+{{--                            @if (Auth::user()->user_type === 'Admin' || Auth::user()->user_type === 'Instructor')--}}
                                 <li class="{{ request()->is('dashboard/forum*') ? 'active' : null }} d-none">
                                     <a href="javaScript:void();">
                                         <i class="fa fa-bus"></i>
-                                        <span>@translate(Activity Log Manager)</span>
+{{--                                        <span>@translate(Activity Log Manager)</span>--}}
                                         <i class="feather icon-chevron-right"></i>
                                     </a>
                                     <ul class="vertical-submenu">
-                                        <li><a href="{{ url('/activity') }}"
-                                                class="{{ request()->is('/activity*') ? 'active' : null }}">@translate(Logs)</a>
+{{--                                        <li><a href="{{ url('/activity') }}"--}}
+{{--                                                class="{{ request()->is('/activity*') ? 'active' : null }}">@translate(Logs)</a>--}}
                                         </li>
                                     </ul>
                                 </li>

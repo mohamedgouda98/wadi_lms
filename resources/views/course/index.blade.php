@@ -67,7 +67,7 @@
                                     <div class="card">
                                         <div class="row no-gutters">
                                             <div class="col-md-4 overflow-auto my-auto">
-                                                <img src="{{filePath($course->image)}}" class="card-img avatar-xl"
+                                                <img src="{{$course->image}}" class="card-img avatar-xl"
                                                      alt="Card image">
                                             </div>
                                             <div class="col-md-8">

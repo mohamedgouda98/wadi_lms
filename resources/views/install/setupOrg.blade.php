@@ -17,7 +17,7 @@
                     </div>
                     <div class="avatar-preview">
                         <div id="imagePreview"
-                             style="background-image: url({{filePath('uploads/site/header.png')}});">
+                             style="background-image: url({{filePath('uploads/site/header.jpeg')}});">
                         </div>
                     </div>
                 </div>

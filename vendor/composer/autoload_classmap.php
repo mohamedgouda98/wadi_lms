@@ -124,6 +124,7 @@ return array(
     'App\\Http\\Resources\\SliderResource' => $baseDir . '/app/Http/Resources/SliderResource.php',
     'App\\Http\\Resources\\StudentResource' => $baseDir . '/app/Http/Resources/StudentResource.php',
     'App\\Http\\Resources\\WishlistResource' => $baseDir . '/app/Http/Resources/WishlistResource.php',
+    'App\\Http\\Traits\\ImageTrait' => $baseDir . '/app/Http/Traits/ImageTrait.php',
     'App\\Mail\\ZoomMeetingMail' => $baseDir . '/app/Mail/ZoomMeetingMail.php',
     'App\\Models\\Addon' => $baseDir . '/app/Models/Addon.php',
     'App\\Models\\AdminEarning' => $baseDir . '/app/Models/AdminEarning.php',

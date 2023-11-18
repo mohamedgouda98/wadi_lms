@@ -31,8 +31,6 @@ class ContentController extends Controller
     /*content create*/
     public function create($id)
     {
-        // /Check the id is valid/
-
         $course_id = $id;
         Course::findOrFail($id);
         $classes = Classes::where('course_id', $id)->get();
@@ -52,18 +50,6 @@ class ContentController extends Controller
     //this function is store the content
     public function store(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Validation
-        |--------------------------------------------------------------------------
-        */
-
         $request->validate([
             'title' => 'required',
             'content_type' => 'required',
@@ -72,12 +58,6 @@ class ContentController extends Controller
                 'title.required' => translate('Title is required'),
                 'content_type.required' => translate('Content type is required'),
             ]);
-
-        /*
-        |--------------------------------------------------------------------------
-        | storing value
-        |--------------------------------------------------------------------------
-        */
 
         $content = new ClassContent();
         $content->title = $request->title;

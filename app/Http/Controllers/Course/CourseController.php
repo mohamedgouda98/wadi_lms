@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Course;
 
 use Alert;
 use App\Http\Controllers\Controller;
+use App\Http\Traits\ImageTrait;
 use App\Models\Category;
 use App\Models\Course;
 use App\Models\Enrollment;
@@ -12,9 +13,11 @@ use App\Models\NotificationUser;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class CourseController extends Controller
 {
+    use ImageTrait;
     public function userNotify($user_id, $details)
     {
         $notify = new NotificationUser();
@@ -63,12 +66,6 @@ class CourseController extends Controller
     // course.store
     public function store(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
         $request->validate([
             'title' => 'required|unique:courses',
             'image' => 'required',
@@ -94,14 +91,17 @@ class CourseController extends Controller
             'image.required' => translate('Course thumbnail is required'),
         ]);
 
+        if($request->hasFile('image'))
+        {
+            $imageName = $this->uploadImage($request->image, Course::PATH);
+        }
+
         $courses = new Course();
         $courses->title = $request->title;
         $courses->slug = Str::slug($request->title);
         $courses->short_description = $request->short_description;
         $courses->big_description = $request->big_description;
-        if ($request->has('image')) {
-            $courses->image = $request->image;
-        }
+        $courses->image = $imageName;
         $courses->overview_url = $request->overview_url;
         $courses->provider = $request->provider;
         $courses->level = $request->level;
@@ -223,14 +223,11 @@ class CourseController extends Controller
     // course.update
     public function update(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
         $request->validate([
-            'title' => 'required|unique:courses',
+            'title' => [
+                'required',
+                Rule::unique('courses')->ignore($request->id , 'id'),
+            ],
             'overview_url' => 'required',
             'provider' => 'required',
             'requirement' => 'required',
@@ -251,14 +248,16 @@ class CourseController extends Controller
             'category_id.required' => translate('You must choose a category'),
 
         ]);
+        if($request->hasFile('image'))
+        {
+            $imageName = $this->uploadImage($request->image, Course::PATH);
+        }
 
         $courses = Course::where('id', $request->id)->firstOrFail();
         $courses->title = $request->title;
         $courses->short_description = $request->short_description;
         $courses->big_description = $request->big_description;
-        if ($request->has('image')) {
-            $courses->image = $request->image;
-        }
+        $courses->image = $imageName ?? $courses->getRawOriginal('image') ;
         $courses->overview_url = $request->overview_url;
         $courses->level = $request->level;
         $courses->provider = $request->provider;
@@ -312,7 +311,7 @@ class CourseController extends Controller
 
         notify()->success(translate('Course Updated'));
 
-        return back();
+        return redirect(route('course.index'));
     }
 
     //published

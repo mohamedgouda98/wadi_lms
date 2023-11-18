@@ -77,11 +77,11 @@ Route::group(['middleware' => ['installed', 'checkBackend', 'auth'], 'prefix' =>
 
     //course
     Route::get('course/create', [CourseController::class, 'create'])->name('course.create');
-    Route::post('course/store', [CourseController::class, 'store'])->name('course.store')->middleware('demo');
+    Route::post('course/store', [CourseController::class, 'store'])->name('course.store');
     Route::get('course/index', [CourseController::class, 'index'])->name('course.index');
     Route::get('course/index/{course_id}/{slug}', [CourseController::class, 'show'])->name('course.show');
     Route::get('course/edit/{course_id}/{slug}', [CourseController::class, 'edit'])->name('course.edit');
-    Route::post('course/update', [CourseController::class, 'update'])->name('course.update')->middleware('demo');
+    Route::post('course/update', [CourseController::class, 'update'])->name('course.update');
     Route::get('course/trash/{course_id}/{slug}', [CourseController::class, 'destroy'])->name('course.destroy');
     Route::get('course/published', [CourseController::class, 'published'])->name('course.publish');
     Route::get('course/rating', [CourseController::class, 'rating'])->name('course.rating');
