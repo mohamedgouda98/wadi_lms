@@ -56,7 +56,7 @@ class InstructorController extends Controller
     like Package, Course , Enrolment Student list Get Payment History*/
     public function show($id)
     {
-        if (Auth::user()->user_type == 'Instructor') {
+        if (Auth::user()->user_type == 'Admin') {
             $instructor = Instructor::where('user_id', Auth::id())
                 ->with('purchaseHistory')
                 ->with('courses')

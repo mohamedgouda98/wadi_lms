@@ -48,9 +48,9 @@
                                                 class="{{ request()->is('dashboard/user*') ? 'active' : null }}">@translate(Admins)</a>
                                         </li>
 
-                                        <li><a href="{{ route('instructors.index') }}"
-                                                class="{{ request()->is('dashboard/instructor*') ? 'active' : null }}">@translate(Instructors)</a>
-                                        </li>
+{{--                                        <li><a href="{{ route('instructors.index') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/instructor*') ? 'active' : null }}">@translate(Instructors)</a>--}}
+{{--                                        </li>--}}
                                         <li><a href="{{ route('students.index') }}"
                                                 class="{{ request()->is('dashboard/student*') ? 'active' : null }}">@translate(Students)</a>
                                         </li>
@@ -99,26 +99,22 @@
 
                                 </a>
                                 <ul class="vertical-submenu">
-                                    @if (\Illuminate\Support\Facades\Auth::user()->user_type != 'Admin')
-                                        {{-- instructor's Nav --}}
-                                        <li><a href="{{ route('course.create') }}"
+                                    <li><a href="{{ route('course.create') }}"
                                                 class="{{ request()->is('dashboard/course/create*') ? 'active' : null }}">@translate(Start
                                             New Course)</a>
-                                        </li>
-                                    @else
-                                        {{-- admin's Nav --}}
-                                        <li><a href="{{ route('categories.index') }}"
+                                    </li>
+
+                                    <li><a href="{{ route('categories.index') }}"
                                                 class="{{ request()->is('dashboard/category*') ? 'active' : null }}">@translate(Categories)</a>
-                                        </li>
-                                    @endif
+                                    </li>
+
 
                                     <li><a href="{{ route('course.index') }}"
                                             class="{{ request()->is('dashboard/course/index*') ? 'active' : null }}">@translate(All
                                             Courses)
-                                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
+
                                                 <sup
                                                     class="badge badge-info">{{ \App\Models\Course::where('is_published', false)->count() > 0 ? \App\Models\Course::where('is_published', false)->count() : null }}</sup>
-                                            @endif
                                         </a></li>
 
                                 </ul>
@@ -159,74 +155,74 @@
 
 
                             {{-- Zoom manager --}}
-                            @if (zoomActive() && \Illuminate\Support\Facades\Auth::user()->user_type != 'Admin')
-                                <li
-                                    class="{{ request()->is('dashboard/zoom*') ? 'active' : null }}">
-                                    <a href="javaScript:void();">
-                                        <i class="fa fa-television"></i>
-                                        <span>@translate(Zoom Meeting)</span><i class="feather icon-chevron-right"></i>
-                                    </a>
-                                    <ul class="vertical-submenu">
-                                        <li>
-                                            <a href="{{ route('zoom.setting') }}"
-                                                class="{{ request()->is('dashboard/zoom/setting*') ? 'active' : null }}">
-                                                @translate(Zoom Setup)
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('zoom.index') }}"
-                                                class="{{ request()->is('dashboard/zoom/board*') ? 'active' : null }}">
-                                                @translate(Zoom Dashboard)
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('meeting.create') }}"
-                                                class="{{ request()->is('dashboard/zoom/create/meeting*') ? 'active' : null }}">
-                                                @translate(Create Meeting)
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @endif
+{{--                            @if (zoomActive() && \Illuminate\Support\Facades\Auth::user()->user_type != 'Admin')--}}
+{{--                                <li--}}
+{{--                                    class="{{ request()->is('dashboard/zoom*') ? 'active' : null }}">--}}
+{{--                                    <a href="javaScript:void();">--}}
+{{--                                        <i class="fa fa-television"></i>--}}
+{{--                                        <span>@translate(Zoom Meeting)</span><i class="feather icon-chevron-right"></i>--}}
+{{--                                    </a>--}}
+{{--                                    <ul class="vertical-submenu">--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{ route('zoom.setting') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/zoom/setting*') ? 'active' : null }}">--}}
+{{--                                                @translate(Zoom Setup)--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{ route('zoom.index') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/zoom/board*') ? 'active' : null }}">--}}
+{{--                                                @translate(Zoom Dashboard)--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                        <li>--}}
+{{--                                            <a href="{{ route('meeting.create') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/zoom/create/meeting*') ? 'active' : null }}">--}}
+{{--                                                @translate(Create Meeting)--}}
+{{--                                            </a>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
                             {{-- Zoom manager::END --}}
 
                             {{-- quiz start --}}
-                            @if (\Illuminate\Support\Facades\Auth::user()->user_type != 'Admin' && env('QUIZ_ACTIVE') == 'YES')
-                                <li class="{{ request()->is('dashboard/quiz*') ? 'active' : null }}">
-                                    <a href="javaScript:void();">
-                                        <i class="fa fa-question-circle"></i>
-                                        <span>@translate(Quiz)</span>
-                                        <i class="feather icon-chevron-right"></i>
+{{--                            @if (\Illuminate\Support\Facades\Auth::user()->user_type != 'Admin' && env('QUIZ_ACTIVE') == 'YES')--}}
+{{--                                <li class="{{ request()->is('dashboard/quiz*') ? 'active' : null }}">--}}
+{{--                                    <a href="javaScript:void();">--}}
+{{--                                        <i class="fa fa-question-circle"></i>--}}
+{{--                                        <span>@translate(Quiz)</span>--}}
+{{--                                        <i class="feather icon-chevron-right"></i>--}}
 
-                                    </a>
-                                    <ul class="vertical-submenu">
-                                        {{-- instructor's Nav --}}
-                                        <li><a href="{{ route('quiz.create') }}"
-                                                class="{{ request()->is('dashboard/quiz/create*') ? 'active' : null }}">@translate(Quiz
-                                            Create)</a>
-                                        </li>
-                                        <li><a href="{{ route('quiz.list') }}"
-                                                class="{{ request()->is('dashboard/quiz/list*') || request()->is('dashboard/quiz/questions*') ? 'active' : null }}">@translate(Quiz
-                                            List)</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @endif
+{{--                                    </a>--}}
+{{--                                    <ul class="vertical-submenu">--}}
+{{--                                        --}}{{-- instructor's Nav --}}
+{{--                                        <li><a href="{{ route('quiz.create') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/quiz/create*') ? 'active' : null }}">@translate(Quiz--}}
+{{--                                            Create)</a>--}}
+{{--                                        </li>--}}
+{{--                                        <li><a href="{{ route('quiz.list') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/quiz/list*') || request()->is('dashboard/quiz/questions*') ? 'active' : null }}">@translate(Quiz--}}
+{{--                                            List)</a>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
                             {{-- quiz end --}}
 
 
                             {{-- Certificate start --}}
-                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin' && certificate())
-                                <li><a href="{{ route('certificate.setup') }}"
-                                        class="{{ request()->is('dashboard/certificate*') ? 'active' : null }}">
-                                        <!-- <i class="fa fa-certificate"></i>  -->
-                                        <lord-icon src="https://cdn.lordicon.com/osqwjgzg.json" trigger="hover"
-                                            target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                        </lord-icon>
-                                        <span>@translate(Certificate Setting)</span>
-                                    </a>
-                                </li>
-                            @endif
+{{--                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin' && certificate())--}}
+{{--                                <li><a href="{{ route('certificate.setup') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/certificate*') ? 'active' : null }}">--}}
+{{--                                        <!-- <i class="fa fa-certificate"></i>  -->--}}
+{{--                                        <lord-icon src="https://cdn.lordicon.com/osqwjgzg.json" trigger="hover"--}}
+{{--                                            target="a" style="width:25px; height:25px; margin-right: 5px;">--}}
+{{--                                        </lord-icon>--}}
+{{--                                        <span>@translate(Certificate Setting)</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            @endif--}}
                             {{-- Certificate end --}}
 
 
@@ -261,7 +257,7 @@
                             @endif
 
 
-                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Instructor')
+
 
                                 <li><a href="{{ route('students.index') }}"
                                         class="{{ request()->is('dashboard/students*') || request()->is('student*') ? 'active' : null }}">
@@ -299,7 +295,6 @@
 {{--                                    </a>--}}
 {{--                                </li>--}}
 
-                            @endif
 
 
                             {{-- affiliate --}}
@@ -388,8 +383,6 @@
                                 </a>
                             </li>
 
-                            @if (\Illuminate\Support\Facades\Auth::user()->user_type == 'Admin')
-
                             {{-- Settings Area --}}
                             <li
                                 class="{{ request()->is('dashboard/smtp*') ||
@@ -449,7 +442,7 @@
                                 </ul>
                             </li>
 
-                            @endif
+
 
 
                         @if (env('FORUM_PANEL') == 'YES')

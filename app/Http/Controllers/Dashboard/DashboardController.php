@@ -54,7 +54,7 @@ class DashboardController extends Controller
             $top_instructor = Instructor::whereIn('user_id', array_unique($i_id))->take(10)->get()->shuffle();
 
             //
-            $total_instructor = User::where('user_type', 'Instructor')->count();
+           // $total_instructor = User::where('user_type', 'Instructor')->count();
             $total_students = User::where('user_type', 'Student')->count();
             $total_course = Course::all()->count();
             $total_enrollments = Enrollment::all()->count();
@@ -89,8 +89,7 @@ class DashboardController extends Controller
             }
 
             return view('dashboard.index',
-                compact('top_instructor',
-                    'total_instructor',
+                compact(
                     'total_students',
                     'months',
                     't_earning',
