@@ -121,13 +121,13 @@
                                class="form-control mb-2">
 
                         <!--affiliate-->
-                        <label class="label">@translate(Affiliate feature)</label>
-                        <input type="hidden" value="affiliate" name="type_affiliate">
-                        <select class="form-control select2" name="affiliate">
-                            <option value="Inactive" {{getSystemSetting('affiliate')->value == 'Inactive' ? 'selected':null}}>@translate(off)</option>
-                            <option value="Active" {{getSystemSetting('affiliate')->value == 'Active' ? 'selected':null}}>@translate(on)</option>
-                        </select>
-                        <strong class="text-info">@translate(If you active the Affiliate,you will get affiliate functionality in your application)</strong>
+{{--                        <label class="label">@translate(Affiliate feature)</label>--}}
+{{--                        <input type="hidden" value="affiliate" name="type_affiliate">--}}
+{{--                        <select class="form-control select2" name="affiliate">--}}
+{{--                            <option value="Inactive" {{getSystemSetting('affiliate')->value == 'Inactive' ? 'selected':null}}>@translate(off)</option>--}}
+{{--                            <option value="Active" {{getSystemSetting('affiliate')->value == 'Active' ? 'selected':null}}>@translate(on)</option>--}}
+{{--                        </select>--}}
+{{--                        <strong class="text-info">@translate(If you active the Affiliate,you will get affiliate functionality in your application)</strong>--}}
 
 
 
