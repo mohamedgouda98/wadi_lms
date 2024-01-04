@@ -217,6 +217,7 @@ class CourseController extends Controller
         $categories = Category::all();
         $languages = Language::all();
 
+
         return view('course.edit', compact('each_course', 'categories', 'languages'));
     }
 
