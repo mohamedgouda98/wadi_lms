@@ -105,7 +105,7 @@ class UserController extends Controller
     /*user edit form*/
     public function edit($id)
     {
-        $user = User::where('id', Auth::id())->first();
+        $user = User::where('id', $id)->first();
 
         return view('userManager.user.edit')->with('user', $user);
     }
@@ -134,7 +134,7 @@ class UserController extends Controller
         if ($user_s->count() > 0) {
             $slug = $slug.($user_s->count() + 1);
         }
-        $user = User::where('id', Auth::id())->first();
+        $user = User::where('id', $request->id)->first();
         $user->name = $request->name;
         $user->image = $image;
         $user->slug = $slug;
