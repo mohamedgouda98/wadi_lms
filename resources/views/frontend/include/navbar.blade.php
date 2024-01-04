@@ -75,8 +75,8 @@
                                 <div class="header-action-button d-flex align-items-center">
 
                                     @if (Auth::user()->user_type === "Student")
-                                        
-                        
+
+
                                     <div class="header-widget header-widget2">
                                         <div class="header-right-info">
                                             <ul class="user-cart d-flex align-items-center ">
@@ -299,9 +299,9 @@
                                                             </div>
                                                         </div><!-- end mess__title -->
 
-                                                        
+
                                                         @if (Auth::user()->user_type != "Admin")
-                                                            
+
                                                         <div class="mess__body">
                                                             <ul class="list-items">
 
@@ -334,7 +334,7 @@
                                                                         @translate(Purchase history)
                                                                     </a>
                                                                 </li>
-                                                                
+
                                                                 @if(affiliateStatus())
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('affiliate.area') }}"
@@ -408,8 +408,8 @@
                                                         </div>
 
                                                         @endif
-                                                        
-                                                        
+
+
                                                         <!-- end mess__body -->
                                                     </div><!-- end mess-dropdown -->
                                                 </div><!-- end dropdown-menu -->
@@ -467,7 +467,7 @@
                                                                     class="email">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                                             </div>
                                                         </div><!-- end mess__title -->
-                                                    
+
 
                                                         <div class="mess__body">
                                                             <ul class="list-items">
@@ -490,7 +490,7 @@
                                                                                 <i class="la la-puzzle-piece"></i> @translate(Addons Manager)
                                                                             </a>
                                                                         </li>
-                                                                        
+
                                                                         @endif
 
                                                                         <li class="mb-0">
@@ -514,10 +514,10 @@
                                                                             </a>
                                                                         </li>
 
-                                                                    
-                                                                    
+
+
                                                                 @endif
-                                                                
+
 
                                                                 <li class="mb-0">
                                                                     <div class="section-block mt-2 mb-2"></div>
@@ -539,7 +539,7 @@
 
                                                             </ul>
                                                         </div>
-                                                        
+
                                                         <!-- end mess__body -->
                                                     </div><!-- end mess-dropdown -->
                                                 </div><!-- end dropdown-menu -->
@@ -547,8 +547,8 @@
                                         </div>
                                     </div>
 
-                                  
-                                        
+
+
                                     @endif
 
 <h2>hello</h2>
@@ -584,8 +584,7 @@
                         @guest
                             <div class="logo-right-button">
                                 <ul id="custom_toggle_bar" class="d-flex">
-                                    <li class="pr-2"><a href="{{route('instructor.register')}}"
-                                                        class="theme-btn instructor-btn">@translate(Instructor)</a></li>
+
                                     <li><a href="{{route('student.register')}}" class="theme-btn student-btn">@translate(Become Student)</a></li>
                                 </ul>
                                 <div class="side-menu-open">

@@ -61,25 +61,6 @@
 
 
                             <li
-                                class="{{ request()->is('dashboard/media/manager*') ? 'active' : null }}">
-                                <a href="javaScript:void();">
-                                    <!-- <i class="fa fa-picture-o"></i> -->
-                                    <lord-icon src="https://cdn.lordicon.com/kpsnbsyj.json" trigger="hover"
-                                        target="a" style="width:25px; height:25px; margin-right: 5px;">
-                                    </lord-icon>
-                                    <span>@translate(Media Manager)</span><i class="feather icon-chevron-right"></i>
-                                </a>
-                                <ul class="vertical-submenu">
-                                    <li>
-                                        <a href="{{ route('media.index') }}"
-                                            class="{{ request()->is('dashboard/media/manager*') ? 'active' : null }}">
-                                            @translate(Add Media)
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li
                                 class="{{ request()->is('dashboard/course*') ||
                                 request()->is('dashboard/category*') ||
                                 request()->is('dashboard/category*')

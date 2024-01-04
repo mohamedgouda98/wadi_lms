@@ -44,15 +44,9 @@
                         <th data-breakpoints="xs">
                             @translate(Info)
                         </th>
-                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
-                            <th>@translate(Published)</th>
-                        @endif
-                        <th data-breakpoints="xs">
-                            @translate(Enrolled Students)
-                        </th>
-                        @if(\Illuminate\Support\Facades\Auth::user()->user_type != "Admin")
-                            <th>@translate(Action)</th>
-                        @endif
+                        <th>@translate(Published)</th>
+                        <th data-breakpoints="xs">@translate(Enrolled Students)</th>
+                        <th>@translate(Action)</th>
 
                     </tr>
                     </thead>
@@ -74,7 +68,6 @@
                                                 <div class="card-body">
                                                     <h5 class="card-title font-16">{{ $course->title }}</h5>
                                                     <p class="text-secondary">{{$course->level}}</p>
-                                                    <p class="card-text">{{ $course->relationBetweenInstructorUser->name }}</p>
                                                     <div class="d-flex justify-content-between">
                                                         <span
                                                             class="badge badge-{{ $course->is_published == true ? 'success'  : 'primary' }} p-2">{{ $course->is_published == true ? 'Published'  : 'Not Published' }}</span>
@@ -103,7 +96,6 @@
                                 <br>
                                 @translate(Contents)- {{ $total_count }}
                             </td>
-                            @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                                @if(App\Models\Enrollment::where('course_id' , $course->id)->count() > 0 )
                                     <td>
                                          <p class="text-primary">@translate(Enrolled)</p>
@@ -118,10 +110,8 @@
                                         </div>
                                     </td>
                                 @endif
-                            @endif
                             <td>{{ $s = App\Models\Enrollment::where('course_id' , $course->id)->count() }} </td>
 
-                             @if(\Illuminate\Support\Facades\Auth::user()->user_type != "Admin")
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-link p-0 font-18 float-right" type="button"
@@ -131,12 +121,8 @@
                                     <div class="dropdown-menu dropdown-menu-right st-drop"
                                          aria-labelledby="widgetRevenue" x-placement="bottom-end">
                                         <a class="dropdown-item font-13"
-                                           href="{{ route('course.show',[$course->id,$course->slug])}}">
-                                            @translate(Details)
-                                        </a>
-                                        <a class="dropdown-item font-13"
                                            href="{{ route('course.edit',[$course->id,$course->slug])}}">
-                                            {{ Auth::user()->user_type == 'Admin' ? '@translate(Details)' : '@translate(Edit)' }}
+                                            @translate(Edit)
                                         </a>
                                         @if($s < 0)
                                             <a class="dropdown-item font-13"
@@ -148,7 +134,6 @@
                                     </div>
                                 </div>
                             </td>
-                            @endif
                         </tr>
                         @empty
                         <tr>

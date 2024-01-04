@@ -1,8 +1,6 @@
 # Laravel Vouchers 🎟
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/beyondcode/laravel-vouchers.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-vouchers)
-[![Build Status](https://img.shields.io/travis/beyondcode/laravel-vouchers/master.svg?style=flat-square)](https://travis-ci.org/beyondcode/laravel-vouchers)
-[![Quality Score](https://img.shields.io/scrutinizer/g/beyondcode/laravel-vouchers.svg?style=flat-square)](https://scrutinizer-ci.com/g/beyondcode/laravel-vouchers)
 [![Total Downloads](https://img.shields.io/packagist/dt/beyondcode/laravel-vouchers.svg?style=flat-square)](https://packagist.org/packages/beyondcode/laravel-vouchers)
 
 This package can associate vouchers with your Eloquent models. This might come in handy, if you need to associate voucher codes with content that is stored in your Eloquent models.
@@ -106,8 +104,31 @@ The basic concept of this package is that you can create vouchers, that are asso
 
 Add the `BeyondCode\Vouchers\Traits\HasVouchers` trait to all your Eloquent models, that you want to be associated with vouchers.
 
+```php
+namespace App\Models;
+
+use BeyondCode\Vouchers\Traits\CanRedeemVouchers;
+
+class User extends Authenticatable
+{
+    use CanRedeemVouchers;
+    # ...
+}
+```
+
 In addition, add the `BeyondCode\Vouchers\Traits\CanRedeemVouchers` trait to your user model. This way users can easily redeem voucher codes and the package takes care of storing the voucher/user association in the database.
 
+```php
+namespace App\Models;
+
+use BeyondCode\Vouchers\Traits\HasVouchers;
+
+class VideoCourse extends Model
+{
+    use HasVouchers;
+    # ...
+}
+```
 ## Creating Vouchers
 
 ### Using the facade
@@ -121,7 +142,7 @@ $videoCourse = VideoCourse::find(1);
 $vouchers = Vouchers::create($videoCourse, 5);
 ```
 
-The return value is an array containing all generated `Voucher` models. 
+The return value is an array containing all generated `Voucher` models.
 
 The Voucher model has a property `code` which contains the generated voucher code.
 
@@ -182,7 +203,7 @@ In case you want to redeem an existing Voucher model, you can use the `redeemVou
 
 ```php
 $user->redeemVoucher($voucher);
-``` 
+```
 
 After a user successfully redeemed a voucher, this package will fire a `BeyondCode\Vouchers\Events\VoucherRedeemed` event. The event contains the user instance and the voucher instance.
 You should listen to this event in order to perform the business logic of your application, when a user redeems a voucher.
@@ -195,7 +216,15 @@ The `Voucher` model has a `model` relation, that will point to the associated El
 $voucher = $user->redeemCode('ABCD-EFGH');
 
 $videoCourse = $voucher->model;
-``` 
+```
+
+## Validating Vouchers & Voucher Codes
+The `isValidCode` and `isValidVoucher` methods on the `Vouchers` facade allow you to check if a voucher code is valid or if a voucher model is valid.
+
+```php
+Vouchers::isValidCode('ABCD-EFGH'); // true or false
+Vouchers::isValidVoucher($voucher); // true or false
+```
 
 ## Handling Errors
 
