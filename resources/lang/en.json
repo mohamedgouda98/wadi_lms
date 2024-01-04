@@ -152,6 +152,11 @@
     "Google App Secret": "Google App Secret",
     "Google Link": "Google Link",
     "HTML5": "HTML5",
+<<<<<<< HEAD
+=======
+    "Have coupon code? Apply here": "Have coupon code? Apply here",
+    "Hio new content uploaded by admin": "Hio new content uploaded by admin",
+>>>>>>> 2cadc52a0c435fc87e656ee211f086e0283f7145
     "Home": "Home",
     "If you did not receive the email": "If you did not receive the email",
     "Image": "Image",
@@ -206,6 +211,13 @@
     "Name": "Name",
     "Name is required": "Name is required",
     "New Coupon()": "New Coupon()",
+    "New Password": "New Password",
+    "New User Registration Point": "New User Registration Point",
+    "New course created successfully": "New course created successfully",
+    "New course new course uploaded by admin": "New course new course uploaded by admin",
+    "New new class uploaded by Shohanur Rahman Akash": "New new class uploaded by Shohanur Rahman Akash",
+    "New one new class uploaded by admin": "New one new class uploaded by admin",
+    "Next": "Next",
     "No Course Found": "No Course Found",
     "No Data Found": "No Data Found",
     "No Items": "No Items",

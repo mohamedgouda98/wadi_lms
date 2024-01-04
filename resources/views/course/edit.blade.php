@@ -90,18 +90,12 @@
                     <label class="col-lg-3 col-form-label" for="val-suggestions">
                         @translate(Big Description)</label>
                     <div class="col-lg-9">
-                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Instructor")
-                            <textarea required
-                                      class="form-control summernote @error('big_description') is-invalid @enderror"
-                                      name="big_description"
-                                      rows="5">{!! $each_course->big_description !!}</textarea>
-                            @error('big_description') <span class="invalid-feedback"
-                                                            role="alert"> <strong>{{ $message }}</strong> </span> @enderror
-                        @else
-                        {!! $each_course->big_description($each_course->big_description) !!}
-
-                        @endif
-
+                        <textarea required
+                                  class="form-control summernote @error('big_description') is-invalid @enderror"
+                                  name="big_description"
+                                  rows="5">{!! $each_course->big_description !!}</textarea>
+                        @error('big_description') <span class="invalid-feedback"
+                                                    role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                     </div>
                 </div>
                 {{-- Course Thumbnail --}}

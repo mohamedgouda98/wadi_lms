@@ -19,7 +19,7 @@
         <div class="card-header">
             <div class="row">
                 <div class="col-md-7"><h3 class="card-title">{{$course->title}}</h3></div>
-                @if(\Illuminate\Support\Facades\Auth::user()->user_type != "Admin")
+                @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                     <div class="col-md-5">
                         <a href="#!"
                            onclick="forModal('{{ route("classes.create",$course_id) }}', '@translate(Add Class)')"
@@ -51,7 +51,7 @@
                             @translate(Class) {{ $loop->index+ 1 }}</span> :
                                 {{ $item->title }}
 
-                                @if(\Illuminate\Support\Facades\Auth::user()->user_type != "Admin")
+                                @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                                     <span class="p-3">
                                 <a href="#!"
                                    onclick="forModal('{{ route("classes.edit",$item->id) }}', '@translate(Add Class)')">
