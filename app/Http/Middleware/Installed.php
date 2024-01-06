@@ -17,13 +17,14 @@ class Installed
     public function handle($request, Closure $next)
     {
         try {
-            if (! DB::connection()->getPdo() || env('MIX_PUSHER_APP_CLUSTER_SECURE') == 'c2f3f489a00553e7a01d369c103c7251') {
+
+            if (! DB::connection()->getPdo()) {
                 return redirect()->route('install');
             }
 
             return $next($request);
         } catch (\Exception $exception) {
-            return redirect()->route('install');
+            return $exception->getMessage();
         }
     }
 }

@@ -124,7 +124,7 @@
                                            href="{{ route('course.edit',[$course->id,$course->slug])}}">
                                             @translate(Edit)
                                         </a>
-                                        @if($s < 0)
+                                        @if($s == 0)
                                             <a class="dropdown-item font-13"
                                                onclick="confirm_modal('{{ route('course.destroy',[$course->id,$course->slug,])}}"
                                                href="#!">
