@@ -83,7 +83,7 @@
                                                 <i class="feather icon-eye"></i>
                                             </span>
                                                 </a>
-                                                @if(\Illuminate\Support\Facades\Auth::user()->user_type =="Instructor")
+                                                @if(\Illuminate\Support\Facades\Auth::user()->user_type =="Admin")
                                                     <a onclick="confirm_modal('{{ route('classes.contents.destroy',$content->id) }}')"
                                                        href="#!">
                                             <span class="nest-span-trash">
@@ -141,7 +141,7 @@
                 cursor: 'move',
                 opacity: 0.6,
                 update: function () {
-                    @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Instructor")
+                    @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                     sendOrderToServer();
                     @endif
                 }
