@@ -120,7 +120,7 @@
     <!--======================================
            START LatestCourse AREA
    ======================================-->
-    <section class="course-area padding-top-120px mt-5">
+    <section class="course-area padding-top-120px">
         <div class="course-wrapper">
             <div class="course-area__hero" >
                 <div class="row" >
