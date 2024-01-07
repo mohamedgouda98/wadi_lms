@@ -3,7 +3,7 @@
     <!-- ================================
            Start FOOTER AREA
   ================================= -->
-    <section class="footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}">
+    <section style="background-color: #9fe870 !important;" class="footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}">
         <div class="container">
             <div class="row">
                 <div class="{{ request()->is('student/*') ? 'col-lg-3 offset-md-2' : 'col-lg-4' }} column-td-half">
@@ -63,33 +63,33 @@
             </div><!-- end row -->
             <div class="copyright-content">
                 <div class="row align-items-center">
-                    <div class="col-lg-8">
+                    <div class="col-lg-12" style="text-align: center">
                         <p class="copy__desc">&copy; {{date('Y')}} {{getSystemSetting('type_footer')->value}}</p>
                     </div><!-- end col-lg-9 -->
-                    <div class="col-lg-2">
-                        <div class="sort-ordering">
-                            <form id="ru-currency" method="post" action="{{route('frontend.currencies.change')}}">
-                                @csrf
-                                <select class="sort-ordering-select selectpicker" data-live-search="true" tabindex="-98" name="id" onchange="currencyChange()">
-                                    @foreach(\App\Models\Currency::where('is_published',true)->get() as $item)
-                                        <option  value="{{$item->id}}" {{defaultCurrency() == $item->code ? 'selected' : null}}> {{Str::ucfirst($item->symbol.' '.$item->code)}}</option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="sort-ordering my-2">
-                            <form id="ru-lang" method="post" action="{{route('frontend.languages.change')}}">
-                                @csrf
-                                <select class="sort-ordering-select  selectpicker" tabindex="-98" name="code" data-live-search="true" onchange="languageChange()">
-                                    @foreach(\App\Models\Language::all() as $language)
-                                        <option  value="{{$language->code}}"  {{(\Illuminate\Support\Facades\Session::get('locale') == $language->code ? 'selected' : env('DEFAULT_LANGUAGE') == $language->code ) ? 'selected' : null }}>{{$language->name}}</option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-2">--}}
+{{--                        <div class="sort-ordering">--}}
+{{--                            <form id="ru-currency" method="post" action="{{route('frontend.currencies.change')}}">--}}
+{{--                                @csrf--}}
+{{--                                <select class="sort-ordering-select selectpicker" data-live-search="true" tabindex="-98" name="id" onchange="currencyChange()">--}}
+{{--                                    @foreach(\App\Models\Currency::where('is_published',true)->get() as $item)--}}
+{{--                                        <option  value="{{$item->id}}" {{defaultCurrency() == $item->code ? 'selected' : null}}> {{Str::ucfirst($item->symbol.' '.$item->code)}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-lg-2">--}}
+{{--                        <div class="sort-ordering my-2">--}}
+{{--                            <form id="ru-lang" method="post" action="{{route('frontend.languages.change')}}">--}}
+{{--                                @csrf--}}
+{{--                                <select class="sort-ordering-select  selectpicker" tabindex="-98" name="code" data-live-search="true" onchange="languageChange()">--}}
+{{--                                    @foreach(\App\Models\Language::all() as $language)--}}
+{{--                                        <option  value="{{$language->code}}"  {{(\Illuminate\Support\Facades\Session::get('locale') == $language->code ? 'selected' : env('DEFAULT_LANGUAGE') == $language->code ) ? 'selected' : null }}>{{$language->name}}</option>--}}
+{{--                                    @endforeach--}}
+{{--                                </select>--}}
+{{--                            </form>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div><!-- end row -->
             </div><!-- end copyright-content -->
         </div><!-- end container -->

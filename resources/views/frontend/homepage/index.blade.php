@@ -103,8 +103,8 @@
    ======================================-->
     <section class="course-area padding-top-120px">
         <div class="course-wrapper">
-            <div class="container">
-                <div class="row">
+            <div class="course-area__hero" >
+                <div class="row" >
                     <div class="col-lg-12">
                         <div class="section-heading text-center">
                             <h5 class="section__meta">@translate(Our New Courses For You)</h5>
