@@ -7,7 +7,7 @@
     <section class="slider-area slider-area2">
         <div class="homepage-slide2">
             @foreach($sliders as $item)
-                <div class="single-slide-item" style="background-image: url({{filePath($item->image)}});}">
+                <div class="single-slide-item" style="background-image: url({{ asset('hero.gif')}});}">
                     <div id="perticles-js-2"></div>
                     <div class="slide-item-table">
                         <div class="slide-item-tablecell">
@@ -101,7 +101,26 @@
     <!--======================================
            START LatestCourse AREA
    ======================================-->
-    <section class="course-area padding-top-120px">
+   <!-- <section class=" whoWeAre-area padding-top-60px my-5 px-5 padding-bottom-60px">
+    <div class="container row px-5">
+        <div class="whoWeAre-area__text col-md-6 d-flex flex-column align-items-start gap-5 justify-content-start">
+            <h1 class="font-color">WHO WE ARE ?</h1>
+            <div class="line"></div>
+            <p class="WhoAreAnswer"><span class="wadiName">WADI</span> is a new dive instructors association. We aim to provide the best environment to dive for divers of any level as well as instructors. We are focused on constantly updating or diving practices, and provide an extensive knowledge of environment preservation. Today's divers and instructors have the responsibility to build together the diving of tomorrow.</p>
+        </div>
+        <div class="col-md-6 whoWeAre-area__image">
+            <img src="https://64bd40bb5ffc102ff96dc740--spiffy-parfait-ec8f02.netlify.app/static/media/vecteezy_scuba-diver-cartoon-sticker_.8cd5e1289c1bc9895d0a.png" alt="" class="w-100">
+        </div>
+    </div>
+   </section> -->
+    <!--======================================
+           END LatestCourse AREA
+   ======================================-->
+
+    <!--======================================
+           START LatestCourse AREA
+   ======================================-->
+    <section class="course-area padding-top-120px mt-5">
         <div class="course-wrapper">
             <div class="course-area__hero" >
                 <div class="row" >
@@ -151,7 +170,7 @@
                                                 @endguest
                                             </p>
                                             <h3 class="card__title">
-                                                <a href="{{route('course.single',$l_course->slug)}}">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a>
+                                                <a href="{{route('course.single',$l_course->slug)}}" style="color:#9fe870 !important">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a>
                                             </h3>
                                             <p class="card__author">
                                                 @if ($l_course->relation_between_instructor_user != null)

@@ -14,13 +14,13 @@
                         </a>
                         <ul class="list-items footer-address">
                             <li>
-                                <a href="tel:{{getSystemSetting('type_number')->value}}">{{getSystemSetting('type_number')->value}}</a>
+                                <a href="tel:{{getSystemSetting('type_number')->value}}" style="color:#063f12 !important">{{getSystemSetting('type_number')->value}}</a>
                             </li>
                             <li><a href="mailto:{{getSystemSetting('type_mail')->value}}"
-                                   class="mail">{{getSystemSetting('type_mail')->value}}</a></li>
-                            <li>{{getSystemSetting('type_address')->value}}</li>
+                                   class="mail" style="color:#063f12 !important">{{getSystemSetting('type_mail')->value}}</a></li>
+                            <li style="color:#063f12 !important">{{getSystemSetting('type_address')->value}}</li>
                         </ul>
-                        <h3 class="widget-title font-size-17 mt-4">@translate(We are on)</h3>
+                        <h3 class="widget-title font-size-17 mt-4" style="color:#063f12 !important">@translate(We are on)</h3>
                         <ul class="social-profile">
                             @if(getSystemSetting('type_fb')->value != null)
                                 <li><a href="{{getSystemSetting('type_fb')->value}}" target="_blank"><i
@@ -39,22 +39,22 @@
                 </div><!-- end col-lg-4 -->
                 <div class="{{ request()->is('student/*') ? 'col-lg-3' : 'col-lg-4' }} column-td-half">
                     <div class="footer-widget">
-                        <h3 class="widget-title">@translate(Company)</h3>
-                        <span class="section-divider"></span>
-                        <ul class="list-items">
+                        <h3 class="widget-title" style="color:#063f12 !important">@translate(Company)</h3>
+                        <span class="section-divider" style="color:#063f12 !important"></span>
+                        <ul class="list-items" style="color:#063f12 !important">
                             @foreach(\App\Models\Page::where('active',1)->get() as $item)
-                                <li><a href="{{route('pages',$item->slug)}}">{{$item->title}}</a></li>
+                                <li><a href="{{route('pages',$item->slug)}}" style="color:#063f12 !important">{{$item->title}}</a></li>
                             @endforeach
                         </ul>
                     </div><!-- end footer-widget -->
                 </div><!-- end col-lg-4 -->
                 <div class="{{ request()->is('student/*') ? 'col-lg-3' : 'col-lg-4' }} column-td-half">
                     <div class="footer-widget">
-                        <h3 class="widget-title">@translate(Courses)</h3>
+                        <h3 class="widget-title" style="color:#063f12 !important">@translate(Courses)</h3>
                         <span class="section-divider"></span>
                         <ul class="list-items">
                             @foreach(\App\Models\Category::Published()->where('top', 1)->get() as $item)
-                                <li><a href="{{route('course.category',$item->slug)}}">{{$item->name}}</a></li>
+                                <li><a href="{{route('course.category',$item->slug)}}" style="color:#063f12 !important">{{$item->name}}</a></li>
                             @endforeach
                         </ul>
                     </div><!-- end footer-widget -->
@@ -64,7 +64,7 @@
             <div class="copyright-content">
                 <div class="row align-items-center">
                     <div class="col-lg-12" style="text-align: center">
-                        <p class="copy__desc">&copy; {{date('Y')}} {{getSystemSetting('type_footer')->value}}</p>
+                        <p class="copy__desc" style="color:#063f12 !important">&copy; {{date('Y')}} {{getSystemSetting('type_footer')->value}}</p>
                     </div><!-- end col-lg-9 -->
 {{--                    <div class="col-lg-2">--}}
 {{--                        <div class="sort-ordering">--}}
