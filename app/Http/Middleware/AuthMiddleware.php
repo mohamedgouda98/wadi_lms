@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Auth;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AuthMiddleware
 {
@@ -16,12 +16,10 @@ class AuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
-            if (Auth::user()->user_type == 'Student') {
-                return $next($request);
-            }
+        if (Auth::check() && Auth::user()->user_type === 'Student') {
+            return $next($request);
         }
 
-        return $next($request);
+        return back();
     }
 }
