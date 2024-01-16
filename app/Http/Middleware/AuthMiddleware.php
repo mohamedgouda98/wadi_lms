@@ -16,7 +16,7 @@ class AuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()) {
+        if (Auth::check()) {
             if (Auth::user()->user_type == 'Student') {
                 return $next($request);
             }
