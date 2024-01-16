@@ -22,10 +22,9 @@ class Installed
                 return redirect()->route('install');
             }
 
-            return $next($request);
         } catch (\Exception $exception) {
-            dd('Error');
             return $exception->getMessage();
         }
+        return $next($request);
     }
 }
