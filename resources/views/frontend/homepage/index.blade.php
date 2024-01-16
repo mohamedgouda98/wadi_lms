@@ -424,7 +424,7 @@
                                                                                 <span
                                                                                     class="card__label-text">{{$course->level}}</span>
                                                                     @auth()
-                                                                        <a href="#!"
+                                                                        <a href="javascript:void(0)"
                                                                            onclick="addToCart({{$course->id}},'{{route('add.to.wishlist')}}')"
                                                                            class="card__collection-icon love-{{$course->id}}"><span
 
