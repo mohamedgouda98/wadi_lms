@@ -24,6 +24,7 @@ class Installed
 
             return $next($request);
         } catch (\Exception $exception) {
+            dd('Error');
             return $exception->getMessage();
         }
     }
