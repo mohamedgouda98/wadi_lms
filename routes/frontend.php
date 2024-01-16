@@ -7,7 +7,7 @@ Route::get('x', function () {
     return courseLenght(2);
 });
 
-Route::group(['middleware' => ['installed', 'check.frontend', 'demo']], function () {
+Route::group(['middleware' => ['check.frontend', 'demo']], function () {
     // homepage
     Route::get('/', [FrontendController::class, 'homepage'])
         ->name('homepage');
