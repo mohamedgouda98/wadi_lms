@@ -7,7 +7,7 @@ Route::get('x', function () {
     return courseLenght(2);
 });
 
-//Route::group(['middleware' => ['check.frontend']], function () {
+Route::group(['middleware' => ['installed', 'check.frontend', 'demo']], function () {
     // homepage
     Route::get('/', [FrontendController::class, 'homepage'])
         ->name('homepage');
@@ -208,4 +208,4 @@ Route::get('x', function () {
             Route::post('student/payment/store', [FrontendController::class, 'affiliatePaymentStore'])->name('student.payments.store');
         }
     });
-//});
+});
