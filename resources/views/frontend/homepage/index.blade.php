@@ -7,13 +7,13 @@
     <section class="slider-area slider-area2">
         <div class="homepage-slide2">
             @foreach($sliders as $item)
-                <div class="single-slide-item" style="background-image: url({{ asset('hero.gif')}});}">
+                <div class="single-slide-item">
                     <div id="perticles-js-2"></div>
                     <div class="slide-item-table">
                         <div class="slide-item-tablecell">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <!-- <div class="col-lg-8">
                                         <div class="section-heading">
                                             <h2 class="section__title">{{$item->title}}</h2>
                                             <p class="section__desc">
@@ -25,30 +25,33 @@
                                                 <form>
                                                     <div class="input-box">
                                                         <div class="form-group mb-0">
-                                                            <!-- Search bar -->
+
                                                             <input class="form-control" id="slider-search" type="text"
                                                                    name="search"
                                                                    placeholder="@translate(Search for anything)">
                                                             <span class="la la-search search-icon"></span>
 
-                                                            <!-- Search bar END - -->
 
-                                                            <!-- ======================== Search Suggession ============================= -->
+
+
                                                             <div class="overflow-hidden search-list w-100">
                                                                 <div id="appendSearchCart2"></div>
                                                             </div>
 
                                                         </div>
-                                                    </div><!-- end input-box -->
+                                                    </div>
                                                 </form>
-                                            </div><!-- end contact-form-action -->
+                                            </div>
                                         </div>
-                                    </div><!-- col-lg-6 -->
-                                </div><!-- row -->
-                            </div><!-- container -->
+                                    </div> -->
+                                </div>
+                            </div>
 
 
-                            <div class="our-post-content">
+                        </div><!-- slide-item-tablecell -->
+                    </div><!-- slide-item-table -->
+                </div><!-- end single-slide-item -->
+                <div class="our-post-content mt-0">
                                 <span class="hw-circle"></span>
                                 <span class="hw-circle"></span>
                                 <span class="hw-circle"></span>
@@ -87,9 +90,6 @@
                                     </div>
                                 </div><!-- end how-we-work-wrap -->
                             </div><!-- our-post-content -->
-                        </div><!-- slide-item-tablecell -->
-                    </div><!-- slide-item-table -->
-                </div><!-- end single-slide-item -->
             @endforeach
         </div><!-- end homepage-slides -->
     </section>

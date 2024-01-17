@@ -12382,13 +12382,22 @@ body {
     }
 }
 
+.single-slide-item {
+    height: 80vh;
+    background-color: #000000;
+    background-image: url(../images/hero.gif);
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .single-slide-item:after {
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: #233d63;
+    /* background-color: #233d63; */
     opacity: .90;
     content: "";
     z-index: -1
@@ -12401,11 +12410,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("../images/shape.png");
+    background-image: url("../images/slider-img1.jpg");
     background-size: cover;
     background-position: center;
     z-index: 1;
-    opacity: .1
+    opacity: .1;
 }
 
 .slide-bg1 {
