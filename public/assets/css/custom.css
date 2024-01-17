@@ -625,8 +625,12 @@ body {
 @media(max-width: 575.98px) {
     .header-top {
         display: none;
+
     }
 }
+
+
+
 
 .whoWeAre-area {
     background-color: #9fe870;
