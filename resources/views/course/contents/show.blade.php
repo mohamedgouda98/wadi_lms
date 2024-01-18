@@ -30,8 +30,20 @@
 
         @endif
         @if (isset($each_contents->file))
-            <img class="card-img-top img-fluid file-type" src="{{ asset('img/file.png') }}" alt="Pic">
-        @endif
+                <a href="{{ asset($each_contents->file) }}" class="card-img-top img-fluid file-type" download="">Download Content</a>
+                @php
+                    $file = $each_contents->file;
+                    $extension = pathinfo($file, PATHINFO_EXTENSION);
+                @endphp
+                @if($extension === 'pdf')
+                    @php
+                        $parser = new \Smalot\PdfParser\Parser();
+                        $pdf = $parser->parseFile($each_contents->file);
+                    @endphp
+                    <p>{!! nl2br($pdf->getText())  !!}</p>
+                @endif
+
+            @endif
     </div>
 
     <div class="card-body">

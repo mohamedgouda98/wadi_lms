@@ -7,13 +7,13 @@
     <section class="slider-area slider-area2">
         <div class="homepage-slide2">
             @foreach($sliders as $item)
-                <div class="single-slide-item" style="background-image: url({{filePath($item->image)}});}">
+                <div class="single-slide-item">
                     <div id="perticles-js-2"></div>
                     <div class="slide-item-table">
                         <div class="slide-item-tablecell">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <!-- <div class="col-lg-8">
                                         <div class="section-heading">
                                             <h2 class="section__title">{{$item->title}}</h2>
                                             <p class="section__desc">
@@ -25,30 +25,33 @@
                                                 <form>
                                                     <div class="input-box">
                                                         <div class="form-group mb-0">
-                                                            <!-- Search bar -->
+
                                                             <input class="form-control" id="slider-search" type="text"
                                                                    name="search"
                                                                    placeholder="@translate(Search for anything)">
                                                             <span class="la la-search search-icon"></span>
 
-                                                            <!-- Search bar END - -->
 
-                                                            <!-- ======================== Search Suggession ============================= -->
+
+
                                                             <div class="overflow-hidden search-list w-100">
                                                                 <div id="appendSearchCart2"></div>
                                                             </div>
 
                                                         </div>
-                                                    </div><!-- end input-box -->
+                                                    </div>
                                                 </form>
-                                            </div><!-- end contact-form-action -->
+                                            </div>
                                         </div>
-                                    </div><!-- col-lg-6 -->
-                                </div><!-- row -->
-                            </div><!-- container -->
+                                    </div> -->
+                                </div>
+                            </div>
 
 
-                            <div class="our-post-content">
+                        </div><!-- slide-item-tablecell -->
+                    </div><!-- slide-item-table -->
+                </div><!-- end single-slide-item -->
+                <div class="our-post-content mt-0">
                                 <span class="hw-circle"></span>
                                 <span class="hw-circle"></span>
                                 <span class="hw-circle"></span>
@@ -87,9 +90,6 @@
                                     </div>
                                 </div><!-- end how-we-work-wrap -->
                             </div><!-- our-post-content -->
-                        </div><!-- slide-item-tablecell -->
-                    </div><!-- slide-item-table -->
-                </div><!-- end single-slide-item -->
             @endforeach
         </div><!-- end homepage-slides -->
     </section>
@@ -101,10 +101,29 @@
     <!--======================================
            START LatestCourse AREA
    ======================================-->
+   <!-- <section class=" whoWeAre-area padding-top-60px my-5 px-5 padding-bottom-60px">
+    <div class="container row px-5">
+        <div class="whoWeAre-area__text col-md-6 d-flex flex-column align-items-start gap-5 justify-content-start">
+            <h1 class="font-color">WHO WE ARE ?</h1>
+            <div class="line"></div>
+            <p class="WhoAreAnswer"><span class="wadiName">WADI</span> is a new dive instructors association. We aim to provide the best environment to dive for divers of any level as well as instructors. We are focused on constantly updating or diving practices, and provide an extensive knowledge of environment preservation. Today's divers and instructors have the responsibility to build together the diving of tomorrow.</p>
+        </div>
+        <div class="col-md-6 whoWeAre-area__image">
+            <img src="https://64bd40bb5ffc102ff96dc740--spiffy-parfait-ec8f02.netlify.app/static/media/vecteezy_scuba-diver-cartoon-sticker_.8cd5e1289c1bc9895d0a.png" alt="" class="w-100">
+        </div>
+    </div>
+   </section> -->
+    <!--======================================
+           END LatestCourse AREA
+   ======================================-->
+
+    <!--======================================
+           START LatestCourse AREA
+   ======================================-->
     <section class="course-area padding-top-120px">
         <div class="course-wrapper">
-            <div class="container">
-                <div class="row">
+            <div class="course-area__hero" >
+                <div class="row" >
                     <div class="col-lg-12">
                         <div class="section-heading text-center">
                             <h5 class="section__meta">@translate(Our New Courses For You)</h5>
@@ -151,12 +170,12 @@
                                                 @endguest
                                             </p>
                                             <h3 class="card__title">
-                                                <a href="{{route('course.single',$l_course->slug)}}">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a>
+                                                <a href="{{route('course.single',$l_course->slug)}}" style="color:#8BCD50 !important">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a>
                                             </h3>
                                             <p class="card__author">
                                                 @if ($l_course->relation_between_instructor_user != null)
-                                                <a href="{{route('single.instructor',$l_course->relationBetweenInstructorUser->slug)}}">
-                                                        {{$l_course->relationBetweenInstructorUser->name}}</a>
+                                                <a href="{{route('single.instructor',$l_course->slug)}}">
+                                                        {{$l_course->name}}</a>
                                                 @endif
                                             </p>
                                             <div class="rating-wrap d-flex mt-2 mb-3">
@@ -233,7 +252,7 @@
                     <div class="card-content">
                         <p class="card__author">
                             @translate(By) <a
-                                href="{{route('single.instructor',$l_c_tooltip->relationBetweenInstructorUser->slug)}}">{{$l_c_tooltip->relationBetweenInstructorUser->name}}</a>
+                                href="{{route('single.instructor',$l_c_tooltip->slug)}}">{{$l_c_tooltip->name}}</a>
                         </p>
                         <h3 class="card__title">
                             <a href="{{route('course.single',$l_c_tooltip->slug)}}">{{\Illuminate\Support\Str::limit($l_c_tooltip->title,58)}}</a>
@@ -405,7 +424,7 @@
                                                                                 <span
                                                                                     class="card__label-text">{{$course->level}}</span>
                                                                     @auth()
-                                                                        <a href="#!"
+                                                                        <a href="javascript:void(0)"
                                                                            onclick="addToCart({{$course->id}},'{{route('add.to.wishlist')}}')"
                                                                            class="card__collection-icon love-{{$course->id}}"><span
 
@@ -424,7 +443,7 @@
                                                                     <a href="{{route('course.single',$course->slug)}}">{{ Str::limit($course->title,58) }}</a>
                                                                 </h3>
                                                                 <p class="card__author">
-                                                                    <a href="{{route('single.instructor',$course->relationBetweenInstructorUser->slug)}}">{{$course->relationBetweenInstructorUser->name}}</a>
+                                                                    <a href="{{route('single.instructor',$course->slug)}}">{{$course->name}}</a>
                                                                 </p>
                                                                 <div class="rating-wrap d-flex mt-2 mb-3">
                                                                 <span class="star-rating-wrap">
@@ -499,7 +518,7 @@
                                                             <div class="card-content">
                                                                 <p class="card__author">
                                                                     By <a
-                                                                        href="{{route('single.instructor',$c_tooltip->relationBetweenInstructorUser->slug)}}">{{$c_tooltip->relationBetweenInstructorUser->name}}</a>
+                                                                        href="{{route('single.instructor',$c_tooltip->slug)}}">{{$c_tooltip->name}}</a>
                                                                 </p>
                                                                 <h3 class="card__title">
                                                                     <a href="{{route('course.single',$c_tooltip->slug)}}">{{\Illuminate\Support\Str::limit($c_tooltip->title,58)}}</a>
@@ -644,7 +663,7 @@
                                                 <a href="{{route('course.single',$t_courses->slug)}}">{{\Illuminate\Support\Str::limit($t_courses->title,58)}}</a>
                                             </h3>
                                             <p class="card__author">
-                                                <a href="{{route('single.instructor',$t_courses->relationBetweenInstructorUser->slug)}}">{{$t_courses->relationBetweenInstructorUser->name}}</a>
+                                                <a href="{{route('single.instructor',$t_courses->slug)}}">{{$t_courses->name}}</a>
                                             </p>
                                             <div class="rating-wrap d-flex mt-2 mb-3">
                                                         <span class="star-rating-wrap">
@@ -720,7 +739,7 @@
                     <div class="card-content">
                         <p class="card__author">
                             @translate(By) <a
-                                href="{{route('single.instructor',$t_tooltip->relationBetweenInstructorUser->slug)}}">{{$t_tooltip->relationBetweenInstructorUser->name}}</a>
+                                href="{{route('single.instructor',$t_tooltip->slug)}}">{{$t_tooltip->name}}</a>
                         </p>
                         <h3 class="card__title">
                             <a href="{{route('course.single',$t_tooltip->slug)}}">{{\Illuminate\Support\Str::limit($t_tooltip->title,58)}}</a>

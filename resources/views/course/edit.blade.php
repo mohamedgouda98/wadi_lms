@@ -24,7 +24,7 @@
                         <input type="text" required value="{{ $each_course->title}}"
                                class="form-control @error('title') is-invalid @enderror" id="val-title" name="title"
                                placeholder="Enter Course Title" aria-required="true"
-                               autofocus {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                               autofocus {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                         @error('title') <span class="invalid-feedback"
                                               role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                     </div>
@@ -38,7 +38,7 @@
                                required value="{{ $each_course->slug}}"
                                class="form-control @error('slug') is-invalid @enderror" id="val-slug" name="slug"
                                placeholder="Enter Slug"
-                               aria-required="true" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                               aria-required="true" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                         <span id="error_email"></span>
                         @error('slug') <span class="invalid-feedback"
                                              role="alert"> <strong>{{ $message }}</strong> </span> @enderror
@@ -51,7 +51,7 @@
                         @translate(Course Level) <span class="text-danger">*</span></label>
                     <div class="col-lg-9">
                         <select class="form-control lang @error('level') is-invalid @enderror" id="val-provider"
-                                name="level" required {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                name="level" required {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             <option value="Beginner" {{ $each_course->level === "Beginner" ? "selected" : "" }}>
                                 @translate(Beginner)
                             </option>
@@ -72,7 +72,7 @@
                     <label class="col-lg-3 col-form-label" for="val-suggestions">
                         @translate(Description)</label>
                     <div class="col-lg-9">
-                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Instructor")
+                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == "Admin")
                             <textarea required
                                       class="form-control summernote @error('short_description') is-invalid @enderror"
                                       name="short_description"
@@ -121,7 +121,7 @@
                         <input type="url" required value="{{ $each_course->overview_url}}"
                                class="form-control @error('overview_url') is-invalid @enderror" id="val-website"
                                name="overview_url" placeholder="url"
-                               aria-required="true" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                               aria-required="true" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                         @error('overview_url') <span class="invalid-feedback"
                                                      role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                     </div>
@@ -132,7 +132,7 @@
                         @translate(Provider) <span class="text-danger">*</span></label>
                     <div class="col-lg-9">
                         <select class="form-control lang @error('provider') is-invalid @enderror" id="val-provider"
-                                name="provider" required {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                name="provider" required {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             <option value="Youtube" {{ $each_course->provider === "Youtube" ? "selected" : "" }}>
                                 @translate(Youtube)
                             </option>
@@ -159,7 +159,7 @@
                             {{$item}},
                             @endforeach
                                 " placeholder="" id="val-requirement" name="requirement"
-                                   data-role="tagsinput" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                   data-role="tagsinput" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @error('requirement') <span class="invalid-feedback"
                                                         role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                         </div>
@@ -175,7 +175,7 @@
                                    value="  @foreach(json_decode($each_course->outcome) as $item)
                                    {{$item}},
                                    @endforeach" id="val-outcome" name="outcome"
-                                   data-role="tagsinput" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                   data-role="tagsinput" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @error('outcome') <span class="invalid-feedback"
                                                     role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                         </div>
@@ -191,7 +191,7 @@
                             @foreach(json_decode($each_course->tag) as $item)
                             {{$item}},
                             @endforeach" id="val-tag" name="tag"
-                                   data-role="tagsinput" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                   data-role="tagsinput" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @error('tag') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                         </div>
                     </div>
@@ -205,7 +205,7 @@
                     <div class="col-lg-9">
                         <div class="switchery-list">
                             <input type="checkbox" name="is_free" class="js-switch-success"
-                                   id="val-is_free" {{ $each_course->is_free === 0 ? ' ' : 'checked' }} {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}/>
+                                   id="val-is_free" {{ $each_course->is_free === 0 ? ' ' : 'checked' }} {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}/>
                             @error('is_free') <span class="invalid-feedback"
                                                     role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                         </div>
@@ -224,7 +224,7 @@
                                     <span class="input-group-text">$</span>
                                 </div>
                                 <input type="number" min="0" value="{{ $each_course->price}}" name="price"
-                                       class="form-control @error('price') is-invalid @enderror" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                       class="form-control @error('price') is-invalid @enderror" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                                 @error('price') <span class="invalid-feedback"
                                                       role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                             </div>
@@ -239,7 +239,7 @@
                             <div class="switchery-list">
 
                                 <input type="checkbox" name="is_discount" class="js-switch-success"
-                                       id="val-is_discount" {{ $each_course->is_discount === 0 ? " " : 'checked' }} {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}/>
+                                       id="val-is_discount" {{ $each_course->is_discount === 0 ? " " : 'checked' }} {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}/>
                                 @error('is_discount') <span class="invalid-feedback"
                                                             role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                             </div>
@@ -260,7 +260,7 @@
                                     </div>
                                     <input type="number" min="0" value="{{ $each_course->discount_price}}"
                                            name="discount_price"
-                                           class="form-control @error('discount_price') is-invalid @enderror" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                           class="form-control @error('discount_price') is-invalid @enderror" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                                     @error('discount_price') <span class="invalid-feedback"
                                                                    role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                                 </div>
@@ -274,7 +274,7 @@
                         @translate(Language) <span class="text-danger">*</span></label>
                     <div class="col-lg-9">
                         <select class="form-control lang @error('language') is-invalid @enderror" id="val-language"
-                                name="language" required {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                name="language" required {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @foreach ($languages as $language)
                                 <option
                                     value="{{ $language->name }}" {{$each_course->language == $language->name ?'selected':null}}>{{ $language->name }}</option>
@@ -294,7 +294,7 @@
                             {{$item}},
                             @endforeach
                                 " id="val-meta_title" name="meta_title"
-                                   data-role="tagsinput" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                   data-role="tagsinput" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @error('meta_title') <span class="invalid-feedback"
                                                        role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                         </div>
@@ -307,7 +307,7 @@
                     <div class="col-lg-9">
                         <textarea id="val-meta_description" name="meta_description"
                                   class="form-control @error('meta_description') is-invalid @enderror"
-                                  data-role="tagsinput" {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}> {!! $each_course->meta_description !!}</textarea>
+                                  data-role="tagsinput" {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}> {!! $each_course->meta_description !!}</textarea>
                         @error('meta_description') <span class="invalid-feedback"
                                                          role="alert"> <strong>{{ $message }}</strong> </span> @enderror
                     </div>
@@ -319,7 +319,7 @@
                     <div class="col-lg-9">
                         <select class="form-control lang @error('category_id') is-invalid @enderror"
                                 id="val-category_id" name="category_id"
-                                required {{ Auth::user()->user_type != 'Admin' ? '' : 'readonly' }}>
+                                required {{ Auth::user()->user_type == 'Admin' ? '' : 'readonly' }}>
                             @foreach ($categories as $category)
                                 <option
                                     value="{{ $category->id }}" {{$each_course->category_id == $category->id ? 'selected':null}}>{{ $category->name }}</option>
@@ -330,7 +330,7 @@
                 </div>
 
 
-                @if (Auth::user()->user_type === 'Instructor')
+                @if (Auth::user()->user_type === 'Admin')
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label"></label>
                         <div class="col-lg-8">

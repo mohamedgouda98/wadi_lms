@@ -381,7 +381,7 @@ body {
     align-items: center;
 }
 
-.header-widget ul.contact-info li span, 
+.header-widget ul.contact-info li span,
 .header-widget ul.contact-info li i {
   margin-right: 6px;
 }
@@ -442,8 +442,10 @@ body {
 }
 
 .footer-widget .social-profile li a{
-    color: #fff !important;
+    color: #063f12 !important;
 }
+
+
 
 .sidenav__item a{
     color: #fff !important;
@@ -623,7 +625,66 @@ body {
 @media(max-width: 575.98px) {
     .header-top {
         display: none;
+
     }
+}
+
+
+
+
+.whoWeAre-area {
+    background-color: #8BCD50;
+}
+
+.whoWeAre-area .font-color {
+    color: #063f12;
+    font-family: "Inter",sans-serif;
+    font-size: 45px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+}
+
+.whoWeAre-area .line {
+    background-color: #5b9abd;
+    height: 3px;
+    margin-left: 30px;
+    transition: all 1s;
+    width: 100px;
+    margin-bottom: 5px;
+}
+
+.whoWeAre-area:hover .line {
+    width: 300px;
+}
+
+.wadiName {
+    color: #1d678f;
+    font-weight: 800;
+}
+
+.WhoAreAnswer {
+    font-family: 'Oswald', sans-serif;
+    color: #063f12;
+    font-size: 30px;
+    font-weight: 400 !important;
+    letter-spacing: -2px;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+@media (max-width:768px) {
+    .whoWeAre-area__image {
+        display: none;
+    }
+
+    .whoWeAre-area__text {
+        text-align: center;
+    }
+}
+
+.course-area {
+    background-color: #8BCD50;
 }
 
 
