@@ -36,12 +36,6 @@ class UserController extends Controller
     /*new user store done*/
     public function store(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -68,28 +62,10 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->user_type = 'Admin';
         if ($user->save()) {
-            //verify email
-
-            $verifyUser = VerifyUser::create([
-                'user_id' => $user->id,
-                'token' => sha1(time()),
-            ]);
-
-            $details = [
-                'name' => $request->name,
-                'user_id' => $user->id,
-                'body' => 'New user registered named ',
-            ];
-            try {
-                $user->notify(new VerifyNotifications($user));
-            } catch (\Exception $exception) {
-            }
             notify()->success($request->name.' '.translate('User Create Successfully'));
-
-            return back();
+            return redirect(route('users.index'));
         } else {
             notify()->error(translate('There are Some Problem Try again'));
-
             return back();
         }
     }

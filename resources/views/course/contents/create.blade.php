@@ -144,7 +144,7 @@
                                         {{ $course->meeting->meeting_title }}
                                     </option>
                                 @endif
-                            @endforeach --}} 
+                            @endforeach --}}
                         </select>
 
                     @endif
@@ -204,33 +204,6 @@
             @enderror
         </div>
     </div>
-
-
-    {{-- source_code --}}
-    <div class="">
-        <div class="form-group row is-invalid">
-            <label class="col-lg-3 col-form-label" for="source_code">@translate(Source Code)</label>
-            <div class="col-lg-9">
-
-                <img class="w-100 source_code_preview rounded shadow-sm d-none" src="" alt="#Source code">
-
-                <input type="hidden" name="source_code_url" class="source_code_url" value="">
-
-                @error('source_code') <span class="invalid-feedback"
-                                            role="alert"> <strong>{{ $message }}</strong> </span>
-                @enderror
-
-                @if (MediaActive())
-                    {{-- media --}}
-                    <a href="javascript:void()" onclick="openNav('{{ route('media.slide') }}', 'source_code')"
-                       class="btn btn-primary media-btn mt-2 p-2">Upload From Media <i class="fa fa-cloud-upload ml-2"
-                                                                                       aria-hidden="true"></i> </a>
-                @endif
-
-            </div>
-        </div>
-    </div>
-
 
     {{-- Submit button --}}
     <button type="submit" class="btn btn-primary float-left">
