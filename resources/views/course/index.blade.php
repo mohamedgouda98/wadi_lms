@@ -126,7 +126,7 @@
                                         </a>
                                         @if($s == 0)
                                             <a class="dropdown-item font-13"
-                                               onclick="confirm_modal('{{ route('course.destroy',[$course->id,$course->slug,])}}"
+                                               onclick="confirm_modal('{{ route('course.destroy',[$course->id,$course->slug,])}}')"
                                                href="#!">
                                                 @translate(Trash)
                                             </a>
