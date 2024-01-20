@@ -251,11 +251,11 @@
                                     </a>
                                 </li>
                                 {{-- Comment in Course --}}
-                                <li><a href="{{ route('comments.index') }}"
-                                        class="{{ request()->is('dashboard/comments*') ? 'active' : null }}">
-                                        <i class="fa fa-comments-o"></i> <span>@translate(Comments)</span>
-                                    </a>
-                                </li>
+{{--                                <li><a href="{{ route('comments.index') }}"--}}
+{{--                                        class="{{ request()->is('dashboard/comments*') ? 'active' : null }}">--}}
+{{--                                        <i class="fa fa-comments-o"></i> <span>@translate(Comments)</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                                 {{-- Payment request area --}}
 {{--                                <li><a href="{{ route('payments.index') }}"--}}
 {{--                                        class="{{ request()->is('dashboard/payment*') ? 'active' : null }}">--}}
@@ -416,10 +416,10 @@
                                             Settings)</a>
                                         </li>
 
-                                        <li><a href="{{ route('other.setting') }}"
-                                                class="{{ request()->is('dashboard/other*') ? 'active' : null }}">@translate(Other
-                                            Settings)</a>
-                                        </li>
+{{--                                        <li><a href="{{ route('other.setting') }}"--}}
+{{--                                                class="{{ request()->is('dashboard/other*') ? 'active' : null }}">@translate(Other--}}
+{{--                                            Settings)</a>--}}
+{{--                                        </li>--}}
                                 </ul>
                             </li>
 

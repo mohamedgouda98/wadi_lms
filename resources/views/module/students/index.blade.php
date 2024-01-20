@@ -74,13 +74,15 @@
                                             aria-expanded="false"><i class="feather icon-more-vertical-"></i></button>
                                     <div class="dropdown-menu dropdown-menu-right action-btn"
                                          aria-labelledby="KanbanBoardButton1" x-placement="bottom-end">
+                                        <a class="dropdown-item" href="{{ route('students.edit', $item->user_id) }}">
+                                            <i class="feather icon-edit-2 mr-2"></i>@translate(Edit)</a>
                                         <a class="dropdown-item" href="{{ route('students.show', $item->user_id) }}">
-                                            <i class="feather icon-edit-2 mr-2"></i>@translate(Details)</a>
+                                            <i class="feather icon-eye mr-2"></i>@translate(Details)</a>
 
-                                            <a class="dropdown-item" 
+                                            <a class="dropdown-item"
                                                 href="javascript:;"
                                                 onclick="forModal('{{ route('student.enroll.courses.modal', $item->user_id) }}', '@translate(Student Enroll Course)')">
-                                            <i class="feather icon-edit-2 mr-2"></i>@translate(Courses)</a>
+                                            <i class="feather icon-plus mr-2"></i>@translate(Courses)</a>
                                     </div>
 
                                 </div>

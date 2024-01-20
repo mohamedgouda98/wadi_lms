@@ -76,8 +76,8 @@ $config->setDataTmFontInfoHasToBeIncluded(true);
 // use config and parse file
 $parser = new Smalot\PdfParser\Parser([], $config);
 $pdf = $parser->parseFile('document.pdf');
-
-$data = $pdf->getPages()[0]->getDataTm();
+$firstpage = $pdf->getPages()[0];
+$data = $firstpage->getDataTm();
 
 Array
 (
@@ -121,9 +121,8 @@ Text width should be calculated on text from dataTm to make sure all character w
 In next example we are using data from above.
 
 ```php
-$fonts = $pdf->getFonts();
 $font_id = $data[0][2]; //R7
-$font = $fonts[$font_id];
+$font = $firstpage->getFont($font_id);
 $text = $data[0][1];
 $width = $font->calculateTextWidth($text, $missing);
 ```
@@ -206,8 +205,9 @@ Characters without width are added to `$missing` array in second parameter.
 ```php
 $parser = new \Smalot\PdfParser\Parser();
 $pdf = $parser->parseFile('document.pdf');
+$fonts = $pdf->getFonts();
 // get first font (we assume here there is at least one)
-$font = reset($pdf->getFonts());
+$font = reset($fonts);
 // get width
 $width = $font->calculateTextWidth('Some text', $missing);
 ```
@@ -230,3 +230,14 @@ foreach ($pages as $page) {
     ];
 }
 ```
+
+## PDF encryption
+
+This library cannot currently read encrypted PDF files, i.e. those with
+a read password.  Attempting to do so produces this error:
+```
+Exception: Secured pdf file are currently not supported.
+```
+
+See `setIgnoreEncryption` option in [CustomConfig.md](CustomConfig.md)
+for how to override the check in specific cases.

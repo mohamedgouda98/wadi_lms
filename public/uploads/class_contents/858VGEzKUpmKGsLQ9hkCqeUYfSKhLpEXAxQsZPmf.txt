@@ -1,0 +1,9 @@
+Admin Panel NavBar
+ Supports  Tickets  Reports  Request Return Product  Request  SubScribe  Contact Us  Logistic Questions  Answer  Delivery Representative  Careers
+ Payments  Products Config  Orders  Warranty  Warehouse  Offers & Coupons  Gift Cards  HRM
+ Shop  Requests  Shipping  Financial
+ BWW Profits  Taxs  Expenses  Sliders & Banners  Sliders  Home Banners  Category Banners  SEO  Ads  Affiliate  Note  Guide  Website Configuration  Departs Config  Manage Locations  Tickets  Roles & permissions  OTP Settings  User Setting Status
+
+ Question Max  Events  Privacy Policy  Testimonial  Site Config
+
+

@@ -9,17 +9,17 @@
             <label class="col-form-label text-md-right">@translate(Icon/Image)</label>
             <div class="custom-file">
 
-                <input value="" name="icon" class="icon" type="hidden">
+                <input type="file" name="icon" class="form-control-file">
                 @error('icon') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
-                <img class="category_preview rounded shadow-sm d-none" width="55" src="" alt="#Category icon">
+{{--                <img class="category_preview rounded shadow-sm d-none" width="55" src="" alt="#Category icon">--}}
 
-                <br>
+{{--                <br>--}}
 
-                <input type="hidden" name="category_url" class="category_url" value="">
-                @if (MediaActive())
-                    {{-- media --}}
-                    <a href="javascript:void(0)" onclick="openNav('{{ route('media.slide') }}', 'category')" class="btn btn-primary media-btn mt-2 p-2">Upload From Media <i class="fa fa-cloud-upload ml-2" aria-hidden="true"></i> </a>
-                @endif
+{{--                <input type="hidden" name="category_url" class="category_url" value="">--}}
+{{--                @if (MediaActive())--}}
+{{--                    --}}{{-- media --}}
+{{--                    <a href="javascript:void(0)" onclick="openNav('{{ route('media.slide') }}', 'category')" class="btn btn-primary media-btn mt-2 p-2">Upload From Media <i class="fa fa-cloud-upload ml-2" aria-hidden="true"></i> </a>--}}
+{{--                @endif--}}
 
             </div>
         </div>
