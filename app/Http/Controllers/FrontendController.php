@@ -236,8 +236,8 @@ class FrontendController extends Controller
         $latestCourses = Course::Published()->with('relationBetweenInstructorUser')->latest()->take(10)->get();
 
         $subscriptions = Subscription::Published()->get();
-
-        return view($this->theme.'.homepage.index', compact('latestCourses', 'packages', 'subscriptions', 'sliders', 'popular_cat', 'course', 'cat', 'trading_courses', 'enroll_courser_count'));
+        return view('endUser.index');
+//        return view($this->theme.'.homepage.index', compact('latestCourses', 'packages', 'subscriptions', 'sliders', 'popular_cat', 'course', 'cat', 'trading_courses', 'enroll_courser_count'));
     }
 
     /*Show category ways course*/
