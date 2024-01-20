@@ -28,17 +28,21 @@
                                  class="flagLun">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#"><img src="/assets/img/united-kingdom.png"
-                                                                       width="35" class="flagLun" alt="" srcset="">
+                            <li><a class="dropdown-item" href="#">
+                                    <img src="{{ asset('endUserAssets') }}/assets/img/united-kingdom.png"
+                                         width="35" class="flagLun" alt="" srcset="">
                                     English</a></li>
-                            <li><a class="dropdown-item" href="#"><img src="/assets/img/russian.png"
-                                                                       width="35" class="flagLun" alt="" srcset="">
+                            <li><a class="dropdown-item" href="#">
+                                    <img src="{{ asset('endUserAssets') }}/assets/img/russian.png"
+                                         width="35" class="flagLun" alt="" srcset="">
                                     Russian</a></li>
-                            <li><a class="dropdown-item" href="#"><img src="/assets/img/italian.png"
-                                                                       width="35" class="flagLun" alt="" srcset="">
+                            <li><a class="dropdown-item" href="#">
+                                    <img src="{{ asset('endUserAssets') }}/assets/img/italian.png"
+                                         width="35" class="flagLun" alt="" srcset="">
                                     Italy</a></li>
-                            <li><a class="dropdown-item" href="#"><img src="/assets/img/german.png"
-                                                                       width="35" class="flagLun" alt="" srcset="">
+                            <li><a class="dropdown-item" href="#">
+                                    <img src="{{ asset('endUserAssets') }}/assets/img/german.png"
+                                         width="35" class="flagLun" alt="" srcset="">
                                     Germany</a></li>
                         </ul>
                     </div>
