@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Course;
 
-use Alert;
 use App\Http\Controllers\Controller;
 use App\Http\Traits\ImageTrait;
 use App\Models\Category;
@@ -14,6 +13,7 @@ use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CourseController extends Controller
 {
@@ -190,22 +190,14 @@ class CourseController extends Controller
     // course.destroy
     public function destroy($course_id)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
         $s = Enrollment::where('course_id', $course_id)->count();
 
         if ($s <= 0) {
             Course::findOrFail($course_id)->delete();
-            notify()->success(translate('Course deleted successfully'));
-
+            Alert::toast(translate('Course deleted successfully'));
             return back();
         } else {
-            notify()->success(translate('This course has enrolled student'));
-
+            Alert::toast(translate('This course has enrolled student'));
             return back();
         }
     }
@@ -337,6 +329,7 @@ class CourseController extends Controller
         $id =($request->has('id')) ? $request->id : $request->is_argsid;
         $course = Course::where('id', $id)->first();
         $course->rating = $request->rating;
+        $course->save();
         $course->save();
 
         return response(['message' => translate('Course Rating is Changed ')], 200);
