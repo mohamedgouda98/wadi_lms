@@ -126,7 +126,7 @@ class CategoryController extends Controller
             Alert::toast('warning', translate('Category deleted successfully'));
 
         } else {
-            Alert::warning('warning', 'This category already in used.');
+            Alert::error('warning', 'This category already in used.');
         }
         return back();
     }
