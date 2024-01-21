@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Module;
 
-use Alert;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
 {
@@ -121,14 +121,13 @@ class CategoryController extends Controller
     {
         $course = Course::where('category_id', $id)->count();
 
-        dd($course);
 
         if ($course === 0) {
             Category::where('id', $id)->delete();
             notify()->success(translate('Category deleted successfully'));
-
         } else {
-            notify()->warning(translate('This category already in used.'));
+            Alert::warning('warning', 'This category already in used.');
+//            notify()->warning(translate('This category already in used.'));
 
         }
         return back();
