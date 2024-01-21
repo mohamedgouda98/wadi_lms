@@ -85,6 +85,7 @@
     <!-- end scroll top -->
 
     <!-- template js files -->
+    
     <script src="{{ asset('frontend/js/jquery.js') }}"></script>
     <script src="{{ asset('frontend/js/popper.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>

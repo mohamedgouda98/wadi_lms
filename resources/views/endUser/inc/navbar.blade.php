@@ -4,6 +4,18 @@
         <a class="navbar-brand" href="{{ route('homepage') }}">
             <img src="{{ asset('endUserAssets/assets/img/logo.png') }}" width="150" alt="">
         </a>
+        <div class="dropdown ms-4 category">
+            <div class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-table-cells"></i>
+                Categories
+            </div>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item active" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+        </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -44,6 +56,13 @@
                                          width="35" class="flagLun" alt="" srcset=""> Germany</a></li>
                         </ul>
                     </div>
+                </li>
+
+                <li class="nav-item px-4">
+                    <a href="">
+                        <!-- <i class="fa-solid fa-user login-icon fs-3"></i> -->
+                        <i class="fa-solid fa-circle-user login-icon fs-1"></i>
+                    </a>
                 </li>
             </ul>
         </div>
