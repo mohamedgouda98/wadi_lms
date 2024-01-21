@@ -119,12 +119,6 @@ class CategoryController extends Controller
     //soft delete the category
     public function destroy($id)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
         $course = Course::where('category_id', $id)->count();
 
         if ($course === 0) {
@@ -141,9 +135,9 @@ class CategoryController extends Controller
     //published
     public function published(Request $request)
     {
-       dd($request);
+       $id =($request->has('id')) ? $request->id : $request->is_args;
 
-        $cat = Category::where('id', $request->id)->first();
+        $cat = Category::where('id', $id)->first();
         if(!$cat)
         {
             notify()->info(translate('Category not found'));
