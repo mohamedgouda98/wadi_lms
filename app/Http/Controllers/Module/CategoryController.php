@@ -132,22 +132,15 @@ class CategoryController extends Controller
     //published
     public function published(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
+        $cat = Category::where('id', $request->id)->first();
+        if(!$cat)
+        {
+            notify()->info(translate('Category not found'));
             return back();
         }
-
-        // don't use this type of variable naming, use $category instead of $cat1
-        $cat = Category::where('id', $request->id)->first();
-        if ($cat->is_published == 1) {
-            $cat->is_published = 0;
-            $cat->save();
-        } else {
-            $cat->is_published = 1;
-            $cat->save();
-        }
-
+        $cat->update([
+            'is_published' => ($cat->is_published == 1) ? 0 : 1
+        ]);
         return response(['message' => translate('Category active status is changed ')], 200);
     }
 
