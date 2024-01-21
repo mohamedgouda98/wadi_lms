@@ -135,7 +135,7 @@ class CategoryController extends Controller
     //published
     public function published(Request $request)
     {
-       $id =($request->has('id')) ? $request->id : $request->is_args;
+       $id =($request->has('id')) ? $request->id : $request->is_argsid;
 
        dd($id);
         $cat = Category::where('id', $id)->first();
