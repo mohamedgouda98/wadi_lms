@@ -121,6 +121,8 @@ class CategoryController extends Controller
     {
         $course = Course::where('category_id', $id)->count();
 
+        dd($course);
+
         if ($course === 0) {
             Category::where('id', $id)->delete();
             notify()->success(translate('Category deleted successfully'));
