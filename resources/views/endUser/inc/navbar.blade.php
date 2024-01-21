@@ -22,28 +22,18 @@
                 </li>
                 <li class="nav-item px-4">
                     <div class="dropdown">
-                        <a class="LunButt dropdown-toggle" href="" role="button" id="dropdownMenuLink"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="{{ asset('endUserAssets/assets/img/Flag-Egypt-circle-png.png') }}" width="35"
-                                 class="flagLun">
+                        <a href="" role="button" id="dropdownMenuLink"  data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{ asset('endUserAssets/assets/img/Flag-Egypt-circle-png.png') }}" width="35" class="flagLun">
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">
-                                    <img src="{{ asset('endUserAssets') }}/assets/img/united-kingdom.png"
-                                         width="35" class="flagLun" alt="" srcset="">
-                                    English</a></li>
-                            <li><a class="dropdown-item" href="#">
-                                    <img src="{{ asset('endUserAssets') }}/assets/img/russian.png"
-                                         width="35" class="flagLun" alt="" srcset="">
-                                    Russian</a></li>
-                            <li><a class="dropdown-item" href="#">
-                                    <img src="{{ asset('endUserAssets') }}/assets/img/italian.png"
-                                         width="35" class="flagLun" alt="" srcset="">
-                                    Italy</a></li>
-                            <li><a class="dropdown-item" href="#">
-                                    <img src="{{ asset('endUserAssets') }}/assets/img/german.png"
-                                         width="35" class="flagLun" alt="" srcset="">
-                                    Germany</a></li>
+                            <li><a class="dropdown-item" href="#"><img src="{{ asset('endUserAssets') }}/assets/img/united-kingdom.png"
+                                                                       width="35" class="flagLun" alt="" srcset=""> English</a></li>
+                            <li><a class="dropdown-item" href="#"><img src="{{ asset('endUserAssets') }}/assets/img/russian.png"
+                                                                       width="35" class="flagLun" alt="" srcset=""> Russian</a></li>
+                            <li><a class="dropdown-item" href="#"><img src="{{ asset('endUserAssets') }}/assets/img/italian.png"
+                                                                       width="35" class="flagLun" alt="" srcset=""> Italy</a></li>
+                            <li><a class="dropdown-item" href="#"><img src="{{ asset('endUserAssets') }}/assets/img/german.png"
+                                                                       width="35" class="flagLun" alt="" srcset=""> Germany</a></li>
                         </ul>
                     </div>
                 </li>

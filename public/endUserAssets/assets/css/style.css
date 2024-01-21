@@ -18,31 +18,6 @@ body {
     background-color: #caf2af;
 }
 
-.dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0.5em;
-    vertical-align: 0.5em;
-    content: "";
-    border-top: .3em solid;
-    border-right: .3em solid transparent;
-    border-bottom: 0em solid transparent;
-    border-left: .3em solid transparent;
-}
-
-*,
-::after,
-::before {
-    box-sizing: border-box !important;
-}
-
-a:hover {
-    color: var(--bs-link-hover-color);
-}
-
-.dropdown-toggle {
-    white-space: nowrap;
-}
-
 [role=button] {
     cursor: pointer;
 }
@@ -186,7 +161,7 @@ a:hover {
     }
 }
 
-/* for__students */ 
+/* for__students */
 .for__students {
     background-color: #e7f9db;
 }
@@ -394,7 +369,7 @@ footer ul {
     .footer__details {
         flex-direction: column;
     }
-    
+
     .footer__buttons {
         font-size: 16px;
     }
