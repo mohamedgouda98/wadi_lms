@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -140,6 +141,8 @@ class CategoryController extends Controller
     //published
     public function published(Request $request)
     {
+        Log::info('Inside published method');
+
         $cat = Category::where('id', $request->id)->first();
         if(!$cat)
         {
