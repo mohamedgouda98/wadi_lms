@@ -141,7 +141,7 @@ class CategoryController extends Controller
     //published
     public function published(Request $request)
     {
-        Log::info('Inside published method');
+       dd($request);
 
         $cat = Category::where('id', $request->id)->first();
         if(!$cat)
