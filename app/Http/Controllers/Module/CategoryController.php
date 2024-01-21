@@ -121,14 +121,12 @@ class CategoryController extends Controller
     {
         $course = Course::where('category_id', $id)->count();
 
-
         if ($course === 0) {
             Category::where('id', $id)->delete();
-            notify()->success(translate('Category deleted successfully'));
+            Alert::success('warning', translate('Category deleted successfully'));
+
         } else {
             Alert::warning('warning', 'This category already in used.');
-//            notify()->warning(translate('This category already in used.'));
-
         }
         return back();
     }
