@@ -141,7 +141,6 @@ class CategoryController extends Controller
     public function published(Request $request)
     {
         $cat = Category::where('id', $request->id)->first();
-        dd($request);
         if(!$cat)
         {
             notify()->info(translate('Category not found'));
