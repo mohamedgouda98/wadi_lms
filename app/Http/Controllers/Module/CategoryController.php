@@ -123,7 +123,7 @@ class CategoryController extends Controller
 
         if ($course === 0) {
             Category::where('id', $id)->delete();
-            Alert::toast('warning', translate('Category deleted successfully'));
+            Alert::toast(translate('Category deleted successfully'));
 
         } else {
             Alert::error('warning', 'This category already in used.');
