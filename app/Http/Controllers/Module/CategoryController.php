@@ -151,14 +151,9 @@ class CategoryController extends Controller
     // published
     public function popular(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
+        $id =($request->has('id')) ? $request->id : $request->is_argsid;
         // don't use this type of variable naming, use $category instead of $cat1
-        $cat = Category::where('id', $request->id)->first();
+        $cat = Category::where('id', $id)->first();
         if ($cat->is_popular == 1) {
             $cat->is_popular = 0;
             $cat->save();
@@ -173,14 +168,9 @@ class CategoryController extends Controller
     // published
     public function top(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
+        $id =($request->has('id')) ? $request->id : $request->is_argsid;
 
-            return back();
-        }
-
-        // don't use this type of variable naming, use $category instead of $cat1
-        $cat = Category::where('id', $request->id)->first();
+        $cat = Category::where('id', $id)->first();
         if ($cat->top == 1) {
             $cat->top = 0;
             $cat->save();
