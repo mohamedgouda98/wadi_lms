@@ -318,13 +318,8 @@ class CourseController extends Controller
     //published
     public function published(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
-        $course = Course::where('id', $request->id)->first();
+        $id =($request->has('id')) ? $request->id : $request->is_argsid;
+        $course = Course::where('id', $id)->first();
         if ($course->is_published == 1) {
             $course->is_published = 0;
             $course->save();
@@ -339,17 +334,12 @@ class CourseController extends Controller
     //course rating
     public function rating(Request $request)
     {
-        if (env('DEMO') === 'YES') {
-            Alert::warning('warning', 'This is demo purpose only');
-
-            return back();
-        }
-
-        $course = Course::where('id', $request->id)->first();
+        $id =($request->has('id')) ? $request->id : $request->is_argsid;
+        $course = Course::where('id', $id)->first();
         $course->rating = $request->rating;
         $course->save();
 
         return response(['message' => translate('Course Rating is Changed ')], 200);
     }
-    //END
+
 }
