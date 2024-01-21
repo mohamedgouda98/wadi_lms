@@ -223,16 +223,6 @@ body {
     margin-top: 10px;
 }
 
-@media (max-width:991px) {
-    .for__students div:nth-child(1) {
-        flex-direction: column;
-    }
-
-    .for__students__left,
-    .for__students__right {
-        width: 100% !important;
-    }
-}
 
 .cards-wrapper {
     display: flex;
@@ -245,7 +235,6 @@ body {
 }
 
 .card {
-    width: 60%;
     margin: 0 0.5em;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
@@ -257,11 +246,11 @@ body {
 }
 
 .carousel-control-prev {
-    left: 0;
+    left: 2%;
 }
 
 .carousel-control-next {
-    right: 0;
+    right: 2%;
 }
 
 .carousel-control-prev,
@@ -326,20 +315,18 @@ body {
     color: white;
 }
 
-@media (min-width: 768px) {
-    .card img {
-        height: 11em;
-    }
-    /* .card-type {
-        width: 70% !important;
-    } */
+swiper-slide {
+    max-width: 370px !important;
 }
 
-@media (max-width:1024px) {
-    .card {
-        width: 100%;
+
+@media (max-width:768px) {
+    .card-type{
+        width: 35%;
     }
 }
+
+
 
 /* contact us */
 .contactUS {
