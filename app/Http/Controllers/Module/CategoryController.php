@@ -137,6 +137,7 @@ class CategoryController extends Controller
     {
        $id =($request->has('id')) ? $request->id : $request->is_args;
 
+       dd($id);
         $cat = Category::where('id', $id)->first();
         if(!$cat)
         {
