@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Module;
 
 use Alert;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Student\UpdateStudent;
 use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Student;
@@ -68,6 +69,20 @@ class StudentController extends Controller
         $each_student = Student::where('user_id', $id)->first();
 
         return view('module.students.show', compact('each_student'));
+    }
+    public function edit($id)
+    {
+        $student = Student::where('user_id', $id)->first();
+
+        return view('module.students.edit', compact('student'));
+    }
+
+    public function update(UpdateStudent $request)
+    {
+        $student = Student::findOrFail($request->student_id);
+        $student->update($request->validated());
+        Alert::success('Student updated');
+        return redirect(route('students.index'));
     }
 
     public function create()

@@ -255,6 +255,8 @@ Route::group(['middleware' => ['installed', 'checkBackend', 'auth'], 'prefix' =>
     //student
     Route::get('student/index', [StudentController::class, 'index'])->name('students.index');
     Route::get('student/show/{id}', [StudentController::class, 'show'])->name('students.show');
+    Route::get('student/edit/{id}', [StudentController::class, 'edit'])->name('students.edit');
+    Route::put('student/update', [StudentController::class, 'update'])->name('students.update');
     Route::get('student/create/modal', [StudentController::class, 'create'])->name('student.create.modal');
     Route::post('student/create/modal/store', [StudentController::class, 'student_store'])->name('student.store.modal');
 

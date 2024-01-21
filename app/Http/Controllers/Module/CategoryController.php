@@ -61,7 +61,8 @@ class CategoryController extends Controller
 
         //store the icon
         if ($request->has('icon')) {
-            $category->icon = $request->icon;
+            $fileName = fileUpload($request->icon, 'category');
+            $category->icon = $fileName;
         }
         $category->save();
         notify()->success(translate('Category created successfully'));
@@ -83,6 +84,7 @@ class CategoryController extends Controller
     //update the category
     public function update(Request $request)
     {
+
         if (env('DEMO') === 'YES') {
             Alert::warning('warning', 'This is demo purpose only');
 
@@ -94,13 +96,19 @@ class CategoryController extends Controller
         ], [
             'name.required' => translate('Category name is required'),
         ]);
+        $category = Category::where('id', $request->id)->first();
+        if ($request->hasFile('icon')){
+            fileDelete($category->icon);
+           $imageName = fileUpload($request->icon, 'category');
+        }
 
-        $update_category = Category::where('id', $request->id)->first();
-        $update_category->name = $request->name;
-        $update_category->slug = Str::slug($update_category->name).$update_category->id;
-        $update_category->parent_category_id = $request->parent_category_id ?? 0;
-        $update_category->icon = $request->icon;
-        $update_category->save();
+        $category->update([
+            'name' => $request->name,
+            'slug' => Str::slug($category->name).$category->id,
+            'parent_category_id' => $request->parent_category_id ?? 0,
+            'icon' => $imageName ?? $category->icon,
+        ]);
+
 
         notify()->success(translate('Category updated successfully'));
 
@@ -117,16 +125,16 @@ class CategoryController extends Controller
         }
 
         $course = Course::where('category_id', $id)->count();
-        if ($course <= 0) {
+
+        if ($course === 0) {
             Category::where('id', $id)->delete();
             notify()->success(translate('Category deleted successfully'));
 
-            return back();
         } else {
-            notify()->info(translate('This category already in used.'));
+            notify()->warning(translate('This category already in used.'));
 
-            return back();
         }
+        return back();
     }
 
     //published
