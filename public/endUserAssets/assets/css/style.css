@@ -64,14 +64,14 @@ body {
     color: #063F12;
 }
 
-/* hero sectio */
+/* hero section */
 
 .hero {
     background-color: #D6F5C1;
     gap: 0px;
 }
 
-.heor__pargraph {
+.hero__pargraph {
     margin: auto;
     text-align: center;
     color: rgba(0, 0, 0, .945);
@@ -108,7 +108,7 @@ body {
 }
 
 .hero__video {
-    margin-top: 0;
+    margin-top: -80px;
     width: 50%;
     height: 0%;
 }
@@ -317,6 +317,10 @@ body {
 
 swiper-slide {
     max-width: 370px !important;
+}
+
+swiper-slide:hover {
+    transform: scale(1.03);
 }
 
 
