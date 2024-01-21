@@ -19,7 +19,7 @@
     <!-- ================================
            Start FOOTER AREA
   ================================= -->
-    <section style="background-color: #9fe870 !important;" class="footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}">
+    <section style="background-color: #9fe870 !important;" class="py-5 footer-area section-bg-2 padding-top-100px padding-bottom-40px {{ request()->is('student/*') ? 'student-dashboard' : '' }}">
         <div class="container">
             <div class="row">
                 <div class="{{ request()->is('student/*') ? 'col-lg-3 offset-md-2' : 'col-lg-4' }} column-td-half">
@@ -28,27 +28,24 @@
                             <img src="{{ filePath(getSystemSetting('footer_logo')->value) }}"
                                  alt="{{getSystemSetting('type_name')->value}}" class="footer__logo img-fluid w-50">
                         </a>
-                        <ul class="list-items footer-address">
+                        <ul class="list-items footer-address my-3 d-flex flex-column gap-3">
                             <li>
                                 <a href="tel:{{getSystemSetting('type_number')->value}}" style="color:#063f12 !important">{{getSystemSetting('type_number')->value}}</a>
                             </li>
                             <li><a href="mailto:{{getSystemSetting('type_mail')->value}}"
                                    class="mail" style="color:#063f12 !important">{{getSystemSetting('type_mail')->value}}</a></li>
-                            <li style="color:#063f12 !important">{{getSystemSetting('type_address')->value}}</li>
+                            <li style="color:#063F12">{{getSystemSetting('type_address')->value}}</li>
                         </ul>
                         <h3 class="widget-title font-size-17 mt-4" style="color:#063f12 !important">@translate(We are on)</h3>
-                        <ul class="social-profile">
+                        <ul class="social-profile d-flex gap-2 mt-3">
                             @if(getSystemSetting('type_fb')->value != null)
-                                <li><a href="{{getSystemSetting('type_fb')->value}}" target="_blank"><i
-                                            class="fa fa-facebook"></i></a></li>
+                                <li><a href="{{getSystemSetting('type_fb')->value}}" target="_blank"><i class="fa-brands fa-facebook fs-3"></i></a></li>
                             @endif
                             @if(getSystemSetting('type_tw')->value != null)
-                                <li><a href="{{getSystemSetting('type_tw')->value}}" target="_blank"><i
-                                            class="fa fa-twitter"></i></a></li>
+                                <li><a href="{{getSystemSetting('type_tw')->value}}" target="_blank"><i class="fa-brands fa-twitter fs-3"></i></a></li>
                             @endif
                             @if(getSystemSetting('type_google')->value != null)
-                                <li><a href="{{getSystemSetting('type_google')->value}}" target="_blank"><i
-                                            class="fa fa-google-plus"></i></a></li>
+                                <li><a href="{{getSystemSetting('type_google')->value}}" target="_blank"><i class="fa-brands fa-google-plus-g fs-3"></i></a></li>
                             @endif
                         </ul>
                     </div><!-- end footer-widget -->
@@ -77,7 +74,7 @@
                 </div><!-- end col-lg-4 -->
 
             </div><!-- end row -->
-            <div class="copyright-content">
+            <div class="copyright-content mt-5">
                 <div class="row align-items-center">
                     <div class="col-lg-12" style="text-align: center">
                         <p class="copy__desc" style="color:#063f12 !important">&copy; {{date('Y')}} {{getSystemSetting('type_footer')->value}}</p>
