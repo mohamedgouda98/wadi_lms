@@ -17,11 +17,6 @@ class Installed
     public function handle($request, Closure $next)
     {
         try {
-
-            if (! DB::connection()->getPdo()) {
-                return redirect()->route('install');
-            }
-
             return $next($request);
         } catch (\Exception $exception) {
             return $exception->getMessage();
