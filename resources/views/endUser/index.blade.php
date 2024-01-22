@@ -76,8 +76,24 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between">
-                                    <p class="m-0 card-price">Free</p>
-                                    <a href="{{route('course.single',$l_course->slug)}}" class="btn addToCart">Add To Cart</a>
+                                    @if($l_course->is_free)
+                                    <p class="m-0 card-price">@translate(Free)</p>
+                                    @else
+                                        @if($l_course->is_discount)
+                                            <p class="m-0 card-price">{{formatPrice($l_course->discount_price)}}</p>
+                                            <p class="m-0 card-price"><del>{{formatPrice($l_course->price)}}</del></p>
+                                        @else
+                                            <p class="m-0 card-price">{{formatPrice($l_course->price)}}</p>
+                                        @endif
+                                    @endif
+                                    @auth()
+                                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == 'Student')
+                                                <a href="#!" class="text-btn addCart addToCart-{{$l_course->id}}"
+                                                   onclick="addToCart({{$l_course->id}},'{{route('add.to.cart')}}')">@translate(Add to cart)</a>
+                                        @else
+                                            <a href="{{route('login')}}" class="btn addCart">@translate(Add to cart)</a>
+                                        @endif
+                                    @endauth
                                 </div>
                             </div>
                         </div>
