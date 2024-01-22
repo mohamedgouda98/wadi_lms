@@ -43,225 +43,43 @@
     <!-- for student -->
     <section class="for__students">
         <div class="container px-5 py-5 position-relative">
-            <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner d-flex justify-content-between align-items-center">
-                    <div class="carousel-item card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
+            <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true">
+                @foreach($latestCourses as $l_course)
+                    <swiper-slide>
+                        <div class="card rounded-4">
+                            <img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="card-img-top" alt="image__course">
+                            <div class="card-body position-relative">
+                                @auth()
+                                    <a href="#!" onclick="addToCart({{$l_course->id}},'{{route('add.to.wishlist')}}')"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
+                                @endauth
+                                @guest()
+                                        <a href="{{route('login')}}"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
+                                @endguest
+                                <p class="card-type">{{$l_course->level}}</p>
+                                <h5 class="card-title"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></h5>
+                                <p class="enrolled__number">@translate(Enrolled) <span>{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span></p>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="fa-solid fa-play"></i>
+                                        <p class="m-0">{{$l_course->classes->count()}} @translate(Classes)</p>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="d-flex align-items-center gap-2">
+                                        <i class="fa-regular fa-clock"></i>
+                                        @php
+                                            $total_duration = 0;
+                                            foreach ($l_course->classes as $item){
+                                                $total_duration +=$item->contents->sum('duration');
+                                            }
+                                        @endphp
+                                        <p class="m-0">{{duration($total_duration)}}</p>
+                                    </div>
                                 </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
+                                <a href="{{route('course.single',$l_course->slug)}}" class="btn see-course-details mt-4">View more</a>
                             </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a> -->
-            <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true"
-            >
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
-                <swiper-slide>
-                    <div class="card rounded-4">
-                        <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?size=626&ext=jpg&ga=GA1.1.632798143.1705708800&semt=ais" class="card-img-top" alt="image__course">
-                        <div class="card-body position-relative">
-                            <i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i>
-                            <p class="card-type">Beginner</p>
-                            <h5 class="card-title">The Compete Android Course</h5>
-                            <p class="enrolled__number">Enrolled <span>0</span></p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-solid fa-play"></i>
-                                    <p class="m-0">2 Classes</p>
-                                </div>
-                                <div class="line"></div>
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="fa-regular fa-clock"></i>
-                                    <p class="m-0">00:22:00</p>
-                                </div>
-                            </div>
-                            <a href="#" class="btn see-course-details mt-4">Go somewhere</a>
-                        </div>
-                    </div>
-                </swiper-slide>
+                    </swiper-slide>
+                @endforeach
             </swiper-container>
             <button class="position-absolute carousel-control-next "><i class="fa-solid fa-chevron-right"></i></button>
             <button class="position-absolute carousel-control-prev swiper-button-prev"><i class="fa-solid fa-chevron-left"></i></button>

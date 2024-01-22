@@ -98,8 +98,8 @@
                                                     alt="{{$l_course->title}}"></a>
                                             @if(bestSellingTags($l_course->id))
                                                 <div class="card-badge">
-                                                                    <span
-                                                                        class="badge-label">@translate(bestseller)</span>
+                                                    <span
+                                                        class="badge-label">@translate(bestseller)</span>
                                                 </div>
                                             @endif
                                         </div><!-- end card-image -->
