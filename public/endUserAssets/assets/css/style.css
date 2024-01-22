@@ -108,7 +108,7 @@ body {
 }
 
 .hero__video {
-    margin-top: 0;
+    margin-top: -80px;
     width: 50%;
     height: 0%;
 }
@@ -317,6 +317,10 @@ body {
 
 swiper-slide {
     max-width: 370px !important;
+}
+
+swiper-slide:hover {
+    transform: scale(1.03);
 }
 
 

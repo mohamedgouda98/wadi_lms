@@ -4,17 +4,12 @@
 
 @section('content')
     <!-- hero  -->
-    <section class="hero pt-3 d-flex flex-column align align-items-center justify-content-between">
-        <div class="d-flex flex-column align-items-center justify-content-between gap-5">
+    <section class="hero pt-3 d-flex flex-column align-items-center justify-content-start">
+        <div class="">
             <h1 class="heor__pargraph">
                 WORLDWIDE ASSOCIATION OF DIVING INSTRUCTOR
             </h1>
-            <div class="hero__btns d-flex align-items-center gap-5">
-                <button>Check Courses</button>
-                <a href="{{ route('student.register') }}"><button>Be a Student</button></a>
-            </div>
         </div>
-
         <div class="hero__video text-center">
             <video autoplay="true" loop="" playsinline="" class="video w-100">
                 <source src="{{ asset('endUserAssets/assets/img/hero_video.webm') }}" type="video/mp4">
