@@ -47,8 +47,8 @@
                 @foreach($latestCourses as $l_course)
                     <swiper-slide>
                         <div class="card rounded-4">
-                            <img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="card-img-top" alt="image__course">
-                            <div class="card-body position-relative">
+                            <a href="" class="text-decoration-none"><img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="card-img-top" alt="image__course"></a>
+                            <div class="card-body d-flex flex-column gap-2 position-relative">
                                 @auth()
                                     <a href="#!" onclick="addToCart({{$l_course->id}},'{{route('add.to.wishlist')}}')"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
                                 @endauth
@@ -56,8 +56,8 @@
                                         <a href="{{route('login')}}"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
                                 @endguest
                                 <p class="card-type">{{$l_course->level}}</p>
-                                <h5 class="card-title"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></h5>
-                                <p class="enrolled__number">@translate(Enrolled) <span>{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span></p>
+                                <p class="card-title"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold text-decoration-none">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></p>
+                                <p class="enrolled__number mt-1">@translate(Enrolled) <span>{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span></p>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="d-flex align-items-center gap-2">
                                         <i class="fa-solid fa-play"></i>
@@ -75,7 +75,10 @@
                                         <p class="m-0">{{duration($total_duration)}}</p>
                                     </div>
                                 </div>
-                                <a href="{{route('course.single',$l_course->slug)}}" class="btn see-course-details mt-4">View more</a>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p class="m-0 card-price">Free</p>
+                                    <a href="{{route('course.single',$l_course->slug)}}" class="btn addToCart">Add To Cart</a>
+                                </div>
                             </div>
                         </div>
                     </swiper-slide>
