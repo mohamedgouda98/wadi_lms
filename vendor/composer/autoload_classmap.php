@@ -102,6 +102,7 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\Student\\UpdateStudent' => $baseDir . '/app/Http/Requests/Student/UpdateStudent.php',
     'App\\Http\\Resources\\CartResource' => $baseDir . '/app/Http/Resources/CartResource.php',
     'App\\Http\\Resources\\CategoryResource' => $baseDir . '/app/Http/Resources/CategoryResource.php',
     'App\\Http\\Resources\\ClassContentResource' => $baseDir . '/app/Http/Resources/ClassContentResource.php',

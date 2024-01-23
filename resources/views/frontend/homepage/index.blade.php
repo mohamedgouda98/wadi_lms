@@ -4,64 +4,200 @@
     <!--================================
          START SLIDER AREA
 =================================-->
-    <section class="slider-area slider-area2">
-        <div class="homepage-slide2">
-            @foreach($sliders as $item)
-                <div class="single-slide-item">
-                    <div id="perticles-js-2"></div>
-                    <div class="slide-item-table">
-                        <div class="slide-item-tablecell">
-                            <div class="container">
-                                <div class="row">
-                                    <!-- <div class="col-lg-8">
-                                        <div class="section-heading">
-                                            <h2 class="section__title">{{$item->title}}</h2>
-                                            <p class="section__desc">
-                                                {{$item->sub_title}}
-                                            </p>
-                                        </div>
-                                        <div class="hero-search-form">
-                                            <div class="contact-form-action">
-                                                <form>
-                                                    <div class="input-box">
-                                                        <div class="form-group mb-0">
 
-                                                            <input class="form-control" id="slider-search" type="text"
-                                                                   name="search"
-                                                                   placeholder="@translate(Search for anything)">
-                                                            <span class="la la-search search-icon"></span>
-
-
-
-
-                                                            <div class="overflow-hidden search-list w-100">
-                                                                <div id="appendSearchCart2"></div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-
-
-                        </div><!-- slide-item-tablecell -->
-                    </div><!-- slide-item-table -->
-                </div><!-- end single-slide-item -->
-            @endforeach
-        </div><!-- end homepage-slides -->
-    </section>
     <!--================================
             END SLIDER AREA
     =================================-->
-
-
+    <section class="hero pt-3 d-flex flex-column align-items-center justify-content-start">
+        <div class="conatainer">
+            <h1 class="heor__pargraph">
+                WORLDWIDE ASSOCIATION OF DIVING INSTRUCTOR
+            </h1>
+        </div>
+        <div class="hero__video text-center">
+            <video autoplay="true" loop="" playsinline="" class="video w-100">
+                <source src="{{ asset('endUserAssets/assets/img/hero_video.webm') }}" type="video/mp4">
+            </video>
+        </div>
+    </section>
     <!--======================================
-           START LatestCourse AREA
-   ======================================-->
+
+    <!-- who we are -->
+    <section class="whoWeAre">
+        <div class="container px-5 py-5 d-flex align-items-start justify-content-between">
+            <div class="whoWeAre__left w-50">
+                <div>
+                    <h1 class="whoWeAre__header">WHO WE ARE ?
+                        <div class="whoWeAre__line"></div>
+                    </h1>
+                    <p class="whoWeAre__pargraph">
+                        <span class="whoWeAre__wadi">WADI </span>is a new dive instructors association. We aim to
+                        provide the best environment to dive for divers of any level as well as instructors. We are
+                        focused on constantly updating or diving practices, and provide an extensive knowledge of
+                        environment preservation. Today's divers and instructors have the responsibility to build
+                        together the diving of tomorrow.
+                    </p>
+                </div>
+            </div>
+            <div class="whoWeAre__right w-50">
+                <img src="{{ asset('endUserAssets/assets/img/whoWeAre.png') }}" class="w-100" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- for student -->
+    <section class="for__students">
+        <div class="container px-4 py-5 position-relative">
+            <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true">
+                @foreach($latestCourses as $l_course)
+                    <swiper-slide>
+                        <div class="card rounded-4 position-relative">
+                            <a href="" class="text-decoration-none"><img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="card-img-top" alt="image__course"></a>
+                            <div class="card-body d-flex flex-column gap-2 position-relative">
+                                @auth()
+                                    <a href="#!" class="fs-2" onclick="addToCart({{$l_course->id}},'{{route('add.to.wishlist')}}')"><i class="fa-regular fa-heart position-absolute fs-1 addToWishlist"></i></a>
+                                @endauth
+                                @guest()
+                                        <a href="{{route('login')}}"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
+                                @endguest
+                                <p class="card-type mt-2">{{$l_course->level}}</p>
+                                <p class="card-title mt-2"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold text-decoration-none">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></p>
+                                <p class="enrolled__number my-1">@translate(Enrolled) <span>{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span></p>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="courses_videos d-flex align-items-center justify-content-between gap-1" style="width:30%">
+                                        <i class="fa-solid fa-play"></i>
+                                        <p class="">{{$l_course->classes->count()}} @translate(Classes)</p>
+                                    </div>
+                                    <div class="line"></div>
+                                    <div class="courses_time d-flex align-items-center justify-content-between gap-1" style="width:30%">
+                                        <i class="fa-regular fa-clock"></i>
+                                        @php
+                                            $total_duration = 0;
+                                            foreach ($l_course->classes as $item){
+                                                $total_duration +=$item->contents->sum('duration');
+                                            }
+                                        @endphp
+                                        <p class="m-0">{{duration($total_duration)}}</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    @if($l_course->is_free)
+                                    <p class="m-0 card-price">@translate(Free)</p>
+                                    @else
+                                        @if($l_course->is_discount)
+                                            <div class="d-flex flex-column align-items-start">
+                                                <p class="m-0 card-price sale_price">{{formatPrice($l_course->discount_price)}}</p>
+                                                <p class="m-0 card-price"><del>{{formatPrice($l_course->price)}}</del></p>
+                                            </div>
+                                        @else
+                                            <p class="m-0 card-price">{{formatPrice($l_course->price)}}</p>
+                                        @endif
+                                    @endif
+                                    @auth()
+                                        @if(\Illuminate\Support\Facades\Auth::user()->user_type == 'Student')
+                                                <a href="#!" class="text-btn my-4 addCart addToCart-{{$l_course->id}}"
+                                                    onclick="addToCart({{$l_course->id}},'{{route('add.to.cart')}}')">@translate(Add to cart)</a>
+                                        @else
+                                            <a href="{{route('login')}}" class="btn addCart">@translate(Add to cart)</a>
+                                        @endif
+                                    @endauth
+                                </div>
+                            </div>
+                        </div>
+                    </swiper-slide>
+                @endforeach
+            </swiper-container>
+            <button class="position-absolute carousel-control-next "><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="position-absolute carousel-control-prev swiper-button-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        </div>
+    </section>
+
+    <!-- contact us -->
+    <section class="contactUS py-5 mt-5">
+        <div class="container d-flex flex-column align-items-center justify-content-between gap-3">
+            <div class="contactUS__upper">
+                <h1 class="contactUS__upper__header text-center">GET IN TOUCH WITH US
+                </h1>
+                <p class="contactUS__upper__pargraph text-center">GROW WITH US, FUTURE IS OURS
+                </p>
+            </div>
+            <div class="contactUS__down text-center d-flex align-items-center justify-content-center align-self-center">
+                <input type="email"  placeholder="Write Your Email Here">
+                <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="navBar__mobile__menu">
+        <i class="close_mobile_nav fa-solid fa-circle-xmark fs-3 position-absolute end-0 top-0 m-3"></i>
+        <div class="navBar__mobile__menu__home">
+            <a href="">Home</a>
+        </div>
+        <hr>
+        <div class="navBar__mobile__menu__category">
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="">Categories</a>
+                <button class="show_category">+</button>
+            </div>
+            <ul class="mobile_dropdown-menu-item" id="category_mobile">
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/web-development1">Web Development</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/education2">Education</a>
+                </li>
+                <li class="">
+                    <a href="http://127.0.0.1:8000/courses/business3">Business</a>
+                    <ul >
+                        <li>
+                            <a href="http://127.0.0.1:8000/courses/finance-and-banking4">Finance and Banking</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/marketing5">Marketing</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/photography6">Photography</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/music7">Music</a>
+                </li>
+                <li>
+                    <a href="http://127.0.0.1:8000/courses/mobile-apps-development">Mobile Apps Development</a>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <div class="navBar__mobile__menu__login d-flex justify-content-between align-items-center">
+            <button><a href="">LOGIN</a></button>
+            <li class="nav-item px-4 position-relative">
+                <div class="dropdown">
+                    <a href="" role="button" id="dropdownMenuLink"  data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{{ asset('endUserAssets/assets/img/Flag-Egypt-circle-png.png') }}" width="35" class="flagLun" alt="wadi Lms">
+                    </a>
+                    <ul class="dropdown-menu language_dropdown_menu" aria-labelledby="dropdownMenuLink">
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="{{ asset('endUserAssets/assets/img/united-kingdom.png') }}"
+                                    width="35" class="flagLun" alt="" srcset=""> English</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="{{ asset('endUserAssets/assets/img/russian.png') }}"
+                                    width="35" class="flagLun" alt="" srcset=""> Russian</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="{{ asset('endUserAssets/assets/img/italian.png') }}"
+                                    width="35" class="flagLun" alt="" srcset=""> Italy</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <img src="{{ asset('endUserAssets/assets/img/german.png') }}"
+                                    width="35" class="flagLun" alt="" srcset=""> Germany</a></li>
+                    </ul>
+                </div>
+            </li>
+        </div>
+    </div>
    <!-- <section class=" whoWeAre-area padding-top-60px my-5 px-5 padding-bottom-60px">
     <div class="container row px-5">
         <div class="whoWeAre-area__text col-md-6 d-flex flex-column align-items-start gap-5 justify-content-start">
@@ -81,7 +217,7 @@
     <!--======================================
            START LatestCourse AREA
    ======================================-->
-    <section class="course-area padding-top-120px">
+    <!-- <section class="course-area padding-top-120px">
         <div class="course-wrapper">
             <div class="course-area__hero" >
                 <div class="row margin-top-28px">
@@ -102,7 +238,7 @@
                                                         class="badge-label">@translate(bestseller)</span>
                                                 </div>
                                             @endif
-                                        </div><!-- end card-image -->
+                                        </div>
                                         <div class="card-content">
                                             <p class="card__label">
                                                 <span class="card__label-text">{{$l_course->level}}</span>
@@ -135,7 +271,7 @@
                                                      @translate(Enrolled) <span
                                                             class="star__count">{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span>
                                                   </span>
-                                            </div><!-- end rating-wrap -->
+                                            </div>
                                             <div class="card-action">
                                                 <ul class="card-duration d-flex justify-content-between align-items-center">
                                                     <li>
@@ -156,10 +292,10 @@
                                                           </span>
                                                     </li>
                                                 </ul>
-                                            </div><!-- end card-action -->
+                                            </div>
                                             <div
                                                 class="card-price-wrap d-flex justify-content-between align-items-center">
-                                                <!--if free-->
+
                                                 @if($l_course->is_free)
                                                     <span class="card__price">@translate(Free)</span>
                                                 @else
@@ -171,7 +307,7 @@
                                                             class="card__price">{{formatPrice($l_course->price)}}</span>
                                                     @endif
                                                 @endif
-                                            <!--there are the login-->
+
                                                 @auth()
                                                     @if(\Illuminate\Support\Facades\Auth::user()->user_type == 'Student')
                                                         <a href="#!" class="text-btn addToCart-{{$l_course->id}}"
@@ -186,17 +322,18 @@
                                                 @endguest
 
 
-                                            </div><!-- end card-price-wrap -->
-                                        </div><!-- end card-content -->
+                                            </div>
+                                        </div>
                                     </div>
                                 @endforeach
-                            </div><!-- end course-carousel -->
-                        </div><!-- end tab-content -->
-                    </div><!-- end col-lg-12 -->
-                </div><!-- end row -->
-            </div><!-- end container -->
-        </div><!-- end course-wrapper -->
-    </section><!-- end courses-area -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
     @foreach($latestCourses as $l_c_tooltip)
         <div class="tooltip_templates">
             <div id="tooltip_content_{{$l_c_tooltip->id}}">
@@ -325,17 +462,6 @@
                 END COURSE AREA
         ======================================-->
 
-
-    <div class="section-block"></div>
-
-
-
-    <div class="section-block"></div>
-
-
-
-
-
     <!--======================================
             START SUBSCRIPTION AREA
     ======================================-->
@@ -410,3 +536,4 @@
             END SUBSCRIPTION AREA
     ======================================-->
 @endsection
+

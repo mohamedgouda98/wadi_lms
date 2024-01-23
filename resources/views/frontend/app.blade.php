@@ -14,12 +14,21 @@
     <title>{{getSystemSetting('type_name')->value}}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- font inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;800;900&display=swap"
+      rel="stylesheet">
     <!-- Favicon -->
     <link rel="icon" sizes="16x16" href="{{ filePath(getSystemSetting('favicon_icon')->value) }}">
     <link href="{{ asset('css/font.css') }}">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="{{ asset('endUserAssets/assets/css/all.min.css') }}">
+
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.css') }}">
@@ -85,7 +94,10 @@
     <!-- end scroll top -->
 
     <!-- template js files -->
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
     <script src="{{ asset('frontend/js/jquery.js') }}"></script>
     <script src="{{ asset('frontend/js/popper.js') }}"></script>
     <script src="{{ asset('frontend/js/bootstrap.js') }}"></script>
@@ -111,6 +123,7 @@
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
     <script src="{{ asset('js/frontend.js') }}"></script>
     <script src="{{ asset('js/notify.js') }}"></script>
+<script src="{{ asset('endUserAssets/assets/js/script.js') }}"></script>
 
     @include('layouts.modal')
 
