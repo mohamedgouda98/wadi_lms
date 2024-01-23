@@ -10,7 +10,7 @@
                     <div class="footer-widget">
                         <a href="{{route('homepage')}}">
                             <img src="{{ filePath(getSystemSetting('footer_logo')->value) }}"
-                                 alt="{{getSystemSetting('type_name')->value}}" class="footer__logo img-circle w-50" height="100px" width="100px">
+                                 alt="{{getSystemSetting('type_name')->value}}" class="footer__logo img-fluid w-50">
                         </a>
                         <ul class="list-items footer-address">
                             <li>
