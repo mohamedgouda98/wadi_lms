@@ -95,9 +95,9 @@
                                         @if(\Illuminate\Support\Facades\Auth::user()->user_type == 'Student')
                                                 <a href="#!" class="text-btn my-4 addCart addToCart-{{$l_course->id}}"
                                                     onclick="addToCart({{$l_course->id}},'{{route('add.to.cart')}}')">@translate(Add to cart)</a>
+                                        @endif
                                         @else
                                             <a href="{{route('login')}}" class="text-btn my-4 btn addCart">@translate(Add to cart)</a>
-                                        @endif
                                     @endauth
                                 </div>
                             </div>

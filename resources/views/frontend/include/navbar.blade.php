@@ -523,6 +523,7 @@
                             <div class="logo-right-button">
                                 <ul id="custom_toggle_bar" class="d-flex">
                                     <li><a href="{{route('student.register')}}" class="theme-btn student-btn">@translate(Become Student)</a></li>
+                                    <li><a href="{{route('login')}}" class="theme-btn student-btn ml-2">@translate(Login)</a></li>
                                 </ul>
                                 <div class="side-menu-open">
                                     <i class="la la-bars"></i>
