@@ -10,9 +10,9 @@
     =================================-->
     <section class="hero pt-3 d-flex flex-column align-items-center justify-content-start">
         <div class="conatainer">
-            <h1 class="heor__pargraph">
+            <p class="hero__pargraph">
                 WORLDWIDE ASSOCIATION OF DIVING INSTRUCTOR
-            </h1>
+            </p>
         </div>
         <div class="hero__video text-center">
             <video autoplay="true" loop="" playsinline="" class="video w-100">

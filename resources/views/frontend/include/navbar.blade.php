@@ -550,7 +550,7 @@
                                         <ul class="side-sub-menu">
                                             @foreach(categories() as $item)
                                                 <li class="sidenav__item">
-                                                    <a href="{{ route('course.category',$item->slug) }}">{{$item->slug}}</a>
+                                                    <a href="{{ route('course.category',$item->slug) }}">{{$item->name}}</a>
                                                     @if($item->child->count() > 0)
                                                         <ul class="side-sub-menu">
                                                             @foreach($item->child as $child)

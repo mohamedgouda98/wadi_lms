@@ -120,7 +120,7 @@
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
     <script src="{{ asset('js/frontend.js') }}"></script>
     <script src="{{ asset('js/notify.js') }}"></script>
-<script src="{{ asset('endUserAssets/assets/js/script.js') }}"></script>
+    <script src="{{ asset('endUserAssets/assets/js/script.js') }}"></script>
 
     @include('layouts.modal')
 

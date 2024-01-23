@@ -13,9 +13,8 @@
 
                       <div class="section-heading">
                         <h2 class="section__title">{{$page->title }}</h2>
-                      </div>
-
-                  </div><!-- end breadcrumb-content -->
+                        </div>
+                    </div><!-- end breadcrumb-content -->
               </div><!-- end col-lg-12 -->
           </div><!-- end row -->
       </div><!-- end container -->
