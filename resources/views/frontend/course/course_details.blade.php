@@ -25,7 +25,7 @@
                         </div>
                         <ul class="breadcrumb__list mt-2">
                             <li>@translate(Created by) <a
-                                    href="{{route('single.instructor',$s_course->relationBetweenInstructorUser->slug)}}">{{ $s_course->relationBetweenInstructorUser->name }}</a>
+                                    href="{{route('single.instructor',$s_course->slug)}}">{{ $s_course->name }}</a>
                             </li>
                             <li>{{ number_format(App\Models\Enrollment::where('course_id',$s_course->id)->count()) }}
                                 @translate(Students enrolled)
@@ -58,7 +58,7 @@
             <div class="preview-course-video">
                 <a href="javascript:void(0)" data-toggle="modal"
                    data-target=".preview-modal-form">
-                    <img src="{{ filePath($s_course->image) }}" alt="{{$s_course->title}}">
+                    <img src="{{ filePath($s_course->image) }}" alt="{{$s_course->title}}" class="img-thumbnail">
                     <div class="play-button">
                         <div class="square-60 bg-dark p-3 rounded-circle">
                             <i class="la la-play text-white play-icon"></i>
@@ -342,7 +342,7 @@
                                                     <a href="{{route('course.single',$course->slug)}}">{{$course->title}}</a>
                                                 </h3>
                                                 <p class="card__author">
-                                                    <a href="{{route('single.instructor',$course->relationBetweenInstructorUser->slug)}}">{{$course->relationBetweenInstructorUser->name}}</a>
+                                                    <a href="{{route('single.instructor',$course->slug)}}">{{$course->name}}</a>
                                                 </p>
                                                 <div class="rating-wrap d-flex mt-2 mb-3">
                                                     <span class="star-rating-wrap">
@@ -419,7 +419,7 @@
                                         <div class="card-content">
                                             <p class="card__author">
                                                 @translate(By) <a
-                                                    href="{{route('single.instructor',$tooltip->relationBetweenInstructorUser->slug)}}">{{$tooltip->relationBetweenInstructorUser->name}}</a>
+                                                    href="{{route('single.instructor',$tooltip->slug)}}">{{$tooltip->name}}</a>
                                             </p>
                                             <h3 class="card__title">
                                                 <a href="{{route('course.single',$tooltip->slug)}}">{{\Illuminate\Support\Str::limit($tooltip->title,58)}}</a>
@@ -478,10 +478,10 @@
                             <h3 class="widget-title">@translate(About the instructor)</h3>
                             <div class="instructor-content margin-top-30px d-flex">
                                 <div class="instructor-img">
-                                    <a href="{{route('single.instructor',$s_course->relationBetweenInstructorUser->slug)}}"
+                                    <a href="{{route('single.instructor',$s_course->slug)}}"
                                        class="instructor__avatar">
-                                        <img src="{{ filePath($s_course->relationBetweenInstructorUser->image) }}"
-                                             alt="{{$s_course->relationBetweenInstructorUser->name}}">
+                                        <img src="{{ filePath($s_course->image) }}"
+                                             alt="{{$s_course->name}}">
                                     </a>
                                     <ul class="list-items">
                                         </li>
@@ -490,25 +490,25 @@
                                             @translate(Students)
                                         </li>
                                         <li><span
-                                                class="la la-play-circle-o"></span> {{ \App\Models\Course::where('user_id',$s_course->relationBetweenInstructorUser->id)->count() }}
+                                                class="la la-play-circle-o"></span> {{ \App\Models\Course::where('user_id',$s_course->id)->count() }}
                                             @translate(Courses)
                                         </li>
                                         <li><span class="la la-eye"></span>
-                                            <a href="{{route('single.instructor',$s_course->relationBetweenInstructorUser->slug)}}">
+                                            <a href="{{route('single.instructor',$s_course->slug)}}">
                                                 @translate(View all Courses)</a></li>
                                     </ul>
                                 </div><!-- end instructor-img -->
                                 <div class="instructor-details">
                                     <div class="instructor-titles">
                                         <h3 class="widget-title"><a
-                                                href="{{route('single.instructor',$s_course->relationBetweenInstructorUser->slug)}}">{{ $s_course->relationBetweenInstructorUser->name }}</a>
+                                                href="{{route('single.instructor',$s_course->slug)}}">{{ $s_course->name }}</a>
                                         </h3>
-                                        <p class="instructor__subtitle">{{ \Illuminate\Support\Carbon::parse($s_course->relationBetweenInstructorUser->created_at)->diffForHumans() }}</p>
+                                        <p class="instructor__subtitle">{{ \Illuminate\Support\Carbon::parse($s_course->created_at)->diffForHumans() }}</p>
                                     </div><!-- end instructor-titles -->
 
                                     <div class="instructor-desc">
                                         <div class="collapse" id="show-more-content">
-                                            {!! $s_course->relationBetweenInstructorUser->relationBetweenInstructor->about !!}
+                                            {!! $s_course->relationBetweenInstructor->about !!}
                                         </div>
 
                                         <div class="btn-box pt-2 d-inline-block">
@@ -532,7 +532,7 @@
                         </div><!-- end instructor-wrap -->
 
                         <div class="view-more-courses mt-5">
-                            <h3 class="widget-title">@translate(More Courses by) {{ $s_course->relationBetweenInstructorUser->name }}</h3>
+                            <h3 class="widget-title">@translate(More Courses by) {{ $s_course->name }}</h3>
                             <div class="view-more-carousel margin-top-30px margin-bottom-50px">
                                 @foreach (App\Models\Course::Published()->where('user_id',$s_course->user_id)->latest()->take(6)->get() as $moreCourseItem)
                                     <div class="column-td-half">
@@ -572,7 +572,7 @@
                                                     <a href="{{route('course.single',$moreCourseItem->slug)}}">{{\Illuminate\Support\Str::limit($moreCourseItem->title,58)}}</a>
                                                 </h3>
                                                 <p class="card__author">
-                                                    <a href="{{route('single.instructor',$moreCourseItem->relationBetweenInstructorUser->slug)}}">{{$moreCourseItem->relationBetweenInstructorUser->name}}</a>
+                                                    <a href="{{route('single.instructor',$moreCourseItem->slug)}}">{{$moreCourseItem->name}}</a>
                                                 </p>
                                                 <div class="rating-wrap d-flex mt-2 mb-3">
                                                     <span class="star-rating-wrap">
@@ -650,7 +650,7 @@
                                                                 <div class="card-content">
                                                                     <p class="card__author">
                                                                         @translate(By) <a
-                                                                            href="{{route('single.instructor',$tooltip->relationBetweenInstructorUser->slug)}}">{{$tooltip->relationBetweenInstructorUser->name}}</a>
+                                                                            href="{{route('single.instructor',$tooltip->slug)}}">{{$tooltip->name}}</a>
                                                                     </p>
                                                                     <h3 class="card__title">
                                                                         <a href="{{route('course.single',$tooltip->slug)}}">{{\Illuminate\Support\Str::limit($tooltip->title,58)}}</a>
@@ -842,7 +842,7 @@
                                         </div><!-- end recent-img -->
                                         <div class="recentpost-body">
                                             <span class="recent__meta"> {{ $l_course->created_at->format('d M, Y') }} @translate(by) <a
-                                                    href="{{route('single.instructor',$l_course->relationBetweenInstructorUser->slug)}}">{{ $l_course->relationBetweenInstructorUser->name }}</a></span>
+                                                    href="{{route('single.instructor',$l_course->slug)}}">{{ $l_course->name }}</a></span>
                                             <h4 class="recent__link">
                                                 <a href="{{route('course.single',$l_course->slug)}}">{{\Illuminate\Support\Str::limit($l_course->title,58)  }}</a>
                                             </h4>

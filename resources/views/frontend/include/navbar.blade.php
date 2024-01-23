@@ -7,7 +7,7 @@
                         <a href="{{ route('homepage') }}"
                             class="w-50"
                             title="{{getSystemSetting('type_name')->value}}">
-                            <img class="img-fluid header-logo" src="{{ asset('endUserAssets/assets/img/logo.png') }}""
+                            <img class="img-fluid header-logo" src="{{ asset('endUserAssets/assets/img/logo.png') }}"
                                     alt="{{getSystemSetting('type_name')->value}}"></a>
                         <div class="header-category">
                             <ul>
@@ -53,7 +53,7 @@
                                         <input value="{{route('search.courses')}}" type="hidden"
                                                 id="searchUrl" name="searchUrl">
 
-                                        <!-- =========================== Search Suggession END ========================== -->
+                                        <!-- =========================== Search Suggestion END ========================== -->
                                     </div>
                                 </div><!-- end input-box -->
                             </form>
@@ -510,10 +510,9 @@
                                     <div class="user-menu-open ml-2">
                                         <a href="{{ route('dashboard') }}"
                                             class="d-block user-avatar-sm">
-                                            <img class="avatar-sm" width="50px" height="50px" src="{{ \Illuminate\Support\Facades\Auth::user()->image == null
-                                            ? asset('frontend/images/student.png')
+                                            <img class="avatar-sm" width="50px" height="50px" src="{{ \Illuminate\Support\Facades\Auth::user()->image == null ? asset('frontend/images/student.png')
                                             : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
-                                                    alt="{{\Illuminate\Support\Facades\Auth::user()->name}}" class="avatar-sm">
+                                                    alt="{{\Illuminate\Support\Facades\Auth::user()->name}}">
                                         </a>
                                     </div><!-- end user-menu-open -->
                                 </div>

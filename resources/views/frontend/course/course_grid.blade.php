@@ -296,7 +296,7 @@
                                                                    title="{{$course->title}}">{{ Str::limit($course->title,58) }}</a>
                                                             </h3>
                                                             <p class="card__author">
-                                                                <a href="{{route('single.instructor',$course->relationBetweenInstructorUser->slug)}}">{{$course->relationBetweenInstructorUser->name}}</a>
+                                                                <a href="{{route('single.instructor',$course->slug)}}">{{$course->name}}</a>
                                                             </p>
                                                             <div class="rating-wrap d-flex mt-2 mb-3">
                                                     <span class="star-rating-wrap">
@@ -376,7 +376,7 @@
                                                         <div class="card-content">
                                                             <p class="card__author">
                                                                 @translate(By) <a
-                                                                    href="{{route('single.instructor',$c_tooltip->relationBetweenInstructorUser->slug)}}">{{$c_tooltip->relationBetweenInstructorUser->name}}</a>
+                                                                    href="{{route('single.instructor',$c_tooltip->slug)}}">{{$c_tooltip->name}}</a>
                                                             </p>
                                                             <h3 class="card__title">
                                                                 <a href="{{route('course.single',$c_tooltip->slug)}}"

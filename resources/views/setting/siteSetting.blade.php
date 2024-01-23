@@ -113,6 +113,11 @@
                         <input type="hidden" value="type_google" name="type_google">
                         <input type="text" value="{{getSystemSetting('type_google')->value}}" name="google"
                                class="form-control mb-2">
+                        <!--Instagram-->
+                        <label class="label">@translate(Instagram Link)</label>
+                        <input type="hidden" value="type_instagram" name="type_instagram">
+                        <input type="text" value="{{getSystemSetting('type_instagram')?->value}}" name="instagram"
+                               class="form-control mb-2">
 
                         <!--Number-->
                         <label class="label">@translate(Number )</label>
