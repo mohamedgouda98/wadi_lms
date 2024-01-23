@@ -58,7 +58,7 @@
             <div class="preview-course-video">
                 <a href="javascript:void(0)" data-toggle="modal"
                    data-target=".preview-modal-form">
-                    <img src="{{ filePath($s_course->image) }}" alt="{{$s_course->title}}">
+                    <img src="{{ filePath($s_course->image) }}" alt="{{$s_course->title}}" class="img-thumbnail">
                     <div class="play-button">
                         <div class="square-60 bg-dark p-3 rounded-circle">
                             <i class="la la-play text-white play-icon"></i>
