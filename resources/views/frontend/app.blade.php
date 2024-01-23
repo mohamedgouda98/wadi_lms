@@ -61,7 +61,7 @@
             </svg>
         </div>
     </div>
-    <!-- end cssload-loader -->
+    <!-- end css load-loader -->
 
     <!--======================================
         START HEADER AREA

@@ -32,7 +32,11 @@
                             @endif
                             @if(getSystemSetting('type_google')->value != null)
                                 <li><a href="{{getSystemSetting('type_google')->value}}" target="_blank"><i
-                                            class="fa fa-google-plus"></i></a></li>
+                                            class="fa fa-google"></i></a></li>
+                            @endif
+                            @if(getSystemSetting('type_instagram')->value != null)
+                                    <li><a href="{{getSystemSetting('type_instagram')->value}}" target="_blank"><i
+                                                class="fa fa-instagram"></i></a></li>
                             @endif
                         </ul>
                     </div><!-- end footer-widget -->

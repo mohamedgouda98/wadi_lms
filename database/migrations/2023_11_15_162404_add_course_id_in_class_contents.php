@@ -14,7 +14,7 @@ class AddCourseIdInClassContents extends Migration
     public function up()
     {
         Schema::table('class_contents', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id');
+//            $table->unsignedBigInteger('course_id');
         });
     }
 

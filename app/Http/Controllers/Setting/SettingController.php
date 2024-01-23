@@ -83,6 +83,11 @@ class SettingController extends Controller
             $system->value = $request->google;
             $system->save();
         }
+        if ($request->has('instagram')) {
+            $system = SystemSetting::where('type', $request->type_instagram)->first();
+            $system->value = $request->instagram;
+            $system->save();
+        }
         if ($request->has('address')) {
             $system = SystemSetting::where('type', $request->type_address)->first();
             $system->value = $request->address;
