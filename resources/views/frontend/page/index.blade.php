@@ -34,7 +34,7 @@
 
                           @foreach ($page->content as $item)
                             <p class="section__desc text-justify">
-{!! $item->body !!}
+                                {!! $item->body !!}
 
                           @endforeach
                       </div><!-- end section-heading -->
