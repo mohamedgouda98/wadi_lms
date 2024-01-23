@@ -85,10 +85,8 @@
                                     <p class="m-0 card-price">@translate(Free)</p>
                                     @else
                                         @if($l_course->is_discount)
-                                            <div class="d-flex flex-column align-items-start">
-                                                <p class="m-0 card-price sale_price">{{formatPrice($l_course->discount_price)}}</p>
-                                                <p class="m-0 card-price"><del>{{formatPrice($l_course->price)}}</del></p>
-                                            </div>
+                                            <p class="m-0 card-price">{{formatPrice($l_course->discount_price)}}</p>
+                                            <p class="m-0 card-price"><del>{{formatPrice($l_course->price)}}</del></p>
                                         @else
                                             <p class="m-0 card-price">{{formatPrice($l_course->price)}}</p>
                                         @endif
@@ -98,7 +96,7 @@
                                                 <a href="#!" class="text-btn my-4 addCart addToCart-{{$l_course->id}}"
                                                     onclick="addToCart({{$l_course->id}},'{{route('add.to.cart')}}')">@translate(Add to cart)</a>
                                         @else
-                                            <a href="{{route('login')}}" class="btn addCart">@translate(Add to cart)</a>
+                                            <a href="{{route('login')}}" class="text-btn my-4 btn addCart">@translate(Add to cart)</a>
                                         @endif
                                     @endauth
                                 </div>

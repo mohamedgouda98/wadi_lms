@@ -235,25 +235,25 @@
                                                     type="button" id="userDropdown" data-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false">
                                                     <img src="{{ \Illuminate\Support\Facades\Auth::user()->image == null
-                                                                ? asset('frontend/images/student.png')
-                                                                : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
-                                                            alt="{{ Auth::user()->name }}"
-                                                            class="avatar-sm rounded-circle" width="50px" height="50px">
+                                                             ? asset('frontend/images/student.png')
+                                                             : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
+                                                         alt="{{ Auth::user()->name }}"
+                                                         class="avatar-sm rounded-circle">
                                                 </button>
                                                 <div class="dropdown-menu userDrop" aria-labelledby="userDropdown">
                                                     <div class="mess-dropdown">
                                                         <div class="mess__title d-flex align-items-center">
                                                             <a href="{{ route('student.dashboard') }}">
                                                                 <img src="{{ \Illuminate\Support\Facades\Auth::user()->image == null
-                                                                            ? asset('frontend/images/student.png')
-                                                                            : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
-                                                                        alt="{{\Illuminate\Support\Facades\Auth::user()->name}}"
-                                                                        class="avatar-sm rounded-circle">
+                                                                          ? asset('frontend/images/student.png')
+                                                                          : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
+                                                                     alt="{{\Illuminate\Support\Facades\Auth::user()->name}}"
+                                                                     class="avatar-sm rounded-circle">
                                                             </a>
                                                             <div class="content ml-8">
                                                                 <h4 class="widget-title font-size-16">
                                                                     <a href="{{ route('student.dashboard') }}"
-                                                                        class="text-white">
+                                                                       class="text-white">
                                                                         {{\Illuminate\Support\Facades\Auth::user()->name}}
                                                                     </a>
                                                                 </h4>
@@ -263,61 +263,51 @@
                                                             </div>
                                                         </div><!-- end mess__title -->
                                                         @if (Auth::user()->user_type != "Admin")
-
                                                         <div class="mess__body">
                                                             <ul class="list-items">
-
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('student.profile') }}"
-                                                                       class="d-block">
+                                                                        class="d-block">
                                                                         <i class="la la-user"></i> @translate(My Profile)
                                                                     </a>
                                                                 </li>
-
                                                                 <li class="mb-0">
                                                                     <a href="{{route('my.courses')}}" class="d-block">
                                                                         <i class="la la-file-video-o"></i> @translate(My courses)
                                                                     </a>
                                                                 </li>
-
                                                                 <li class="mb-0">
                                                                     <a href="{{route('student.message')}}"
-                                                                       class="d-block">
+                                                                        class="d-block">
                                                                         <i class="la la-bell"></i>
                                                                         @translate(Message)
                                                                     </a>
                                                                 </li>
-
-
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('student.purchase.history') }}"
-                                                                       class="d-block">
+                                                                        class="d-block">
                                                                         <i class="la la-cart-plus"></i>
                                                                         @translate(Purchase history)
                                                                     </a>
                                                                 </li>
-
                                                                 @if(affiliateStatus())
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('affiliate.area') }}"
-                                                                       class="d-block">
+                                                                        class="d-block">
                                                                         <i class="la la-adn"></i>
                                                                         @translate(Affiliate Area)
                                                                     </a>
                                                                 </li>
                                                                  @endif
-
                                                                 <li class="mb-0">
                                                                     <div class="section-block mt-2 mb-2"></div>
                                                                 </li>
-
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('logout') }}" class="d-block"
                                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                                         <i class="la la-power-off text-danger"></i>
                                                                         @translate(Logout)
                                                                     </a>
-
                                                                     <form id="logout-form"
                                                                           action="{{ route('logout') }}" method="POST"
                                                                           class="d-none">
@@ -378,17 +368,21 @@
                                             </div><!-- end dropdown -->
                                         </div>
                                     </div>
+
                                     @else
-                                    <div class="header-widget header-widget2">
+
+
+                                      <div class="header-widget header-widget2">
                                         <div class="header-right-info">
                                             <ul class="user-cart d-flex align-items-center ">
                                                 <li class="p-50p">
                                                     <a href="{{route('dashboard')}}"
-                                                        class="btn btn-success text-white my-course-btn">@translate(Go To Dashboard)</a>
+                                                       class="btn btn-success text-white my-course-btn">@translate(Go To Dashboard)</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
+
                                     <div class="user-action-wrap">
                                         <div class="notification-item user-action-item">
                                             <div class="dropdown">
@@ -397,25 +391,27 @@
                                                     type="button" id="userDropdown" data-toggle="dropdown"
                                                     aria-haspopup="true" aria-expanded="false">
                                                     <img src="{{ \Illuminate\Support\Facades\Auth::user()->image == null
-                                                                ? asset('frontend/images/student.png')
-                                                                : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
-                                                            alt="{{ Auth::user()->name }}"
-                                                            class="avatar-sm rounded-circle">
+                                                             ? asset('frontend/images/student.png')
+                                                             : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
+                                                         alt="{{ Auth::user()->name }}"
+                                                         class="avatar-sm rounded-circle">
                                                 </button>
                                                 <div class="dropdown-menu userDrop" aria-labelledby="userDropdown">
                                                     <div class="mess-dropdown">
                                                         <div class="mess__title d-flex align-items-center">
+
                                                             <a href="{{ route('dashboard') }}">
                                                                 <img src="{{ \Illuminate\Support\Facades\Auth::user()->image == null
-                                                                            ? asset('frontend/images/student.png')
-                                                                            : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
-                                                                        alt="{{\Illuminate\Support\Facades\Auth::user()->name}}"
-                                                                        class="avatar-sm rounded-circle">
+                                                                          ? asset('frontend/images/student.png')
+                                                                          : filePath(\Illuminate\Support\Facades\Auth::user()->image) }}"
+                                                                     alt="{{\Illuminate\Support\Facades\Auth::user()->name}}"
+                                                                     class="avatar-sm rounded-circle">
                                                             </a>
+
                                                             <div class="content ml-8">
                                                                 <h4 class="widget-title font-size-16">
                                                                     <a href="{{ route('dashboard') }}"
-                                                                        class="text-white">
+                                                                       class="text-white">
                                                                         {{\Illuminate\Support\Facades\Auth::user()->name}}
                                                                     </a>
                                                                 </h4>
@@ -423,28 +419,38 @@
                                                                     class="email">{{\Illuminate\Support\Facades\Auth::user()->email}}</span>
                                                             </div>
                                                         </div><!-- end mess__title -->
+
+
                                                         <div class="mess__body">
                                                             <ul class="list-items">
+
+
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('media.index') }}"
-                                                                        class="d-block">
+                                                                       class="d-block">
                                                                         <i class="la la-video-camera"></i> @translate(Media Manager)
                                                                     </a>
                                                                 </li>
+
                                                                 @if (Auth::user()->user_type === 'Admin')
+
                                                                     @if(env('ADDONS_MANAGER') == "YES")
+
                                                                         <li class="mb-0">
                                                                             <a href="{{ route('addons.manager.index') }}"
                                                                             class="d-block">
                                                                                 <i class="la la-puzzle-piece"></i> @translate(Addons Manager)
                                                                             </a>
                                                                         </li>
+
                                                                         @endif
+
                                                                         <li class="mb-0">
                                                                             <a href="{{route('packages.index')}}" class="d-block">
                                                                                 <i class="la la-briefcase"></i> @translate(Instructor Package)
                                                                             </a>
                                                                         </li>
+
                                                                         @if (Route::has('affiliate.setting.create'))
                                                                         <li class="mb-0">
                                                                             <a href="{{route('affiliate.setting.create')}}" class="d-block">
@@ -452,24 +458,33 @@
                                                                             </a>
                                                                         </li>
                                                                         @endif
+
+
                                                                         <li class="mb-0">
                                                                             <a href="{{route('tickets.index')}}" class="d-block">
                                                                                 <i class="la la-ticket"></i> @translate(Support Ticket)
                                                                             </a>
                                                                         </li>
+
+
+
                                                                 @endif
+
+
                                                                 <li class="mb-0">
                                                                     <div class="section-block mt-2 mb-2"></div>
                                                                 </li>
+
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('logout') }}" class="d-block"
-                                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                                         <i class="la la-power-off text-danger"></i>
                                                                         @translate(Logout)
                                                                     </a>
+
                                                                     <form id="logout-form"
-                                                                            action="{{ route('logout') }}" method="POST"
-                                                                            class="d-none">
+                                                                          action="{{ route('logout') }}" method="POST"
+                                                                          class="d-none">
                                                                         @csrf
                                                                     </form>
                                                                 </li>
@@ -483,6 +498,9 @@
                                             </div><!-- end dropdown -->
                                         </div>
                                     </div>
+
+
+
                                     @endif
                                 </div>
                                 <div class="menu-toggler d-flex align-items-center">
