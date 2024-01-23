@@ -103,7 +103,7 @@
                                     </li>
                                     <li class="pl-5">
                                         <button
-                                            onclick="forModal('{{route('message.create',$s_course->id)}}','{{ $s_course->relationBetweenInstructorUser->name }}')"
+                                            onclick="forModal('{{route('message.create',$s_course->id)}}','{{ $s_course->name }}')"
                                             class="btn btn-success text-white">
                                             @translate(Send message)
                                         </button>
@@ -139,7 +139,7 @@
                                             </li>
 
                                         @endif
-                                        
+
                                     @endif
 
 
@@ -351,13 +351,13 @@
                                                     <div class="lecture-owner-wrap d-flex align-items-center">
                                                         <div class="lecture-owner-avatar">
                                                             <img
-                                                                src="{{ filePath($s_course->relationBetweenInstructorUser->relationBetweenInstructor->image) }}"
+                                                                src="{{ filePath($s_course->relationBetweenInstructor->image) }}"
                                                                 alt="">
                                                         </div>
                                                         <div class="lecture-owner-title-wrap">
                                                             <h3 class="widget-title pb-1 font-size-18"><a
-                                                                    href="{{route('single.instructor',$s_course->relationBetweenInstructorUser->slug)}}"
-                                                                    class="primary-color">{{ $s_course->relationBetweenInstructorUser->name }}</a>
+                                                                    href="{{route('single.instructor',$s_course->slug)}}"
+                                                                    class="primary-color">{{ $s_course->name }}</a>
                                                             </h3>
 
                                                         </div>
@@ -366,24 +366,24 @@
                                                         <ul class="social-profile">
                                                             <li>
                                                                 <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructorUser->relationBetweenInstructor->fb }}"><i
+                                                                   href="{{ $s_course->relationBetweenInstructor->fb }}"><i
                                                                         class="fa fa-facebook"></i></a></li>
                                                             <li>
                                                                 <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructorUser->relationBetweenInstructor->tw }}"><i
+                                                                   href="{{ $s_course->relationBetweenInstructor->tw }}"><i
                                                                         class="fa fa-twitter"></i></a></li>
                                                             <li>
                                                                 <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructorUser->relationBetweenInstructor->skype }}"><i
+                                                                   href="{{ $s_course->relationBetweenInstructor->skype }}"><i
                                                                         class="fa fa-skype"></i></a></li>
                                                             <li>
                                                                 <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructorUser->relationBetweenInstructor->linked }}"><i
+                                                                   href="{{ $s_course->relationBetweenInstructor->linked }}"><i
                                                                         class="fa fa-linkedin"></i></a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="lecture-owner-decription pt-4">
-                                                        {!! $s_course->relationBetweenInstructorUser->relationBetweenInstructor->about !!}
+                                                        {!! $s_course->relationBetweenInstructor->about !!}
                                                     </div>
                                                 </div>
                                             </div>

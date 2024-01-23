@@ -103,7 +103,7 @@
                                                                     <a href="{{route('course.single',$item->course->slug)}}">{{\Illuminate\Support\Str::limit($item->course->title,58)}}</a>
                                                                 </h3>
                                                                 <p class="card__author">
-                                                                    <a href="{{route('single.instructor',$item->course->relationBetweenInstructorUser->slug)}}">{{$item->course->relationBetweenInstructorUser->name}}</a>
+                                                                    <a href="{{route('single.instructor',$item->course->slug)}}">{{$item->course->name}}</a>
                                                                 </p>
                                                                 <div class="rating-wrap d-flex mt-2 mb-3">
                                                     <span class="star-rating-wrap">

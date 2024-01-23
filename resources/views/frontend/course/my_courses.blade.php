@@ -85,7 +85,7 @@
                                                                 <a href="{{route('course.single',$item->enrollCourse->slug)}}">{{Str::limit($item->enrollCourse->title,58)}}</a>
                                                             </h3>
                                                             <p class="card__author">
-                                                                <a href="{{route('single.instructor',$item->enrollCourse->relationBetweenInstructorUser->slug)}}">{{$item->enrollCourse->relationBetweenInstructorUser->name}}</a>
+                                                                <a href="{{route('single.instructor',$item->enrollCourse->slug)}}">{{$item->enrollCourse->name}}</a>
                                                             </p>
                                                             <div class="course-complete-bar-2 mt-2">
                                                                 <div class="progress-item mb-0">
