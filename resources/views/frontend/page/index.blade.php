@@ -29,12 +29,12 @@
           <div class="row">
               <div class="col-lg-12">
                   <div class="about-content-box">
-                      <div class="section-heading">
+                      <div class="section-heading text-justify">
 
                           @foreach ($page->content as $item)
-                            <p class="section__desc text-justify">
+                            <p class="section__desc">
                                 {!! $item->body !!}
-
+                            </p>
                           @endforeach
                       </div><!-- end section-heading -->
                   </div>
