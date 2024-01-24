@@ -445,3 +445,7 @@ $('#genurl').on('click',function () {
     $('#link').val('');
     $('#link').val(custom_url);
 });
+
+
+// clodse side nav
+

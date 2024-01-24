@@ -1284,7 +1284,7 @@ body {
     .column-td-half {
         -ms-flex: 0 0 50%;
         flex: 0 0 50%;
-        max-width: 50%
+        max-width: 100%
     }
 }
 
@@ -2113,7 +2113,7 @@ body {
     border: 1px solid rgba(127, 136, 151, 0.2);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 20px 20px;
     -webkit-box-shadow: 0 0 40px rgba(82, 85, 90, 0.06);
     -moz-box-shadow: 0 0 40px rgba(82, 85, 90, 0.06);
@@ -2386,7 +2386,20 @@ body {
 
 @media(max-width:375px) {
     .custom-checkbox {
-        margin-bottom: 0
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .custom-checkbox label {
+        font-size: 15px;
+    }
+    
+    .sidebar-widget {
+        padding: 11px !important;
     }
 }
 
@@ -7792,7 +7805,7 @@ body {
 .card-item {
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     margin-bottom: 30px;
     background-color: #fff;
     -webkit-transition: all .3s;
@@ -8318,6 +8331,17 @@ body {
 
 .tooltipster-sidetip.tooltipster-top .tooltipster-arrow-border, .tooltipster-sidetip.tooltipster-right .tooltipster-arrow-border, .tooltipster-sidetip.tooltipster-bottom .tooltipster-arrow-border, .tooltipster-sidetip.tooltipster-left .tooltipster-arrow-border {
     border: 0
+}
+
+
+@media (max-width:991px) {
+    .tooltipster-base {
+        display : none !important;
+    }
+
+    .preview-box {
+        display: block !important;
+    }
 }
 
 .blog-card .card-action {
@@ -9715,7 +9739,7 @@ body {
     height: 50px;
     line-height: 56px;
     font-size: 40px;
-    color: #233d63;
+    color: white;
     cursor: pointer;
     text-align: center;
     -webkit-border-radius: 5px;
@@ -9724,7 +9748,7 @@ body {
     display: none;
     position: relative;
     z-index: 1;
-    background-color: rgba(127, 136, 151, 0.2);
+    background-color: #95E067;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     -ms-transition: all .3s;
@@ -9806,6 +9830,13 @@ body {
     -o-transform: translateX(-100%);
     transform: translateX(-100%)
 }
+.closeSideBar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px !important;
+}
+
 
 .user-nav-container .humburger-menu .humburger-menu-lines, .dashboard-nav-container .humburger-menu .humburger-menu-lines, .side-nav-container .humburger-menu .humburger-menu-lines {
     display: inline-block;
@@ -9856,7 +9887,7 @@ body {
 }
 
 .user-nav-container .side-menu-wrap, .dashboard-nav-container .side-menu-wrap, .side-nav-container .side-menu-wrap {
-    margin-top: 35px
+    margin-top: 70px
 }
 
 .user-nav-container .side-menu-wrap .side-menu-ul .sidenav__item, .dashboard-nav-container .side-menu-wrap .side-menu-ul .sidenav__item, .side-nav-container .side-menu-wrap .side-menu-ul .sidenav__item {
@@ -13218,7 +13249,7 @@ body {
     border: 1px solid rgba(127, 136, 151, 0.2);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
-    border-radius: 4px;
+    border-radius: 10px;
     padding: 30px;
     -webkit-box-shadow: 0 0 40px rgba(82, 85, 90, 0.06);
     -moz-box-shadow: 0 0 40px rgba(82, 85, 90, 0.06);
@@ -17348,7 +17379,7 @@ swiper-container{
 
     .carousel-control-prev,
     .carousel-control-next {
-        top: 90% !important;
+        top: 95% !important;
     }
 
     .carousel-control-prev {
@@ -17586,4 +17617,30 @@ footer ul {
     #scroll-top {
         bottom: 60px !important;
     }
+}
+
+.preview-box {
+    display: none;
+}
+
+
+.prev_btn {
+    font-size: 15px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    background-color: #51be78;
+    padding: 10px 30px 10px 30px;
+    line-height: 1.5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 50px;
+    z-index: 1;
+    display: inline-block;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -ms-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    border: 2px solid #51be78;
+    font-weight: 600;
 }
