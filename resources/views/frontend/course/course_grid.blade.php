@@ -359,7 +359,7 @@
                                                             </div><!-- end card-price-wrap -->
                                                             <!-- preview coures button in small screen -->
                                                             <div class="btn-box w-75 mx-auto text-center mt-5 preview-box">
-                                                                <a href="" class="prev_btn text-light py-3 d-block fs-5">
+                                                                <a href="{{route('single.instructor',$course->slug)}}" class="prev_btn text-light py-3 d-block fs-5">
                                                                     Preview this course</a>
                                                             </div>
                                                         </div><!-- end card-content -->
