@@ -62,7 +62,7 @@
     <!--======================================
             START COURSE AREA
     ======================================-->
-    <section class="course-area padding-top-80px padding-bottom-120px">
+    <section class="course-area padding-top-80px padding-bottom-60px">
         <div class="course-wrapper">
             <div class="container">
                 <div class="row">
@@ -250,13 +250,13 @@
                         </div>
 
                         {{-- sidebar END --}}
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 mt-4">
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade active show">
                                     <div class="row">
                                         @forelse($courses as $course)
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-6 col-md-12">
                                                 <div class="column-td-half">
                                                     <div class="card-item card-preview"
                                                          data-tooltip-content="#tooltip_content_{{$course->id}}">
@@ -357,6 +357,11 @@
 
 
                                                             </div><!-- end card-price-wrap -->
+                                                            <!-- preview coures button in small screen -->
+                                                            <div class="btn-box w-75 mx-auto text-center mt-5 preview-box">
+                                                                <a href="" class="prev_btn text-light py-3 d-block fs-5">
+                                                                    Preview this course</a>
+                                                            </div>
                                                         </div><!-- end card-content -->
                                                     </div>
                                                 </div>

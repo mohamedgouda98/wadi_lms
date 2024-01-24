@@ -513,8 +513,8 @@
 
                                         <div class="btn-box pt-2 d-inline-block">
                                             <a class="collapsed link-collapsed" data-toggle="collapse"
-                                               href="#show-more-content" role="button" aria-expanded="false"
-                                               aria-controls="show-more-content">
+                                                href="#show-more-content" role="button" aria-expanded="false"
+                                                aria-controls="show-more-content">
                                                 <span class="link-collapse-read-more">@translate(Read more)</span>
                                                 <span class="link-collapse-active">@translate(Read less)</span>
                                                 <div class="ml-1">
@@ -523,8 +523,6 @@
                                                 </div>
                                             </a>
                                         </div>
-
-
                                     </div>
                                     <!-- end instructor-desc -->
                                 </div><!-- end instructor-details -->

@@ -26,7 +26,7 @@
         }), s(document).on("click", ".dashboard-nav-trigger-btn", function() {
             s(".dashboard-nav-container").addClass("active")
         }), s(document).on("click", ".humburger-menu .side-menu-close", function() {
-            s(".side-nav-container, .user-nav-container, .dashboard-nav-container").removeClass("active")
+            s(".side-nav-container, .user-nav-container, .dashboard-nav-container").toggleClass("active")
         }), s(".homepage-slide1").owlCarousel({
             items: 1,
             nav: !0,
