@@ -369,8 +369,8 @@
 
 
                                         @empty
-                                            <div class="col-12 m-5">
-                                                <img src="{{asset('no_data.png')}}" class="w-100 img-fluid">
+                                            <div class="align-self-start col-12">
+                                                <img src="{{asset('no_data.png')}}" class="w-100">
                                             </div>
                                         @endforelse
 
