@@ -226,25 +226,7 @@
                                             </li>
                                         </ul>
                                     </div>
-
-
-                                    <!-- All instructor -->
-                                    <div class="sidebar-widget">
-                                        <h3 class="widget-title">@translate(Instructors)</h3>
-                                        <span class="section-divider"></span>
-                                        <div class="sort-ordering">
-
-                                            <select class="sort-ordering-select select2-instructor selectpicker"
-                                                    name="instructor" data-live-search="true" onchange="submitForm()">
-                                                <option value="">@translate(All Instructor)</option>
-                                                @foreach(\App\Models\User::where('user_type','Instructor')->where('banned',0)->get() as $item)
-                                                    <option
-                                                        value="{{$item->id}}" {{Request::get('instructor') ==$item->id ? 'selected':null }}>{{$item->name}}</option>
-                                                @endforeach
-                                            </select>
-
-                                        </div>
-                                    </div><!-- end sidebar-widget -->
+                                    <!-- end sidebar-widget -->
                                 </form>
                             </div>
                         </div>

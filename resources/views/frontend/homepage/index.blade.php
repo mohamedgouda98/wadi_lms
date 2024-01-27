@@ -11,7 +11,7 @@
     <section class="hero pt-3 d-flex flex-column align-items-center justify-content-start">
         <div class="conatainer">
             <p class="hero__pargraph">
-                WORLDWIDE ASSOCIATION OF DIVING INSTRUCTOR
+                WORLDWIDE ASSOCIATION OF DIVING INSTRUCTORS
             </p>
         </div>
         <div class="hero__video text-center">

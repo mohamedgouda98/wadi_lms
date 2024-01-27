@@ -508,7 +508,7 @@
 
                                     <div class="instructor-desc">
                                         <div class="collapse" id="show-more-content">
-                                            {!! $s_course->relationBetweenInstructor->about !!}
+                                            {!! $s_course->about !!}
                                         </div>
 
                                         <div class="btn-box pt-2 d-inline-block">

@@ -272,34 +272,6 @@
                                                                     </a>
                                                                 </li>
                                                                 <li class="mb-0">
-                                                                    <a href="{{route('my.courses')}}" class="d-block">
-                                                                        <i class="la la-file-video-o"></i> @translate(My courses)
-                                                                    </a>
-                                                                </li>
-                                                                <li class="mb-0">
-                                                                    <a href="{{route('student.message')}}"
-                                                                        class="d-block">
-                                                                        <i class="la la-bell"></i>
-                                                                        @translate(Message)
-                                                                    </a>
-                                                                </li>
-                                                                <li class="mb-0">
-                                                                    <a href="{{ route('student.purchase.history') }}"
-                                                                        class="d-block">
-                                                                        <i class="la la-cart-plus"></i>
-                                                                        @translate(Purchase history)
-                                                                    </a>
-                                                                </li>
-                                                                @if(affiliateStatus())
-                                                                <li class="mb-0">
-                                                                    <a href="{{ route('affiliate.area') }}"
-                                                                        class="d-block">
-                                                                        <i class="la la-adn"></i>
-                                                                        @translate(Affiliate Area)
-                                                                    </a>
-                                                                </li>
-                                                                 @endif
-                                                                <li class="mb-0">
                                                                     <div class="section-block mt-2 mb-2"></div>
                                                                 </li>
                                                                 <li class="mb-0">
@@ -332,15 +304,6 @@
                                                                 </li>
 
 
-                                                                <li class="mb-0">
-                                                                    <a href="{{route('my.courses')}}" class="d-block">
-                                                                        <i class="la la-file-video-o"></i> @translate(My courses)
-                                                                    </a>
-                                                                </li>
-
-                                                                <li class="mb-0">
-                                                                    <div class="section-block mt-2 mb-2"></div>
-                                                                </li>
 
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('logout') }}" class="d-block"
