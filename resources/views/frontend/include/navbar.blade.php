@@ -39,25 +39,8 @@
                 </div><!-- end col-lg-3 -->
                 <div class="col-lg-9">
                     <div class="menu-wrapper">
-                        <div class="contact-form-action search-form-action m-auto">
-                            <form>
-                                <div class="input-box">
-                                    <div class="form-group">
-                                        <!-- ======================== Search Suggession ============================= -->
-                                        <div class="overflow-hidden search-list w-100">
-                                            <div id="appendSearchCart1"></div>
-                                        </div>
-                                        {{--some ajax value--}}
-                                        <input value="@translate(Your Cart is Empty)" type="hidden"
-                                                id="emptyUrl" name="emptyUrl">
-                                        <input value="{{route('search.courses')}}" type="hidden"
-                                                id="searchUrl" name="searchUrl">
 
-                                        <!-- =========================== Search Suggestion END ========================== -->
-                                    </div>
-                                </div><!-- end input-box -->
-                            </form>
-                        </div><!-- end contact-form-action -->
+                        <!-- end contact-form-action -->
 
                         <!-- end main-menu -->
 
@@ -79,8 +62,9 @@
                                             <ul class="user-cart d-flex align-items-center ">
                                                 <li class="p-50p">
                                                     <a href="{{route('my.courses')}}"
-                                                        class="btn btn-success text-white my-course-btn">@translate(My courses)</a>
-                                                </li>
+                                                        class="btn btn-success text-white my-course-btn">@translate(My courses)</a></li>
+                                                <li><a href="https://wadi.pro" class="btn btn-success text-white my-course-btn me-1 border-0">@translate(Wadi Pro)</a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
@@ -341,6 +325,7 @@
                                                 <li class="p-50p">
                                                     <a href="{{route('dashboard')}}"
                                                        class="btn btn-success text-white my-course-btn">@translate(Go To Dashboard)</a>
+                                                       <li><a href="https://wadi.pro/" class="btn btn-success text-white my-course-btn">@translate(Wadi Pro)</a></li>
                                                 </li>
                                             </ul>
                                         </div>
@@ -483,9 +468,10 @@
                         @endauth
                         @guest
                             <div class="logo-right-button">
-                                <ul id="custom_toggle_bar" class="d-flex">
-                                    <li><a href="{{route('student.register')}}" class="theme-btn student-btn">@translate(Become Student)</a></li>
-                                    <li><a href="{{route('login')}}" class="theme-btn student-btn ml-2">@translate(Login)</a></li>
+                                <ul id="custom_toggle_bar" class="d-flex align-items-center gap-2">
+                                    <li><a href="https://wadi.pro/" class="theme-btn student-btn ">@translate(Wadi Pro)</a></li>
+                                    <li><a href="{{route('student.register')}}" class="theme-btn student-btn ml-1">@translate(Become Student)</a></li>
+                                    <li><a href="{{route('login')}}" class="theme-btn student-btn ml-1">@translate(Login)</a></li>
                                 </ul>
                                 <div class="side-menu-open">
                                     <i class="la la-bars"></i>
@@ -535,6 +521,9 @@
                                             <a href="{{route('student.dashboard')}}">@translate(Dashboard)</a>
                                         </li>
                                         <li class="sidenav__item">
+                                            <a href="{{route('student.dashboard')}}">@translate(Wadi Pro)</a>
+                                        </li>
+                                        <li class="sidenav__item">
                                             <a href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                         document.getElementById('logout-form').submit();">@translate(Logout)</a>
@@ -546,10 +535,14 @@
                                 </ul>
                                 @guest
                                     <div class="side-btn-box">
-                                        <a href="{{ route('login') }}" class="theme-btn">@translate(Login)</a>
-                                        <span>or</span>
-                                        <a href="{{ route('student.register') }}"
-                                            class="theme-btn">@translate(Register)</a>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <a href="{{ route('login') }}" class="theme-btn">@translate(Login)</a>
+                                            <span>or</span>
+                                            <a href="{{ route('student.register') }}"
+                                                class="theme-btn">@translate(Register)</a>
+                                        </div>
+                                        <a href="https://wadi.pro/"
+                                            class="theme-btn">@translate(Wadi Pro)</a>
                                     </div>
                                 @endguest
                             </div><!-- end side-menu-wrap -->
