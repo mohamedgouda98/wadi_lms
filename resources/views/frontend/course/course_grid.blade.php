@@ -65,30 +65,6 @@
     <section class="course-area padding-top-80px padding-bottom-60px">
         <div class="course-wrapper">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="filter-bar d-flex justify-content-between align-items-center">
-
-                            <ul class="filter-bar-tab nav nav-tabs align-items-center" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                  <span title="grid view">
-                                      <i class="la la-th-large nav-link icon-element active"></i>
-                                  </span>
-                                </li>
-
-                                @if($courses->count() != 0)
-                                    <li class="nav-item"> @translate(Showing) {{ $courses->firstItem() }}
-                                        -{{ $courses->count() < 10 ? $courses->count(): $courses->perPage() }}
-                                        @translate(of) {{ $courses->total() }} @translate(results)
-                                    </li>
-                                @else
-                                    <li class="nav-item"> @translate(No Course Found)</li>
-                                @endif
-                            </ul>
-
-                        </div>
-                    </div><!-- end col-lg-12 -->
-                </div><!-- end row -->
                 <div class="course-content-wrapper mt-4">
                     <div class="row">
 

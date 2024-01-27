@@ -2397,7 +2397,7 @@ body {
     .custom-checkbox label {
         font-size: 15px;
     }
-    
+
     .sidebar-widget {
         padding: 11px !important;
     }
@@ -8949,7 +8949,7 @@ body {
 }
 
 .header-widget2 .header-right-info ul li:last-child {
-    margin-right: 0
+    margin-right: 5px
 }
 
 .header-widget2 .header-right-info ul.user-action {
@@ -10007,8 +10007,17 @@ body {
 }
 
 .user-nav-container .side-btn-box, .dashboard-nav-container .side-btn-box, .side-nav-container .side-btn-box {
-    text-align: center;
-    margin-top: 40px
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:flex-start;
+    gap:20px;
+    margin-top: 40px;
+}
+
+.side-nav-container  span {
+    color: black;
 }
 
 .user-nav-container .side-btn-box .theme-btn, .dashboard-nav-container .side-btn-box .theme-btn, .side-nav-container .side-btn-box .theme-btn {
