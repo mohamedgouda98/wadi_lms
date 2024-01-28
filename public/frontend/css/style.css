@@ -17170,6 +17170,7 @@ body {
 .card img {
     max-width: 100%;
     max-height: 40vh;
+    border-radius:10px 10px 0px 0px !important;
 }
 
 .card {

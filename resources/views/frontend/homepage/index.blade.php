@@ -52,7 +52,7 @@
                 @foreach($latestCourses as $l_course)
                     <swiper-slide>
                         <div class="card rounded-4 position-relative">
-                            <a href="" class="text-decoration-none"><img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="rounded-4 card-img-top" alt="image__course"></a>
+                            <a href="" class="rounded-4 text-decoration-none"><img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="rounded-4 card-img-top" alt="image__course"></a>
                             <div class="card-body d-flex flex-column gap-2 position-relative">
                                 @auth()
                                     <a href="#!" class="fs-2" onclick="addToCart({{$l_course->id}},'{{route('add.to.wishlist')}}')"><i class="fa-regular fa-heart position-absolute fs-1 addToWishlist"></i></a>

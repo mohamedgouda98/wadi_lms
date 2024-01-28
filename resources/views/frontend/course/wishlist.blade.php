@@ -146,8 +146,7 @@
                                                                         <a href="#!"
                                                                            class="text-btn addToCart-{{$item->id}}"
 
-                                                                           onclick="addToCart({{$item->course->id}},'{{route('add.to.cart')}}')">@translate(Get
-                                                                            Enrolled)</a>
+                                                                           onclick="addToCart({{$item->course->id}},'{{route('add.to.cart')}}')">@translate(Get Enrolled)</a>
                                                                     @endif
 
 
