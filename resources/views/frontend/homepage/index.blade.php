@@ -48,10 +48,7 @@
     <!-- for student -->
     <section class="for__students">
         <div class="container px-4 py-5 position-relative">
-            <swiper-container  slides-per-view="3" autoplay-delay="5000"
-    autoplay-disable-on-interaction="false"
-    autoplay-reverse-direction="true"
-    space-between="15" speed="500" loop="true" css-mode="true">
+            <swiper-container  slides-per-view="3" speed="500" loop="true" css-mode="true">
                 @foreach($latestCourses as $l_course)
                     <swiper-slide>
                         <div class="card rounded-4 position-relative">
@@ -108,8 +105,8 @@
                 @endforeach
             </swiper-container>
             <!-- swiper slider arrows -->
-            <!-- <button class="position-absolute carousel-control-next "><i class="fa-solid fa-chevron-right"></i></button>
-            <button class="position-absolute carousel-control-prev swiper-button-prev"><i class="fa-solid fa-chevron-left"></i></button> -->
+            <button class="position-absolute carousel-control-next "><i class="fa-solid fa-chevron-right"></i></button>
+            <button class="position-absolute carousel-control-prev swiper-button-prev"><i class="fa-solid fa-chevron-left"></i></button>
         </div>
     </section>
 

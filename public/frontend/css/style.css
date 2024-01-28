@@ -17268,7 +17268,8 @@ body {
 }
 
 swiper-slide {
-    min-width: 320px !important;
+    /* min-width: 310px !important; */
+    max-width: 385px !important;
     height: 80%;
 }
 
@@ -17389,6 +17390,7 @@ swiper-container{
     .carousel-control-prev,
     .carousel-control-next {
         top: 95% !important;
+        display: none;
     }
 
     .carousel-control-prev {
