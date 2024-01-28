@@ -7932,7 +7932,7 @@ body {
     width: 100%;
     -webkit-border-radius: 4px 4px 0 0;
     -moz-border-radius: 4px 4px 0 0;
-    border-radius: 4px 4px 0 0
+    border-radius: 10px 10px 0 0
 }
 
 .card-content {
@@ -12949,9 +12949,6 @@ body {
     padding-right: 22px
 }
 
-.breadcrumb-content .breadcrumb__list li:last-child {
-    padding-right: 0
-}
 
 .breadcrumb-content .breadcrumb__list li a {
     color: #f7fafd;
@@ -16704,6 +16701,7 @@ body {
       padding: 0 6px;
       font-size: 20px;
   }
+
 
   .pl-55{
       padding-left: 55px !important;

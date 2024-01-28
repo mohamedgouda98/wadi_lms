@@ -329,7 +329,7 @@
                                                     <div class="card-item">
                                                         <div class="card-content">
                                                             <p class="card__author">
-                                                                @translate(By) <a
+                                                                <a
                                                                     href="{{route('single.instructor',$c_tooltip->slug)}}">{{$c_tooltip->name}}</a>
                                                             </p>
                                                             <h3 class="card__title">
