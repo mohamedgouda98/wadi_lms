@@ -27,9 +27,6 @@
                             <li>@translate(Created by) <a
                                     href="{{route('single.instructor',$s_course->slug)}}">{{ $s_course->name }}</a>
                             </li>
-                            <li>{{ number_format(App\Models\Enrollment::where('course_id',$s_course->id)->count()) }}
-                                @translate(Students enrolled)
-                            </li>
                             <li><i class="la la-globe"></i> {{ $s_course->language }}</li>
                             @if($s_course->classes->count() > 0)
                                 <li>@translate(Last updated)
@@ -162,10 +159,6 @@
             <li>
                 <span><i class="la la-level-up"></i>@translate(Skill level)</span>
                 <span>{{ $s_course->level }}</span>
-            </li>
-            <li>
-                <span>  <i class="la la-users"></i>@translate(Students)</span>
-                <span>{{ App\Models\Enrollment::where('course_id',$s_course->id)->count() }}</span>
             </li>
 
         </ul>
@@ -344,12 +337,6 @@
                                                 <p class="card__author">
                                                     <a href="{{route('single.instructor',$course->slug)}}">{{$course->name}}</a>
                                                 </p>
-                                                <div class="rating-wrap d-flex mt-2 mb-3">
-                                                    <span class="star-rating-wrap">
-                                                     @translate(Enrolled) <span
-                                                            class="star__count">{{\App\Models\Enrollment::where('course_id',$course->id)->count()}}</span>
-                                                  </span>
-                                                </div><!-- end rating-wrap -->
                                                 <div class="card-action">
                                                     <ul class="card-duration d-flex justify-content-between align-items-center">
                                                         <li>
@@ -429,14 +416,6 @@
                                                     href="{{route('course.category',$tooltip->category->slug)}}"
                                                     class="mr-1">{{$tooltip->category->name}}</a>
                                             </p>
-                                            <div class="rating-wrap d-flex mt-2 mb-3">
-
-                                                                                                                                        <span
-                                                                                                                                            class="star-rating-wrap">
-                                                                                                                                 @translate(Enrolled) <span
-                                                                                                                                                class="star__count">{{\App\Models\Enrollment::where('course_id',$tooltip->id)->count()}}</span>
-                                                                                                                            </span>
-                                            </div><!-- end rating-wrap -->
                                             <ul class="list-items mb-3 font-size-14">
                                                 @foreach(json_decode($tooltip->requirement) as $requirement)
                                                     <li>{{$requirement}}</li>
@@ -484,11 +463,6 @@
                                              alt="{{$s_course->name}}">
                                     </a>
                                     <ul class="list-items">
-                                        </li>
-                                        <li><span
-                                                class="la la-user"></span> {{ App\Models\Enrollment::where('course_id',$s_course->id)->count() }}
-                                            @translate(Students)
-                                        </li>
                                         <li><span
                                                 class="la la-play-circle-o"></span> {{ \App\Models\Course::where('user_id',$s_course->id)->count() }}
                                             @translate(Courses)
@@ -572,12 +546,6 @@
                                                 <p class="card__author">
                                                     <a href="{{route('single.instructor',$moreCourseItem->slug)}}">{{$moreCourseItem->name}}</a>
                                                 </p>
-                                                <div class="rating-wrap d-flex mt-2 mb-3">
-                                                    <span class="star-rating-wrap">
-                                                     @translate(Enrolled) <span
-                                                            class="star__count">{{\App\Models\Enrollment::where('course_id',$moreCourseItem->id)->count()}}</span>
-                                                  </span>
-                                                </div><!-- end rating-wrap -->
                                                 <div class="card-action">
                                                     <ul class="card-duration d-flex justify-content-between align-items-center">
                                                         <li>
@@ -660,11 +628,7 @@
                                                                     </p>
                                                                     <div class="rating-wrap d-flex mt-2 mb-3">
 
-                                                                                                                                        <span
-                                                                                                                                            class="star-rating-wrap">
-                                                                                                                                 @translate(Enrolled) <span
-                                                                                                                                                class="star__count">{{\App\Models\Enrollment::where('course_id',$tooltip->id)->count()}}</span>
-                                                                                                                            </span>
+
                                                                     </div><!-- end rating-wrap -->
                                                                     <ul class="list-items mb-3 font-size-14">
                                                                         @foreach(json_decode($tooltip->requirement) as $requirement)
@@ -819,11 +783,6 @@
                                         <span><i class="la la-level-up"></i>@translate(Skill level)</span>
                                         <span>{{ $s_course->level }}</span>
                                     </li>
-                                    <li>
-                                        <span>  <i class="la la-users"></i>@translate(Students)</span>
-                                        <span>{{ App\Models\Enrollment::where('course_id',$s_course->id)->count() }}</span>
-                                    </li>
-
                                 </ul>
                             </div><!-- end sidebar-widget -->
 

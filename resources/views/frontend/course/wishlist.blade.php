@@ -105,12 +105,6 @@
                                                                 <p class="card__author">
                                                                     <a href="{{route('single.instructor',$item->course->slug)}}">{{$item->course->name}}</a>
                                                                 </p>
-                                                                <div class="rating-wrap d-flex mt-2 mb-3">
-                                                    <span class="star-rating-wrap">
-                                                     @translate(Enrolled) <span
-                                                            class="star__count">{{\App\Models\Enrollment::where('course_id',$item->course->id)->count()}}</span>
-                                                  </span>
-                                                                </div><!-- end rating-wrap -->
                                                                 <div class="card-action">
                                                                     <ul class="card-duration d-flex justify-content-between align-items-center">
                                                                         <li>
