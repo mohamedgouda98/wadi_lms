@@ -22,7 +22,7 @@
     </section>
     <!--======================================
 
-    <!-- who we are -->
+    <-- who we are -->
     <section class="whoWeAre">
         <div class="container px-5 py-5 d-flex align-items-start justify-content-between">
             <div class="whoWeAre__left w-50">
@@ -62,7 +62,6 @@
                                 @endguest
                                 <p class="card-type mt-2">{{$l_course->level}}</p>
                                 <p class="card-title mt-2"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold text-decoration-none">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></p>
-                                <p class="enrolled__number my-1">@translate(Enrolled) <span>{{\App\Models\Enrollment::where('course_id',$l_course->id)->count()}}</span></p>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="courses_videos d-flex align-items-center justify-content-between gap-1" style="width:30%">
                                         <i class="fa-solid fa-play"></i>

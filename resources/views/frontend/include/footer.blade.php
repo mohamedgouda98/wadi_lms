@@ -69,7 +69,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-12" style="text-align: center">
                         <p class="copy__desc" style="color:#063f12 !important">&copy; {{date('Y')}} {{getSystemSetting('type_footer')->value}}</p>
-                        <p class="copy__desc" style="color:#063f12 !important">Developed By <a href="https://unlimited-software.com" target="_blank">Unlimited Software House</a></p>
+{{--                        <p class="copy__desc" style="color:#063f12 !important">Developed By <a href="https://unlimited-software.com" target="_blank">Unlimited Software House</a></p>--}}
                     </div><!-- end col-lg-9 -->
 {{--                    <div class="col-lg-2">--}}
 {{--                        <div class="sort-ordering">--}}
