@@ -17268,7 +17268,7 @@ body {
 }
 
 swiper-slide {
-    /* min-width: 370px !important; */
+    min-width: 320px !important;
     height: 80%;
 }
 
