@@ -16,7 +16,7 @@ class Course extends Model
 
     protected function getImageAttribute($value)
     {
-        return env('APP_URL') . $this::PATH.DIRECTORY_SEPARATOR. $value;
+        return config('app.url') . $this::PATH.DIRECTORY_SEPARATOR. $value;
     }
 
     /*Check the course is published*/
