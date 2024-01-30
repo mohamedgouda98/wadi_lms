@@ -91,12 +91,18 @@
 
 
                                     <li><a href="{{ route('course.index') }}"
-                                            class="{{ request()->is('dashboard/course/index*') ? 'active' : null }}">@translate(All
-                                            Courses)
+                                            class="{{ request()->is('dashboard/course/index*') ? 'active' : null }}">@translate(All Courses)
 
                                                 <sup
                                                     class="badge badge-info">{{ \App\Models\Course::where('is_published', false)->count() > 0 ? \App\Models\Course::where('is_published', false)->count() : null }}</sup>
-                                        </a></li>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('exam.index') }}" class="{{ request()->is('dashboard/exam/index*') ? 'active' : null }}">@translate(All Exams)</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('question.index') }}" class="{{ request()->is('dashboard/questions/index*') ? 'active' : null }}">@translate(All Questions)</a>
+                                    </li>
 
                                 </ul>
                             </li>

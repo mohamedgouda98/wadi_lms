@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Question\AnswerController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
@@ -87,6 +88,27 @@ Route::group(['middleware' => ['installed', 'checkBackend', 'auth'], 'prefix' =>
     Route::get('course/published', [CourseController::class, 'published'])->name('course.publish');
     Route::get('course/rating', [CourseController::class, 'rating'])->name('course.rating');
 
+    //CourseExam
+    Route::get('exam/index', [\App\Http\Controllers\Exam\ExamController::class, 'index'])->name('exam.index');
+    Route::get('exam/create/{course}', [\App\Http\Controllers\Exam\ExamController::class, 'create'])->name('exam.create');
+    Route::post('exam/store', [\App\Http\Controllers\Exam\ExamController::class, 'store'])->name('exam.store');
+    Route::get('exam/edit/{exam}', [\App\Http\Controllers\Exam\ExamController::class, 'edit'])->name('exam.edit');
+    Route::put('exam/update/{exam}', [\App\Http\Controllers\Exam\ExamController::class, 'update'])->name('exam.update');
+
+    //ExamQuestions
+    Route::get('questions/index',[\App\Http\Controllers\Question\QuestionController::class, 'index'])->name('question.index');
+    Route::get('questions/create/{exam}',[\App\Http\Controllers\Question\QuestionController::class, 'create'])->name('question.create');
+    Route::get('questions/edit/{examQuestion}',[\App\Http\Controllers\Question\QuestionController::class, 'edit'])->name('question.edit');
+    Route::post('questions/create', [\App\Http\Controllers\Question\QuestionController::class, 'store'])->name('question.store');
+    Route::put('questions/update/{examQuestion}',[\App\Http\Controllers\Question\QuestionController::class, 'update'])->name('question.update');
+    Route::get('questions/delete/{questionId}', [\App\Http\Controllers\Question\QuestionController::class, 'delete'])->name('question.delete');
+
+    //QuestionAnswer
+    Route::get('answer/create/{question}', [AnswerController::class, 'create'])->name('answer.create');
+    Route::post('answer/store', [AnswerController::class, 'store'])->name('answer.store');
+    Route::get('answer/makeCorrect/{questionAnswer?}',[AnswerController::class,'makeCorrect'])->name('answer.makeCorrect');
+    Route::put('answer/updateAnswer',[AnswerController::class,'updateAnswer'])->name('answer.updateAnswer');
+    Route::get('destroy/{questionAnswer}',[AnswerController::class,'destroy'])->name('answer.destroy');
     // class
     Route::get('class/create/{id}', [ClassController::class, 'create'])->name('classes.create');
     Route::post('class/store', [ClassController::class, 'store'])->name('classes.store')->middleware('demo');
