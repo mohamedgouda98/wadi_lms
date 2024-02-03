@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\StudentExam\StudentExamController;
 
 Route::get('x', function () {
     return courseLenght(2);
@@ -157,6 +158,9 @@ Route::group(['middleware' => ['installed', 'check.frontend', 'demo']], function
         Route::get('cart/checkout', [FrontendController::class, 'checkout'])
             ->name('checkout');
 
+        //StudentExam
+        Route::get('course/exam/{course}', [StudentExamController::class, 'courseExam'])->name('student-exam.course-exam');
+        Route::get('course/questions/{exam}', [StudentExamController::class, 'questions'])->name('student-exam.questions');
         // ============================== student route ===========================
 
         //dashboard

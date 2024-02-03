@@ -34,6 +34,8 @@
                         <th>@translate(Limit Questions)</th>
                         <th data-breakpoints="xs">@translate(Active)</th>
                         <th data-breakpoints="xs">@translate(Close)</th>
+                        <th data-breakpoints="xs">@translate(Specific Class)</th>
+                        <th data-breakpoints="xs">@translate(Class)</th>
                         <th>@translate(Action)</th>
 
                     </tr>
@@ -44,34 +46,6 @@
                             <td class="footable-first-visible">
                                 {{ ($loop->index+1) + ($exams->currentPage() - 1)*$exams->perPage() }}
                             </td>
-{{--                            <td class="w-45 text-left">--}}
-{{--                                <a href="{{  route('course.show',[$course->id,$course->slug]) }}">--}}
-{{--                                    <div class="card">--}}
-{{--                                        <div class="row no-gutters">--}}
-{{--                                            <div class="col-md-4 overflow-auto my-auto">--}}
-{{--                                                <img src="{{$course->image}}" class="card-img avatar-xl"--}}
-{{--                                                     alt="Card image">--}}
-{{--                                            </div>--}}
-{{--                                            <div class="col-md-8">--}}
-{{--                                                <div class="card-body">--}}
-{{--                                                    <h5 class="card-title font-16">{{ $course->title }}</h5>--}}
-{{--                                                    <p class="text-secondary">{{$course->level}}</p>--}}
-{{--                                                    <div class="d-flex justify-content-between">--}}
-{{--                                                        <span--}}
-{{--                                                            class="badge badge-{{ $course->is_published == true ? 'success'  : 'primary' }} p-2">{{ $course->is_published == true ? 'Published'  : 'Not Published' }}</span>--}}
-{{--                                                        @if ($course->is_discount == true )--}}
-{{--                                                            <span>{{ formatPrice($course->discount_price) }}</span>--}}
-{{--                                                            <span> <del> {{ formatPrice($course->price) }} </del> </span>--}}
-{{--                                                        @else--}}
-{{--                                                            <span>{{ $course->price != null ? formatPrice($course->price)  : 'Free' }}</span>--}}
-{{--                                                        @endif--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </a>--}}
-{{--                            </td>--}}
                             <td>{{ $exam->name }}</td>
                             <td><span class="badge badge-info">{{ $exam->course->title }}</span></td>
                             <td>
@@ -84,7 +58,8 @@
                                {{ $exam->active ? translate('active') : translate('not_active') }}
                             </td>
                             <td>{{ $exam->close ? translate('closed') : translate('not_closed') }}</td>
-
+                            <td>{{ $exam->specific_class ? translate('has_class') : translate('all_classes') }}</td>
+                            <td>{{ $exam->class?->title }}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-link p-0 font-18 float-right" type="button"

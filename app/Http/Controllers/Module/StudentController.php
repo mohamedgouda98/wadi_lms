@@ -15,6 +15,7 @@ use App\Notifications\VerifyNotifications;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Session;
 
@@ -58,7 +59,6 @@ class StudentController extends Controller
                 $students = Student::whereIn('user_id', $enroll_student_id)->orderBydesc('id')->paginate(10);
             }
         }
-
         return view('module.students.index', compact('students'));
     }
 
@@ -157,7 +157,6 @@ class StudentController extends Controller
     public function student_enroll_courses($id)
     {
         $enrollments = Enrollment::where('user_id', $id)->select('course_id')->get();
-
         return view('module.students.enroll_course', compact('enrollments', 'id'));
     }
 
@@ -165,17 +164,32 @@ class StudentController extends Controller
     {
         $items = $request->course_id;
 
-        foreach ($items as $item) {
-            $enroll = new Enrollment;
-            $enroll->course_id = $item;
-            $enroll->user_id = $id;
-            $enroll->save();
-        }
+        DB::transaction(function () use ($id, $items) {
+            $userCurrentCourseIds = Enrollment::where('user_id', $id)->pluck('course_id')->toArray();
 
-        Session::flash('message', translate('Course enrolled for student.'));
+            $coursesToRemove = array_diff($userCurrentCourseIds, $items);
+            $coursesToAdd = array_diff($items, $userCurrentCourseIds);
+
+            Enrollment::where('user_id', $id)
+                ->whereIn('course_id', $coursesToRemove)
+                ->delete();
+
+            $enrollments = array_map(function ($courseId) use ($id) {
+                return [
+                    'course_id' => $courseId,
+                    'user_id' => $id,
+                    'created_at' => now(), // Assuming you have timestamps
+                    'updated_at' => now(),
+                ];
+            }, $coursesToAdd);
+
+            if (!empty($enrollments)) {
+                Enrollment::insert($enrollments);
+            }
+            Alert::success('message', translate('Course enrolled for student.'));
+        });
 
         return back();
     }
 
-    //END
 }

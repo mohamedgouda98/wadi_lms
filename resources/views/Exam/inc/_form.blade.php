@@ -78,3 +78,26 @@
         </div>
     </div>
 </div>
+
+{{-- Close --}}
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label" for="specific_class">
+        @translate(Specific Class)</label>
+    <div class="col-lg-9">
+        <div class="switchery-list">
+            <input type="checkbox"   name="specific_class" class="js-switch-success" id="specific_class" {{ old('specific_class') || (isset($exam) ? $exam->specific_class : '') ? 'checked' : '' }}/>
+            @error('specific_class') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
+        </div>
+    </div>
+</div>
+
+<div class="form-group row" id="class_select">
+    <label class="col-lg-3 col-form-label" for="class">@translate(Class)</label>
+    <select class="form-select form-control" id="class" name="class_id">
+        <option value="">@translate(Select Class)</option>
+        @foreach($classes as $class)
+            <option value="{{ $class->id }}" {{ old('class_id') || (isset($exam) ? $exam->class_id : null) == $class->id }}>{{ $class->title }}</option>
+        @endforeach
+    </select>
+</div>
+

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Exam\ExamRequest;
+use App\Models\Classes;
 use App\Models\Course;
 use App\Models\Exam;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class ExamController extends Controller
 
     public function create(Course  $course)
     {
-        return view('Exam.create', compact('course'));
+        $classes = Classes::get(['id', 'title']);
+        return view('Exam.create', compact('course', 'classes'));
     }
 
     public function store(ExamRequest  $request)
@@ -42,6 +44,8 @@ class ExamController extends Controller
            'active' => $request->has('active') ? 1 : 0,
            'close' => $request->has('close') ? 1 : 0,
            'course_id' => $request->get('course_id'),
+           'specific_class' => $request->has('specific_class') ? 1 : 0,
+           'class_id' => $request->has('specific_class') ? $request->class_id : null
         ]);
 
         toast(translate('success_add_exam'), 'success');
@@ -50,7 +54,8 @@ class ExamController extends Controller
 
     public function edit(Exam $exam)
     {
-        return view('Exam.edit', compact('exam'));
+        $classes = Classes::get(['id', 'title']);
+        return view('Exam.edit', compact('exam', 'classes'));
     }
 
     public function update(ExamRequest $request, Exam $exam)
@@ -62,6 +67,8 @@ class ExamController extends Controller
             'limit_questions' => $request->get('limit_questions'),
             'active' => $request->has('active') ? 1 : 0,
             'close' => $request->has('close') ? 1 : 0,
+            'specific_class' => $request->has('specific_class') ? 1 : 0,
+            'class_id' => $request->has('specific_class') ? $request->class_id : null
         ]);
 
         toast(translate('success_update_exam'), 'success');

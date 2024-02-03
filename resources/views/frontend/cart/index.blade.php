@@ -32,7 +32,7 @@
                                         <a href="{{route('course.single',$item->course->slug)}}"
                                             class="widget-title">{{$item->course->title}}</a>
                                         <p>
-                                            By <a href="#!">{{$item->course->relationBetweenInstructorUser->name}}</a>
+                                            By <a href="#!">{{$item->course->name}}</a>
                                         </p>
                                     </div>
                                 </td>
@@ -425,53 +425,53 @@
 
                                                     <form action="{{ route('pagar.payment') }}" method="POST">
                                                         @csrf
-                                                            
+
 
                                                         <div class="container p-0">
                                                             <div class="card px-4">
                                                                 <div class="row gx-3">
                                                                     <div class="col-12">
                                                                         <div class="d-flex flex-column">
-                                                                            <p class="text mb-1">Cardholder Name</p> 
-                                                                            <input class="form-control mb-3" 
-                                                                            type="text" 
-                                                                            placeholder="Cardholder Name" 
-                                                                            value="{{ Auth::user()->name }}" 
+                                                                            <p class="text mb-1">Cardholder Name</p>
+                                                                            <input class="form-control mb-3"
+                                                                            type="text"
+                                                                            placeholder="Cardholder Name"
+                                                                            value="{{ Auth::user()->name }}"
                                                                             name="pagar_cardholder_name"
                                                                             autocomplete="cc-name">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <div class="d-flex flex-column">
-                                                                            <p class="text mb-1">Card Number</p> 
-                                                                            <input class="form-control mb-3" 
-                                                                            id="cr_no" 
-                                                                            type="text" 
+                                                                            <p class="text mb-1">Card Number</p>
+                                                                            <input class="form-control mb-3"
+                                                                            id="cr_no"
+                                                                            type="text"
                                                                             name="pagar_card_no"
-                                                                            placeholder="1234 5678 435678" 
+                                                                            placeholder="1234 5678 435678"
                                                                             autocomplete="cc-number">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-6">
                                                                         <div class="d-flex flex-column">
-                                                                            <p class="text mb-1">Expiry</p> 
-                                                                            <input class="form-control mb-3" 
-                                                                            type="text" 
-                                                                            placeholder="MM/YYYY" 
+                                                                            <p class="text mb-1">Expiry</p>
+                                                                            <input class="form-control mb-3"
+                                                                            type="text"
+                                                                            placeholder="MM/YYYY"
                                                                             name="pagar_expiry"
                                                                             autocomplete="cc-exp">
                                                                         </div>
                                                                     </div>
                                                                     <div class="col-6">
                                                                         <div class="d-flex flex-column">
-                                                                            <p class="text mb-1">CVV/CVC</p> 
-                                                                            <input class="form-control mb-3 pt-2 " 
-                                                                            type="password" 
+                                                                            <p class="text mb-1">CVV/CVC</p>
+                                                                            <input class="form-control mb-3 pt-2 "
+                                                                            type="password"
                                                                             name="pagar_cvv"
                                                                             placeholder="***">
                                                                         </div>
                                                                     </div>
-                                                            
+
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -482,7 +482,7 @@
                                                         <button type="button" class="btn btn-secondary"
                                                             data-dismiss="modal">Cancel</button>
                                                         <button type="submit" class="btn btn-primary">
-                                                            
+
                                                             @if(Session::has('coupon'))
                                                             <input type="hidden" name="amount"
                                                                 value="{{ PagarPrice($total_price - couponDiscountPrice($coupon)) }}">
@@ -495,7 +495,7 @@
                                                         </button>
                                                     </div>
                                                 </form>
-                                                
+
                                                 </div>
                                             </div>
                                         </div>

@@ -39,12 +39,18 @@ class AnswerController extends Controller
 
     public function makeCorrect(QuestionAnswer $questionAnswer = null)
     {
-        $otherAnswersQuery = $this->questionAnswerModel::where('exam_question_id',$questionAnswer->exam_question_id)
+        $questionAnswer = $this->questionAnswerModel::where('exam_question_id',$questionAnswer->exam_question_id)
             ->where('id',$questionAnswer->id)->first();
 
-        $otherAnswersQuery->update([
-            'correct' => !$otherAnswersQuery->correct
+        $questionAnswer->update([
+            'correct' => 1
         ]);
+
+        if ($questionAnswer->correct) {
+            $this->questionAnswerModel::where('exam_question_id', $questionAnswer->exam_question_id)
+                ->where('id', '!=', $questionAnswer->id)
+                ->update(['correct' => false]);
+        }
 
 
         toast('Answer Made Correct Successfully', 'success');

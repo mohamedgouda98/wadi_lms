@@ -30,7 +30,14 @@ class ExamRequest extends FormRequest
             'degree' => 'required|numeric',
             'limit_questions' => 'required|integer',
             'active' => 'nullable',
-            'close' => 'nullable'
+            'close' => 'nullable',
+            'specific_class' => 'nullable',
+            'class_id' => $this->checkClass()
         ];
+    }
+
+    protected function checkClass()
+    {
+        return request('specific_class') ? 'required|exists:classes,id' : 'nullable';
     }
 }

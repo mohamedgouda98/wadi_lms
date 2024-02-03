@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Question\AnswerController;
+use App\Http\Controllers\StudentExam\StudentExamController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;

@@ -12,7 +12,6 @@ class Enrollment extends Model
     public function enrollCourse()
     {
         return $this->belongsTo(Course::class, 'course_id', 'id')
-            ->with('relationBetweenInstructorUser')
             ->with('category')
             ->with('enrollClasses');
     }

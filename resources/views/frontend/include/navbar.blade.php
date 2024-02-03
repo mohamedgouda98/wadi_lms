@@ -64,7 +64,7 @@
                                                     <a href="{{route('my.courses')}}"
                                                         class="btn btn-success text-white my-course-btn">@translate(My courses)</a></li>
                                                 <li><a href="https://wadi.pro" class="btn btn-success text-white my-course-btn me-1 border-0">@translate(Wadi Pro)</a></li>
-                                                
+
                                             </ul>
                                         </div>
                                     </div>
@@ -371,58 +371,6 @@
 
                                                         <div class="mess__body">
                                                             <ul class="list-items">
-
-
-                                                                <li class="mb-0">
-                                                                    <a href="{{ route('media.index') }}"
-                                                                       class="d-block">
-                                                                        <i class="la la-video-camera"></i> @translate(Media Manager)
-                                                                    </a>
-                                                                </li>
-
-                                                                @if (Auth::user()->user_type === 'Admin')
-
-                                                                    @if(env('ADDONS_MANAGER') == "YES")
-
-                                                                        <li class="mb-0">
-                                                                            <a href="{{ route('addons.manager.index') }}"
-                                                                            class="d-block">
-                                                                                <i class="la la-puzzle-piece"></i> @translate(Addons Manager)
-                                                                            </a>
-                                                                        </li>
-
-                                                                        @endif
-
-                                                                        <li class="mb-0">
-                                                                            <a href="{{route('packages.index')}}" class="d-block">
-                                                                                <i class="la la-briefcase"></i> @translate(Instructor Package)
-                                                                            </a>
-                                                                        </li>
-
-                                                                        @if (Route::has('affiliate.setting.create'))
-                                                                        <li class="mb-0">
-                                                                            <a href="{{route('affiliate.setting.create')}}" class="d-block">
-                                                                                <i class="la la-chain"></i> @translate(Affiliate Area)
-                                                                            </a>
-                                                                        </li>
-                                                                        @endif
-
-
-                                                                        <li class="mb-0">
-                                                                            <a href="{{route('tickets.index')}}" class="d-block">
-                                                                                <i class="la la-ticket"></i> @translate(Support Ticket)
-                                                                            </a>
-                                                                        </li>
-
-
-
-                                                                @endif
-
-
-                                                                <li class="mb-0">
-                                                                    <div class="section-block mt-2 mb-2"></div>
-                                                                </li>
-
                                                                 <li class="mb-0">
                                                                     <a href="{{ route('logout') }}" class="d-block"
                                                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

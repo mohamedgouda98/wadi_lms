@@ -340,54 +340,7 @@
                                                 </div>
                                             </div>
                                         </div><!-- end lecture-overview-item -->
-                                        <div class="section-block"></div>
-                                        <div class="lecture-overview-item">
-                                            <div class="lecture-overview-stats-wrap d-flex ">
-                                                <div class="lecture-overview-stats-item">
-                                                    <h3 class="widget-title font-size-16">@translate(Instructor)</h3>
-                                                </div>
-                                                <div
-                                                    class="lecture-overview-stats-item lecture-overview-stats-wide-item">
-                                                    <div class="lecture-owner-wrap d-flex align-items-center">
-                                                        <div class="lecture-owner-avatar">
-                                                            <img
-                                                                src="{{ filePath($s_course->relationBetweenInstructor->image) }}"
-                                                                alt="">
-                                                        </div>
-                                                        <div class="lecture-owner-title-wrap">
-                                                            <h3 class="widget-title pb-1 font-size-18"><a
-                                                                    href="{{route('single.instructor',$s_course->slug)}}"
-                                                                    class="primary-color">{{ $s_course->name }}</a>
-                                                            </h3>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="lecture-owner-profile pt-4">
-                                                        <ul class="social-profile">
-                                                            <li>
-                                                                <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructor->fb }}"><i
-                                                                        class="fa fa-facebook"></i></a></li>
-                                                            <li>
-                                                                <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructor->tw }}"><i
-                                                                        class="fa fa-twitter"></i></a></li>
-                                                            <li>
-                                                                <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructor->skype }}"><i
-                                                                        class="fa fa-skype"></i></a></li>
-                                                            <li>
-                                                                <a target="_blank"
-                                                                   href="{{ $s_course->relationBetweenInstructor->linked }}"><i
-                                                                        class="fa fa-linkedin"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="lecture-owner-decription pt-4">
-                                                        {!! $s_course->relationBetweenInstructor->about !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- end lecture-overview-item -->
+                                        <div class="section-block"></div><!-- end lecture-overview-item -->
                                     </div><!-- end lecture-overview-wrap -->
                                 </div><!-- end tab-pane -->
                                 {{-- overview::END --}}

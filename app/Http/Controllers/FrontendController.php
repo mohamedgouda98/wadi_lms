@@ -236,8 +236,8 @@ class FrontendController extends Controller
         $latestCourses = Course::Published()->with('relationBetweenInstructorUser')->latest()->take(10)->get();
 
         $subscriptions = Subscription::Published()->get();
-      // return view('endUser.index', get_defined_vars());
-       return view($this->theme.'.homepage.index', compact('latestCourses', 'packages', 'subscriptions', 'sliders', 'popular_cat', 'course', 'cat', 'trading_courses', 'enroll_courser_count'));
+        // return view('endUser.index', get_defined_vars());
+        return view($this->theme.'.homepage.index', compact('latestCourses', 'packages', 'subscriptions', 'sliders', 'popular_cat', 'course', 'cat', 'trading_courses', 'enroll_courser_count'));
     }
 
     /*Show category ways course*/
@@ -768,21 +768,9 @@ class FrontendController extends Controller
 
                     //todo::there are calculate the Instructor balance Calculate the admin or Instructor commission
                     $course = Course::findOrFail($cart->course_id); //get course
-                    $instructor = Instructor::where('user_id', $course->user_id)->first(); //get instructor
-                    $package = Package::findOrFail($instructor->package_id); //get instructor package commission
-                    $admin_get = 0;
-                    $instructor_get = 0;
-                    if ($cart->course_price != 0 && $cart->course_price != null) {
-                        $admin_get = ($cart->course_price * $package->commission) / 100; //$admin commission
-                        $instructor_get = ($cart->course_price - $admin_get); //instructor amount
-                        /*todo::refer calculate*/
-                        $amount += ($cart->course_price * commission()) / 100; //
-                    }
-
-                    //admin earning
                     //Todo::Admin Earning calculation
                     $admin = new AdminEarning();
-                    $admin->amount = $admin_get;
+                    $admin->amount = $cart->course_price;
                     $admin->purposes = 'Commission from enrolment';
                     $admin->save();
 
@@ -804,20 +792,6 @@ class FrontendController extends Controller
                     ];
                     $this->userNotify($course->user_id, $details);
 
-                    //todo::Instructor Earning history
-                    //instructor Earning
-                    $instructorEarning = new InstructorEarning();
-                    $instructorEarning->enrollment_id = $enrollment->id;
-                    $instructorEarning->package_id = $package->id;
-                    $instructorEarning->user_id = $instructor->user_id; //instructor user_id
-                    $instructorEarning->course_price = $cart->course_price == null ? 0 : $cart->course_price;
-                    $instructorEarning->will_get = $instructor_get;
-                    $instructorEarning->save();
-
-                    //todo::update the instructor balance
-                    $instructor->balance += $instructor_get;
-                    $instructor->save();
-
                     //save in purchase history
                     $history = new CoursePurchaseHistory();
                     $history->enrollment_id = $enrollment->id;
@@ -828,7 +802,7 @@ class FrontendController extends Controller
                     //todo::mail Admin, Instructor, Student
                     try {
                         //teacher
-                        $user = User::find($instructorEarning->user_id);
+                        $user = User::find($course->user_id);
                         $user->notify(new EnrolmentCourse());
                         //student
                         $user = User::find($enrollment->user_id);
@@ -1224,9 +1198,7 @@ class FrontendController extends Controller
     /*student trait*/
     public function my_courses()
     {
-        //enroll courses
         $enrolls = Enrollment::with('enrollCourse')->where('user_id', Auth::id())->paginate(6);
-
         return view($this->theme.'.course.my_courses', compact('enrolls'));
     }
 

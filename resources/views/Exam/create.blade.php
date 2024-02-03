@@ -29,6 +29,27 @@
 @endsection
 @section('js-link')
     @include('layouts.include.form.form_js')
+    <script>
+        // Get the checkbox element
+        const specificClassCheckbox = document.getElementById('specific_class');
+        // Get the select element
+        const classSelect = document.getElementById('class_select');
+
+        // Add event listener to the checkbox
+        specificClassCheckbox.addEventListener('change', function() {
+            // If checkbox is checked, show the select element; otherwise, hide it
+            if (this.checked) {
+                classSelect.style.display = 'block';
+            } else {
+                classSelect.style.display = 'none';
+            }
+        });
+
+        // Initially hide the select element if checkbox is not checked
+        if (!specificClassCheckbox.checked) {
+            classSelect.style.display = 'none';
+        }
+    </script>
 @stop
 
 

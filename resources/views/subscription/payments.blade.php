@@ -41,7 +41,7 @@
                         <th>
                             @translate(Amount)
                         </th>
-                       
+
                     </tr>
                     </thead>
                     <tbody>
@@ -50,22 +50,22 @@
                         <tr>
                             <td class="footable-first-visible">
                                 {{ ($loop->index+1) + ($payments->currentPage() - 1)*$payments->perPage() }}
-                            </td> 
-                            
-                            <td>
-                                {{ $payment->course->relationBetweenInstructorUser->name }}
                             </td>
-                            
+
                             <td>
-                                {{ $payment->course->relationBetweenInstructorUser->email }}
+                                {{ $payment->course->name }}
                             </td>
-                            
+
+                            <td>
+                                {{ $payment->course->email }}
+                            </td>
+
                             <td>
                                 @foreach (json_decode($payment->subscription_duration) as $item)
                                    <span class="badge badge-success text-white">{{ $item }}</span>
                                 @endforeach
                             </td>
-                            
+
                             <td>
                                 <a href="{{route('course.single',$payment->course->slug)}}" target="_blank">
                                     {{ $payment->course->title }}
@@ -73,15 +73,15 @@
                             </td>
                             <td>
                                 @php
-                                 $price = 0;    
+                                 $price = 0;
                                 @endphp
 
                                 @foreach (json_decode($payment->subscription_duration) as $item)
-                                    <p class="d-none">{{ $price  +=  App\Subscription::where('name','LIKE','%'.$item.'%')->sum('instructor_payment') }}</p>
+                                    <p class="d-none">{{ $price  +=  \App\Subscription::where('name','LIKE','%'.$item.'%')->sum('instructor_payment') }}</p>
                                 @endforeach
                                 {{ formatPrice($price) }}
                             </td>
-                            
+
 
                         </tr>
 
