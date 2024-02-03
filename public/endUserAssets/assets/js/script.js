@@ -77,3 +77,6 @@ Object.assign(swiperE2, swiperParams);
 swiperEl.initialize();
 
 
+setInterval(() => {
+    document.querySelector(".quiz__timer__number").innerHTML = parseInt(document.querySelector(".quiz__timer__number").innerHTML) -1
+}, 1000);

@@ -20,7 +20,6 @@
                                         @translate(All Courses)
                                     </a>
                                 </li>
-
                                 <li role="presentation" class="padding-r-3">
                                     <a href="{{route('my.wishlist')}}">
                                         @translate(Wishlist)
@@ -33,7 +32,6 @@
                                         </a>
                                     </li>
                                 @endif
-
                             </ul>
                         </div>
                     </div>
@@ -67,10 +65,30 @@
                     <div class="my-course-content-wrap">
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade active show" id="#all-course">
-                                <div class="my-course-content-body">
-                                    <div class="my-course-container">
-                                        <div class="row">
-
+                                <div class="my-course-content-body mt-5 position-relative">
+                                    <div class="quiz__timer">
+                                        <p class="quiz__timer__number">60</p>
+                                    </div>
+                                    <div class="my-course-container d-flex flex-column align-items-start" style="gap:25px;">
+                                        <div class="question d-flex flex-column align-items-start" style="gap:20px;">
+                                            <!-- question header -->
+                                            <p class="question__header">Q1 : How Are You ?</p>
+                                            <div class="answers px-5">
+                                                <input type="radio" class="" name="qustion1" value="a" id="radio1" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi soluta porro tenetur modi consequuntur ut? <br>
+                                                <input type="radio" name="qustion1" value="b" id="radio2"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, unde quos id corrupti facilis quasi? <br>
+                                                <input type="radio" name="qustion1" value="c" id="radio3"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minus eligendi, amet dicta non omnis!<br>
+                                                <input type="radio" name="qustion1" value="d" id="radio4"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum, vero quisquam? Repellat voluptas fugit pariatur.<br>
+                                            </div>
+                                        </div>
+                                        <div class="question d-flex flex-column align-items-start" style="gap:20px;">
+                                            <!-- question header -->
+                                            <p class="question__header">Q2 : what is your country ?</p>
+                                            <div class="answers px-5">
+                                                <input type="radio" name="qustion2" value="a" id="radio1" > Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum nostrum voluptatibus fugit. <br>
+                                                <input type="radio" name="qustion2" value="b" id="radio2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                                                <input type="radio" name="qustion2" value="c" id="radio3"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga rem neque ratione obcaecati.<br>
+                                                <input type="radio" name="qustion2" value="d" id="radio4"> Lorem ipsum dolor sit amet consectetur adipisicing.<br>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="page-navigation-wrap mt-4 text-center">
