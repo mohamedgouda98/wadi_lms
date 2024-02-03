@@ -30,5 +30,14 @@ class Classes extends Model
             ->where('is_published', true)->orderBy('priority');
     }
 
+    public function exams()
+    {
+        return $this->hasMany(Exam::class, 'class_id', 'id');
+    }
+
+    public function course()
+    {
+        return $this->belongsTo(Course::class, 'course_id', 'id');
+    }
     //END
 }

@@ -103,17 +103,13 @@
                                                             </div><!-- end course-complete-bar-2 -->
                                                             <div class="text-center mt-3">
                                                                 <div class="row">
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-6">
                                                                         <a href="{{route('course.single',$item->enrollCourse->slug) }}"
                                                                            class="btn btn-outline-success mt-2">@translate(Course details)</a>
                                                                     </div>
-                                                                    <div class="col-md-4">
+                                                                    <div class="col-md-6">
                                                                         <a href="{{ route('lesson_details',$item->enrollCourse->slug) }}"
                                                                            class="btn btn-success mt-2">@translate(Start lesson)</a>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <a href="{{ route('student-exam.course-exam',$item->enrollCourse) }}"
-                                                                           class="btn btn-success mt-2">@translate(Start Exam)</a>
                                                                     </div>
                                                                 </div>
                                                             </div>

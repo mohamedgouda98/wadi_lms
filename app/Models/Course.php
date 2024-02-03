@@ -107,5 +107,9 @@ class Course extends Model
         return $this->hasOne('App\Models\SubscriptionCourse', 'course_id', 'id');
     }
 
+    public function exams()
+    {
+        return $this->hasMany(Exam::class, 'course_id');
+    }
     //END
 }

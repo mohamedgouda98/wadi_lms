@@ -598,14 +598,28 @@
                                                                     </div>
                                                                 </div>
                                                             </li>
-                                                            @endforeach
+                                                        @endforeach
 
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
+                                        @if($item->exams->count() > 0)
+                                            @foreach($item->exams as $exam)
+                                                <a href="{{ route('student-exam.questions',$exam) }}" class="text-center fw-bold">@translate(Start Exam)</a>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 @endforeach
+                                <hr>
+                                @php
+                                    $courseExams = $s_course->exams()->where('class_id', '=',null)->get();
+                                @endphp
+                                @if($courseExams->count() > 0)
+                                    @foreach($courseExams as $exam)
+                                        <a href="{{ route('student-exam.questions',$exam) }}" class="text-center fw-bold">@translate(Start Exam)</a>
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
