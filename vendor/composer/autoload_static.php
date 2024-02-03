@@ -850,6 +850,7 @@ class ComposerStaticInit39292d17f18bbb20ae33f26af827a14b
         'App\\Http\\Controllers\\Setting\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Setting/LanguageController.php',
         'App\\Http\\Controllers\\Setting\\SettingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Setting/SettingController.php',
         'App\\Http\\Controllers\\SocialController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialController.php',
+        'App\\Http\\Controllers\\StudentExam\\StudentExamController' => __DIR__ . '/../..' . '/app/Http/Controllers/StudentExam/StudentExamController.php',
         'App\\Http\\Controllers\\SubscriptionController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubscriptionController.php',
         'App\\Http\\Controllers\\ThemeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ThemeController.php',
         'App\\Http\\Controllers\\UserManager\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserManager/UserController.php',

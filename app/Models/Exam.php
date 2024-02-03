@@ -11,7 +11,7 @@ class Exam extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'slug', 'degree', 'exam_type', 'active', 'close', 'limit_questions', 'auto_answer',
-        'course_id','specific_class', 'class_id'];
+        'course_id','specific_class', 'class_id', 'success_degree', 'failer_degree'];
 
     public function course(): BelongsTo
     {

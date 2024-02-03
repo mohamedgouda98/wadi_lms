@@ -40,6 +40,34 @@
     </div>
 </div>
 
+{{-- SuccessDegree --}}
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label" for="val-success_degree">
+        @translate(Success Degree) <span class="text-danger">*</span></label>
+    <div class="col-lg-9">
+        <input type="number"
+               required value="{{ old('success_degree', isset($exam) ? $exam->success_degree : null) }}"
+               class="form-control @error('success_degree') is-invalid @enderror"
+               id="val-success_degree" name="success_degree" aria-required="true">
+        <span id="error_email"></span>
+        @error('success_degree') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
+    </div>
+</div>
+
+{{-- FailerDegree --}}
+<div class="form-group row">
+    <label class="col-lg-3 col-form-label" for="val-failer_degree">
+        @translate(Failer Degree) <span class="text-danger">*</span></label>
+    <div class="col-lg-9">
+        <input type="number"
+               required value="{{ old('failer_degree', isset($exam) ? $exam->failer_degree : null) }}"
+               class="form-control @error('failer_degree') is-invalid @enderror"
+               id="val-failer_degree" name="failer_degree" aria-required="true">
+        <span id="error_email"></span>
+        @error('failer_degree') <span class="invalid-feedback" role="alert"> <strong>{{ $message }}</strong> </span> @enderror
+    </div>
+</div>
+
 {{-- LimitQuestions --}}
 <div class="form-group row">
     <label class="col-lg-3 col-form-label" for="val-limit_questions">

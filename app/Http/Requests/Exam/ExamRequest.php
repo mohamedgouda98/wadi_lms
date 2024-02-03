@@ -32,6 +32,8 @@ class ExamRequest extends FormRequest
             'active' => 'nullable',
             'close' => 'nullable',
             'specific_class' => 'nullable',
+            'success_degree' => 'required|numeric',
+            'failer_degree' => 'required|numeric',
             'class_id' => $this->checkClass()
         ];
     }

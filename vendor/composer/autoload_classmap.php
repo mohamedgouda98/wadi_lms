@@ -82,6 +82,7 @@ return array(
     'App\\Http\\Controllers\\Setting\\LanguageController' => $baseDir . '/app/Http/Controllers/Setting/LanguageController.php',
     'App\\Http\\Controllers\\Setting\\SettingController' => $baseDir . '/app/Http/Controllers/Setting/SettingController.php',
     'App\\Http\\Controllers\\SocialController' => $baseDir . '/app/Http/Controllers/SocialController.php',
+    'App\\Http\\Controllers\\StudentExam\\StudentExamController' => $baseDir . '/app/Http/Controllers/StudentExam/StudentExamController.php',
     'App\\Http\\Controllers\\SubscriptionController' => $baseDir . '/app/Http/Controllers/SubscriptionController.php',
     'App\\Http\\Controllers\\ThemeController' => $baseDir . '/app/Http/Controllers/ThemeController.php',
     'App\\Http\\Controllers\\UserManager\\UserController' => $baseDir . '/app/Http/Controllers/UserManager/UserController.php',
