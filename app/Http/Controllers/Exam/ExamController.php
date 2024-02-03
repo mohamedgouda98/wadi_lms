@@ -29,7 +29,7 @@ class ExamController extends Controller
 
     public function create(Course  $course)
     {
-        $classes = Classes::get(['id', 'title']);
+        $classes = Classes::where('course_id', $course->id)->get(['id', 'title']);
         return view('Exam.create', compact('course', 'classes'));
     }
 
