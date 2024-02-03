@@ -22,3 +22,10 @@ $(document).ready(function(){
 $("img").lazyload({
     effect : "fadeIn"
 });
+
+
+setInterval(() => {
+    if(parseInt(document.querySelector(".quiz__timer__number").innerHTML) > 0){
+        document.querySelector(".quiz__timer__number").innerHTML = parseInt(document.querySelector(".quiz__timer__number").innerHTML) -1
+    }
+}, 1000);

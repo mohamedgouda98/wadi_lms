@@ -17656,3 +17656,55 @@ footer ul {
     border: 2px solid #51be78;
     font-weight: 600;
 }
+
+
+.question__header {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #063F12;
+}
+
+input[type="radio"] {
+    margin:10px;
+}
+
+.quiz__timer {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #38bb0c;
+    top: 0%;
+    right: 0%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz__timer__number {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.startExam__btn {
+    padding: 5px;
+    background-color: #38bb0c;
+    border-radius: 50px;
+    color: white;
+    width: 30%;
+    margin-block: 10px;
+}
+
+.startExam__btn:hover {
+    color:white;
+    background-color: #063F12;
+}
+@media (max-width:768px) {
+    .startExam__btn {
+        width: 50%;
+    }
+}
