@@ -17658,11 +17658,51 @@ footer ul {
 }
 
 
+.exam__degree {
+    text-align: center;
+    margin:auto;
+    color: #0061a8;
+    margin-bottom: 40px;
+    font-size: 30px;
+}
+
+.question {
+    background-color: #32AB4D;
+    border-radius:20px;
+    min-height:300px;
+    max-height:300px;
+    padding:10px 20px;
+    min-width:320px;
+    max-width:320px;
+}
+
+.question p:nth-child(2) {
+    font-size: 25px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: white;
+    max-width: 300px;
+    width: 100%;
+    min-height: 50px;
+    overflow: auto;
+}
+
+.question p:nth-child(2)::-webkit-scrollbar {
+    display: none;
+}
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+.question p:nth-child(2) {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
 .question__header {
     font-size: 30px;
     font-weight: 600;
     text-transform: capitalize;
-    color: #063F12;
+    color: white;
 }
 
 input[type="radio"] {
@@ -17690,6 +17730,48 @@ input[type="radio"] {
 }
 
 
+.answers {
+    max-height: 200px;
+    max-width: 320px;
+    overflow: auto;
+    width: 100%;
+}
+
+.answers::-webkit-scrollbar {
+    width: .7em;
+  }
+   
+  .answers::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+   
+  .answers::-webkit-scrollbar-thumb {
+    background-color: #243D61;
+    outline: 1px solid slategrey;
+  }
+
+.answer label {
+    color:white ;
+    font-size:20px;
+    text-transform:capitalize;
+}
+
+
+.submit__exam__btn {
+    padding:10px 25px;
+    border:none;
+    outline:none;
+    background-color:#243D61;
+    color:white;
+    border-radius:10px;
+    transition:.25s;
+}
+
+
+.submit__exam__btn:hover {
+    background-color:#51BE78;
+}
+
 .startExam__btn {
     padding: 5px;
     background-color: #38bb0c;
@@ -17706,5 +17788,20 @@ input[type="radio"] {
 @media (max-width:768px) {
     .startExam__btn {
         width: 50%;
+    }
+
+    .my-course-container {
+        justify-content:center !important;
+    }
+    .question {
+        width:80%;
+    }
+}
+
+
+@media (max-width:320px) {
+    .question {
+        min-width: 300px;
+        max-width: 300px;
     }
 }

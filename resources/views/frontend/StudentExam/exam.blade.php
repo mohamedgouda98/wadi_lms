@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     @if(! is_null($studentExam))
-                        <span>Your Degree Is {{$studentExam->degree}}</span>
+                        <span class="exam__degree">Your Degree Is {{$studentExam->degree}}</span>
                     @else
                         <div class="my-course-content-wrap">
                             <div class="tab-content">
@@ -75,22 +75,24 @@
                                         <form action="{{ route('store-student-answers') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="exam_id" value="{{ $exam->id }}">
-                                            <div class="my-course-container d-flex flex-column align-items-start" style="gap:25px;">
+                                            <div class="my-course-container d-flex align-items-center justify-content-start flex-wrap" style="gap:12px;">
                                                 @foreach($questions as $question)
-                                                    <div class="question d-flex flex-column align-items-start" style="gap:20px;">
+                                                    <div class="question shadow-lg d-flex flex-column align-items-start" style="gap:10px;">
                                                         <!-- question header -->
                                                         <p class="question__header">{!! $question->question !!}</p>
-                                                        <div class="answers px-5">
+                                                        <div class="answers px-2 d-flex flex-column align-items-start" style="gap:5px">
                                                             @foreach($question->answers as $answer)
                                                                 <!-- Adjust the name attribute to make it unique per question -->
-                                                                <input type="radio" name="answers[{{ $question->id }}]" value="{{ $answer->id }}" id="answer-{{$answer->id}}">
-                                                                <label class="form-check-label" for="answer-{{$answer->id}}">{{ $answer->answer }}</label>
+                                                                <div class="answer d-flex align-items-start">
+                                                                    <input type="radio" name="answers[{{ $question->id }}]" value="{{ $answer->id }}" id="answer-{{$answer->id}}">
+                                                                    <label class="form-check-label" for="answer-{{$answer->id}}">{{ $answer->answer }}</label>
+                                                                </div>
                                                             @endforeach
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </div>
-                                            <button type="submit" class="btn btn-primary mt-2">@translate(Submit)</button>
+                                            <button type="submit" class="submit__exam__btn mt-4">@translate(Submit)</button>
                                         </form>
                                     </div>
                                 </div><!-- end tab-pane -->
