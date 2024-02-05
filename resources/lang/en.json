@@ -1,6 +1,7 @@
 {
     "$item": "$item",
     "'Add Answer'": "'Add Answer'",
+    "'Submit'": "'Submit'",
     "About": "About",
     "About the instructor": "About the instructor",
     "About this Content": "About this Content",
@@ -94,7 +95,6 @@
     "Coupon Code Applied": "Coupon Code Applied",
     "Coupon Manager": "Coupon Manager",
     "Course": "Course",
-    "Coursen                        content": "Coursen                        content",
     "Course Content": "Course Content",
     "Course Cover": "Course Cover",
     "Course Features": "Course Features",

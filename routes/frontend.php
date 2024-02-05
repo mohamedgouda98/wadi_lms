@@ -161,6 +161,7 @@ Route::group(['middleware' => ['installed', 'check.frontend', 'demo']], function
         //StudentExam
         Route::get('course/exam/{course}', [StudentExamController::class, 'courseExam'])->name('student-exam.course-exam');
         Route::get('course/questions/{exam}', [StudentExamController::class, 'questions'])->name('student-exam.questions');
+        Route::post('course/questions/answers', [StudentExamController::class, 'storeStudentAnswers'])->name('store-student-answers');
         // ============================== student route ===========================
 
         //dashboard
