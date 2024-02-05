@@ -157,6 +157,7 @@
                                     `)
                         $('input[name="answer"]').val('')
                     }
+                    location.reload();
                 }
             });
         })
