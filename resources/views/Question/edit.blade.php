@@ -30,7 +30,7 @@
 @endsection
 @section('js-link')
     @include('layouts.include.form.form_js')
-    <script src="https://cdn.tiny.cloud/1/znzn2upz5wo1j1gx4mq3karg2idu0gaijqkeqh8krgzzqw13/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/1x95in08jsivihseg2w5ae6dd0m41w3q5pn559acmpuam8r4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         $(document).ready(function() {
             var firstUpload = new FileUploadWithPreview('myFirstImage')
