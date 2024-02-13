@@ -26,4 +26,10 @@ class ClassContent extends Model
     {
         return $this->hasOne(Exam::class, 'class_content_id', 'id');
     }
+
+    // seenContent
+    public function seenContents()
+    {
+        return $this->hasMany(SeenContent::class, 'content_id', 'id');
+    }
 }

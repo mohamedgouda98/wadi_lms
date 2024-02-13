@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <!-- end inject -->
     <style>
+        .disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
         .progress {
             width: 160px;
             height: 160px;
