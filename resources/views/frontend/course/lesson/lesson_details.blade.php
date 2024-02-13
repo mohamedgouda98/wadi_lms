@@ -44,7 +44,6 @@
                 <div class="course-dashboard-column">
                     <div class="lecture-viewer-container">
                         <div class="lecture-video-item" id="videoId">
-
                             @if (isset($s_course->overview_url))
                                 @if ($s_course->provider === "Youtube")
                                     <iframe
@@ -63,7 +62,10 @@
                                         <source src="{{$s_course->overview_url}}"
                                                 type="video/mp4" size="100%"/>
                                     </video>
-
+                                @elseif($s_course->provider === "Document")
+                                    <section class="container">
+                                        {{$s_course->overview_url}}
+                                    </section>
                                 @else
                                     <div class="">
                                         <h1>@translate(No video found)</h1>
@@ -73,7 +75,8 @@
                             @endif
                         </div>
 
-                    </div><!-- end lecture-viewer-container -->
+                    </div>
+                    <!-- end lecture-viewer-container -->
                     <div class="lecture-video-detail">
                         <div class="lecture-tab-body">
                             <div class="section-tab section-tab-2">
@@ -187,10 +190,6 @@
                                                                         <ul class="course-list">
 
                                                                             @forelse ($item->contents as $content)
-
-
-
-
 
                                                                                 <li class="course-item-link active-resource"
                                                                                     onclick="contentData('{{$content->id}}')">
@@ -414,12 +413,12 @@
 
                                                         <div class="container p-5">
                                                             <div class="progress" data-percentage="{{\App\Http\Controllers\FrontendController::seenCourse($enroll->first()->id,$s_course->id)}}">
-            <span class="progress-left">
-                <span class="progress-bar"></span>
-            </span>
-                                                                    <span class="progress-right">
-                <span class="progress-bar"></span>
-            </span>
+                                                                <span class="progress-left">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
+                                                                <span class="progress-right">
+                                                                    <span class="progress-bar"></span>
+                                                                </span>
                                                                 <div class="progress-value">
                                                                     <div>
                                                                         {{\App\Http\Controllers\FrontendController::seenCourse($enroll->first()->id, $s_course->id)}}%<br>
@@ -430,9 +429,9 @@
                                                         </div>
 
                                                         <div class="text-center">
-                                                        @if(\App\Http\Controllers\FrontendController::seenCourse($enroll->first()->id,$s_course->id) == number_format(100))
-                                                        <a href="{{route('certificate.get',$s_course->id)}}" target="_blank" class="btn btn-success"> @translate(Generate Certificate)</a>
-                                                        @endif
+                                                            @if(\App\Http\Controllers\FrontendController::seenCourse($enroll->first()->id,$s_course->id) == number_format(100))
+                                                                <a href="{{route('certificate.get',$s_course->id)}}" target="_blank" class="btn btn-success"> @translate(Generate Certificate)</a>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -443,7 +442,8 @@
 
                             </div>
                         </div><!-- end lecture-video-detail-body -->
-                    </div><!-- end lecture-video-detail -->
+                    </div>
+                    <!-- end lecture-video-detail -->
                     <div class="section-block"></div>
                     <div class="footer-area section-bg padding-top-40px padding-bottom-40px">
                         <div class="container-fluid">
