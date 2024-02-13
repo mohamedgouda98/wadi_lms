@@ -597,6 +597,11 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
+                                                                <div class="d-flex align-items-center flex-wrap" style="gap:5px">
+                                                                    @if($content->exam)
+                                                                        <a href="{{ route('student-exam.questions',$content->exam) }}" class="startExam__btn text-center fw-bold">@translate(Start Exam)</a>
+                                                                    @endif
+                                                                </div>
                                                             </li>
                                                         @endforeach
                                                         <div class="d-flex align-items-center flex-wrap" style="gap:5px">

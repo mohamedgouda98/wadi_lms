@@ -50,6 +50,29 @@
             classSelect.style.display = 'none';
         }
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#class').change(function() {
+                const classId = $(this).val();
+                if (classId) {
+                    $.ajax({
+                        url: '/getClassContents/' + classId,
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#class_content').empty();
+                            $('#class_content').append('<option value="">Select Class Content</option>');
+                            $.each(data, function(key, value) {
+                                $('#class_content').append('<option value="'+ key +'">'+ value +'</option>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#class_content').empty();
+                }
+            });
+        });
+    </script>
 @stop
 
 

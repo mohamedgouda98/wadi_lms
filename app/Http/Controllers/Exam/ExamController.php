@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Exam;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Exam\ExamRequest;
+use App\Models\ClassContent;
 use App\Models\Classes;
 use App\Models\Course;
 use App\Models\Exam;
@@ -45,7 +46,9 @@ class ExamController extends Controller
            'close' => $request->has('close') ? 1 : 0,
            'course_id' => $request->get('course_id'),
            'specific_class' => $request->has('specific_class') ? 1 : 0,
-           'class_id' => $request->has('specific_class') ? $request->class_id : null
+           'class_id' => $request->has('specific_class') ? $request->class_id : null,
+           'class_content_id' => ! is_null($request->class_content_id) ? $request->class_content_id : null
+
         ]);
 
         toast(translate('success_add_exam'), 'success');
@@ -68,10 +71,17 @@ class ExamController extends Controller
             'active' => $request->has('active') ? 1 : 0,
             'close' => $request->has('close') ? 1 : 0,
             'specific_class' => $request->has('specific_class') ? 1 : 0,
-            'class_id' => $request->has('specific_class') ? $request->class_id : null
+            'class_id' => $request->has('specific_class') ? $request->class_id : null,
+            'class_content_id' => ! is_null($request->class_content_id) ? $request->class_content_id : null
         ]);
 
         toast(translate('success_update_exam'), 'success');
         return redirect(route('exam.index'));
+    }
+
+    public function getClassContents($id)
+    {
+        $classContents = ClassContent::where('class_id', $id)->pluck('title', 'id');
+        return json_encode($classContents);
     }
 }

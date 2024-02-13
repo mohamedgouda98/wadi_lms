@@ -874,6 +874,7 @@ class ComposerStaticInit39292d17f18bbb20ae33f26af827a14b
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\Answer\\StudentAnswerRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Answer/StudentAnswerRequest.php',
         'App\\Http\\Requests\\Exam\\ExamRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Exam/ExamRequest.php',
         'App\\Http\\Requests\\Exam\\QuestionRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Exam/QuestionRequest.php',
         'App\\Http\\Requests\\Student\\UpdateStudent' => __DIR__ . '/../..' . '/app/Http/Requests/Student/UpdateStudent.php',

@@ -21,5 +21,9 @@ class ClassContent extends Model
         return $this->hasOne('App\Meeting', 'id', 'meeting_id');
     }
 
-    //END
+    // exam
+    public function exam()
+    {
+        return $this->hasOne(Exam::class, 'class_content_id', 'id');
+    }
 }

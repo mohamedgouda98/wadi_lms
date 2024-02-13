@@ -106,6 +106,7 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Requests\\Answer\\StudentAnswerRequest' => $baseDir . '/app/Http/Requests/Answer/StudentAnswerRequest.php',
     'App\\Http\\Requests\\Exam\\ExamRequest' => $baseDir . '/app/Http/Requests/Exam/ExamRequest.php',
     'App\\Http\\Requests\\Exam\\QuestionRequest' => $baseDir . '/app/Http/Requests/Exam/QuestionRequest.php',
     'App\\Http\\Requests\\Student\\UpdateStudent' => $baseDir . '/app/Http/Requests/Student/UpdateStudent.php',

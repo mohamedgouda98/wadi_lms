@@ -127,5 +127,11 @@
             <option value="{{ $class->id }}" {{ old('class_id') || (isset($exam) ? $exam->class_id : null) == $class->id }}>{{ $class->title }}</option>
         @endforeach
     </select>
+
+    <label class="col-lg-3 col-form-label" for="class">@translate(Class)</label>
+    <select class="form-select form-control" id="class_content" name="class_content_id">
+        <option value="">@translate(Select Class Content)</option>
+
+    </select>
 </div>
 

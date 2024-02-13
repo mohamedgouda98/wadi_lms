@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Exam\ExamController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentExam\StudentExamController;
@@ -160,6 +161,7 @@ Route::group(['middleware' => ['installed', 'check.frontend', 'demo']], function
 
         //StudentExam
         Route::get('course/exam/{course}', [StudentExamController::class, 'courseExam'])->name('student-exam.course-exam');
+        Route::get('/getClassContents/{id}', [ExamController::class,'getClassContents']);
         Route::get('course/questions/{exam}', [StudentExamController::class, 'questions'])->name('student-exam.questions');
         Route::post('course/questions/answers', [StudentExamController::class, 'storeStudentAnswers'])->name('store-student-answers');
         // ============================== student route ===========================
