@@ -597,15 +597,15 @@
                                                                         @endif
                                                                     </div>
                                                                 </div>
-                                                                <div class="d-flex align-items-center flex-wrap" style="gap:5px">
-                                        @if($item->exams->count() > 0)
-                                            @foreach($item->exams as $exam)
-                                                <a href="{{ route('student-exam.questions',$exam) }}" class="startExam__btn text-center fw-bold">@translate(Start Exam)</a>
-                                            @endforeach
-                                        @endif
-                                        </div>
                                                             </li>
                                                         @endforeach
+                                                        <div class="d-flex align-items-center flex-wrap" style="gap:5px">
+                                                            @if($item->exams->count() > 0)
+                                                                @foreach($item->exams as $exam)
+                                                                    <a href="{{ route('student-exam.questions',$exam) }}" class="startExam__btn text-center fw-bold">@translate(Start Exam)</a>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
 
                                                     </ul>
                                                 </div>
