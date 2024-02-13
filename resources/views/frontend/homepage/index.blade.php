@@ -52,7 +52,7 @@
                 @foreach($latestCourses as $l_course)
                     <swiper-slide>
                         <div class="card rounded-4 position-relative">
-                            <a href="{{ route('single.instructor',$l_course->slug) }}" class="card__img">
+                            <a href="{{ route('course.single',$l_course->slug) }}" class="card__img">
                                 <img src="{{ filePath($l_course->image) }}" width="354px" height="236px" class="rounded-4 card-img-top" alt="image__course">
                             </a>
                                 <div class="card-body d-flex flex-column gap-2 position-relative">
@@ -63,7 +63,7 @@
                                         <a href="{{route('login')}}"><i class="fa-regular fa-heart position-absolute fs-3 addToWishlist"></i></a>
                                 @endguest
                                 <p class="card-type mt-2">{{$l_course->level}}</p>
-                                <p class="card-title mt-2"><a href="{{route('single.instructor',$l_course->slug)}}" class="font-bold text-decoration-none">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></p>
+                                <p class="card-title mt-2"><a href="{{route('course.single',$l_course->slug)}}" class="font-bold text-decoration-none">{{\Illuminate\Support\Str::limit($l_course->title,58)}}</a></p>
                                 <div class="d-flex align-items-center justify-content-between">
                                     <div class="courses_videos d-flex align-items-center justify-content-between gap-1" style="width:30%">
                                         <i class="fa-solid fa-play"></i>
