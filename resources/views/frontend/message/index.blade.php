@@ -28,11 +28,11 @@
                                                             <div class="d-flex">
                                                                 <div class="avatar">
                                                                     <img
-                                                                        src="{{filePath($item->enrollCourse->relationBetweenInstructorUser->image)}}"
+                                                                        src="{{filePath($item->enrollCourse->image)}}"
                                                                         alt="">
                                                                 </div>
                                                                 <div class="content">
-                                                                    <h4 class="widget-title font-size-15 mb-0">{{$item->enrollCourse->relationBetweenInstructorUser->name}}</h4>
+                                                                    <h4 class="widget-title font-size-15 mb-0">{{$item->enrollCourse->name}}</h4>
                                                                     <span
                                                                         class="time color-text font-size-12">{{$item->enrollCourse->title}}</span>
                                                                 </div>
