@@ -799,7 +799,7 @@
                 '  <div class="card-header">' + item1 + '  </div>\n' +
                 '  <div class="card-body">\n' +
                 '  <p class="card-body">' + description + '</p>\n' +
-                '    <a href="' + data + '" class="btn btn-success btn-lg fa fa-download" target="_blank">  ' + item2 + '</a>\n' +
+                // '    <a href="' + data + '" class="btn btn-success btn-lg fa fa-download" target="_blank">  ' + item2 + '</a>\n' +
                 '  </p>\n' +
                 '</div>');
         }
