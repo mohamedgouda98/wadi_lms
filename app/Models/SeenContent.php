@@ -10,6 +10,6 @@ class SeenContent extends Model
 
     public function classContent()
     {
-        return $this->belongsTo(ClassContent::class, 'class_content_id', 'id');
+        return $this->belongsTo(ClassContent::class, 'content_id', 'id');
     }
 }

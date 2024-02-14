@@ -25,6 +25,6 @@ class Exam extends Model
 
     public function classContent(): BelongsTo
     {
-        return $this->belongsTo(ClassContent::class, 'class_content_id');
+        return $this->belongsTo(ClassContent::class, 'class_content_id', 'id');
     }
 }

@@ -10,7 +10,7 @@ class ClassContent extends Model
     use SoftDeletes;
 
     // relationBetweenClass
-    public function relationBetweenClass()
+    public function class()
     {
         return $this->belongsTo(Classes::class, 'class_id', 'id');
     }

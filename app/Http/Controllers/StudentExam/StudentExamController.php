@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Exam;
 use App\Models\ExamQuestion;
 use App\Models\QuestionAnswer;
+use App\Models\SeenContent;
 use App\Models\Student;
 use App\Models\StudentExam;
 use App\Models\StudentExamQuestion;
@@ -30,6 +31,12 @@ class StudentExamController extends Controller
             ->where('exam_id', $exam->id)
             ->where('is_marked', 1)
             ->first();
+
+
+        if (($exam->specific_class && count(auth()->user()->seenContents) < count($exam->course->classes)) || (! $exam->specific_class && count(auth()->user()->seenContents) < count($exam->course->classes))){
+            alert()->error('You must finish the content before taking the exam');
+            return redirect()->route('course.single', $exam->course->slug);
+        }
         return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
     }
 

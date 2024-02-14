@@ -527,7 +527,6 @@
                                                                         </div>
                                                                     </div>
 
-
                                                                     <div class="course-item-content"
                                                                          onclick="contentData('{{$content->id}}')">
                                                                         <input type="hidden"
@@ -598,9 +597,6 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="d-flex align-items-center flex-wrap" style="gap:5px">
-                                                                    @php
-                                                                        $seen = $content->seenContents()->where([['user_id',\Illuminate\Support\Facades\Auth::id()],['content_id',$content->id], ['course_id', $content->course_id]])->first();
-                                                                    @endphp
                                                                     @if($content->exam)
                                                                         <a href="{{ route('student-exam.questions',$content->exam) }}" class="startExam__btn text-center fw-bold">@translate(Start Exam)</a>
                                                                     @endif
@@ -816,13 +812,7 @@
                     method: 'GET',
                     success: function (result) {
                         result.forEach(function (item, index) {
-                            var checkbox = $("#chb-" + item.content_id);
-                            var examLink = $(".startExam__btn"); // replace with your exam link selector
-                            if(checkbox.prop("checked")) {
-                                examLink.removeClass("disabled");
-                            } else {
-                                examLink.addClass("disabled");
-                            }
+                            $("#chb-" + item.content_id).prop("checked", true);
                         })
                     }
                 })

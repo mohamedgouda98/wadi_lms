@@ -64,5 +64,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $query->where('verified', true);
     }
 
+    // seenContents
+    public function seenContents()
+    {
+        return $this->hasMany(SeenContent::class, 'user_id', 'id');
+    }
     //END
 }
