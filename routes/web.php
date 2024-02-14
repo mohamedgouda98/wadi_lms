@@ -120,6 +120,8 @@ Route::group(['middleware' => ['installed', 'checkBackend', 'auth'], 'prefix' =>
     Route::get('class/content/create/{id}', [ContentController::class, 'create'])->name('classes.contents.create');
     Route::post('class/content/store', [ContentController::class, 'store'])->name('classes.contents.store')->middleware('demo');
     Route::get('class/content/trash/{id}', [ContentController::class, 'destroy'])->name('classes.contents.destroy');
+    Route::get('class/content/edit/{id}', [ContentController::class, 'edit'])->name('classes.contents.edit');
+    Route::put('class/content/update/{id}', [ContentController::class, 'update'])->name('classes.contents.update');
     Route::get('class/content/show/{id}', [ContentController::class, 'show'])->name('classes.contents.show');
     Route::get('class/content/source/code/{id}', [ContentController::class, 'code'])->name('classes.contents.code');
     Route::post('course/slug/check', [CourseController::class, 'check'])->name('slug.check')->middleware('demo');

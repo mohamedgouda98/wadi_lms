@@ -77,18 +77,23 @@
                                                 <i class="fa fa-arrows grab-icon"></i>
                                                 {{ $content->title }}
 
+                                                <a href="{{ route("classes.contents.edit",$content->id) }}"
+                                                    <span class="nest-span-eye">
+                                                        <i class="feather icon-edit"></i>
+                                                    </span>
+                                                </a>
                                                 <a href="#!"
                                                    onclick="forModal('{{ route("classes.contents.show",$content->id) }}', '{{$content->title}}')">
-                                            <span class="nest-span-eye">
-                                                <i class="feather icon-eye"></i>
-                                            </span>
+                                                    <span class="nest-span-eye">
+                                                        <i class="feather icon-eye"></i>
+                                                    </span>
                                                 </a>
                                                 @if(\Illuminate\Support\Facades\Auth::user()->user_type =="Admin")
                                                     <a onclick="confirm_modal('{{ route('classes.contents.destroy',$content->id) }}')"
                                                        href="#!">
-                                            <span class="nest-span-trash">
-                                                <i class="feather icon-trash"></i>
-                                            </span>
+                                                        <span class="nest-span-trash">
+                                                            <i class="feather icon-trash"></i>
+                                                        </span>
                                                     </a>
 
                                                     <div class="d-flex pl-5">
