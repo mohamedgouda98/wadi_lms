@@ -32,8 +32,14 @@ class StudentExamController extends Controller
             ->where('is_marked', 1)
             ->first();
 
-
-        if (($exam->specific_class && count(auth()->user()->seenContents) < count($exam->course->classes)) || (! $exam->specific_class && count(auth()->user()->seenContents) < count($exam->course->classes))){
+        $seenContents = SeenContent::where('user_id', auth()->id())
+            ->where('course_id', $exam->course_id)
+            ->count();
+        $seenContentByClass = SeenContent::where('user_id', auth()->id())
+            ->where('course_id', $exam->course_id)
+            ->groupBy('class_id')
+            ->count();
+        if (($exam->specific_class && $seenContentByClass < count($exam->course->classes)) || (! $exam->specific_class && $seenContents < count($exam->course->classes))){
             alert()->error('You must finish the content before taking the exam');
             return redirect()->route('course.single', $exam->course->slug);
         }
