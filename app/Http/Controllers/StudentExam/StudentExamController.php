@@ -32,19 +32,32 @@ class StudentExamController extends Controller
             ->where('is_marked', 1)
             ->first();
 
-        $seenContents = SeenContent::where('user_id', auth()->id())
+        $userId = auth()->id();
+
+// Count of all seen contents for the course
+        $seenContentsCount = SeenContent::where('user_id', $userId)
             ->where('course_id', $exam->course_id)
             ->count();
-        $seenContentByClass = SeenContent::where('user_id', auth()->id())
+
+// Count of distinct classes for which content has been seen
+        $seenClassesCount = SeenContent::where('user_id', $userId)
             ->where('course_id', $exam->course_id)
-            ->groupBy('class_id')
-            ->count();
-        dd(auth()->user()->seenContents);
-        if (($exam->specific_class && $seenContentByClass < count($exam->course->classes)) || (! $exam->specific_class && $seenContents < count($exam->course->classes))){
+            ->distinct('class_id')
+            ->count('class_id');
+
+        $totalClassesCount = $exam->course->classes->count();
+
+// Determine if the user is eligible for the exam
+        $eligibleForExam = $exam->specific_class
+            ? ($seenClassesCount == $totalClassesCount)
+            : ($seenContentsCount == $totalClassesCount);
+
+        if ($eligibleForExam) {
+            return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
+        } else {
             alert()->error('You must finish the content before taking the exam');
             return redirect()->route('course.single', $exam->course->slug);
         }
-        return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
     }
 
     public function storeStudentAnswers(StudentAnswerRequest $request)
