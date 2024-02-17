@@ -34,12 +34,12 @@ class StudentExamController extends Controller
 
         $userId = auth()->id();
 
-// Count of all seen contents for the course
+        // Count of all seen contents for the course
         $seenContentsCount = SeenContent::where('user_id', $userId)
             ->where('course_id', $exam->course_id)
             ->count();
 
-// Count of distinct classes for which content has been seen
+        // Count of distinct classes for which content has been seen
         $seenClassesCount = SeenContent::where('user_id', $userId)
             ->where('course_id', $exam->course_id)
             ->distinct('class_id')
@@ -47,7 +47,7 @@ class StudentExamController extends Controller
 
         $totalClassesCount = $exam->course->classes->count();
 
-// Determine if the user is eligible for the exam
+        // Determine if the user is eligible for the exam
         $eligibleForExam = $exam->specific_class
             ? ($seenClassesCount == $totalClassesCount)
             : ($seenContentsCount == $totalClassesCount);
