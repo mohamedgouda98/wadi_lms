@@ -39,7 +39,7 @@ class StudentExamController extends Controller
             ->where('course_id', $exam->course_id)
             ->groupBy('class_id')
             ->count();
-        dd($seenContentByClass < count($exam->course->classes));
+        dd(($exam->specific_class && $seenContentByClass < count($exam->course->classes)));
         if (($exam->specific_class && $seenContentByClass < count($exam->course->classes)) || (! $exam->specific_class && $seenContents < count($exam->course->classes))){
             alert()->error('You must finish the content before taking the exam');
             return redirect()->route('course.single', $exam->course->slug);
