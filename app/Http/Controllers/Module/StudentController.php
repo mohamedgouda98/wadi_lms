@@ -66,6 +66,7 @@ class StudentController extends Controller
     like Package, Course , Enrolment Student list Get Payment History*/
     public function show($id)
     {
+
         $each_student = Student::where('user_id', $id)->first();
 
         return view('module.students.show', compact('each_student'));

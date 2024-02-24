@@ -111,5 +111,16 @@ class Course extends Model
     {
         return $this->hasMany(Exam::class, 'course_id');
     }
-    //END
+
+    // seenContents
+    public function seenContents()
+    {
+        return $this->hasMany(SeenContent::class, 'course_id', 'id');
+    }
+
+    // classContents
+    public function classContents()
+    {
+        return $this->hasMany(ClassContent::class, 'course_id', 'id');
+    }
 }

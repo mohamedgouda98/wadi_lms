@@ -69,5 +69,10 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(SeenContent::class, 'user_id', 'id');
     }
-    //END
+
+    //courses
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class, 'enrollments', 'user_id', 'course_id')->withPivot('created_at');
+    }
 }

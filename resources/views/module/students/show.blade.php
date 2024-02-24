@@ -74,6 +74,36 @@
                                         <td>@translate(Skype)</td>
                                         <td><a href={{ $each_student->skype }} target="_blank">{{ $each_student->skype }}</a></td>
                                     </tr>
+                                    <tr class="text-center">
+                                        <td>@translate(Courses)</td>
+                                        <td>{{ $each_student->user->courses()->count() }} </td>
+                                    </tr>
+                                    <tr class="text-center">
+                                        <td>@translate(Exams)</td>
+                                        <td>{{ $each_student->exams()->count() }} </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                                <hr>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>@translate(Course)</th>
+                                            <th>@translate(Class Content)</th>
+                                            <th>@translate(Seen Contents)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($each_student->user->courses as $course)
+                                        <tr>
+                                            <td>{{ $course->title }}</td>
+                                            <td>{{ $course->classContents->count() }}</td>
+                                            <td>{{ $course->seenContents->count() }}</td>
+                                        </tr>
+                                        @endforeach
+
                                     </tbody>
                                     <tfoot>
                                     </tfoot>
