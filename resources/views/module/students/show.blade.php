@@ -101,7 +101,9 @@
                                         <tr>
                                             <td>{{ $course->title }}</td>
                                             <td>{{ $course->classContents->count() }}</td>
-                                            <td>{{ $course->seenContents->count() }}</td>
+                                            <td>
+                                                <progress  value="{{ round(($course->seenContents->count() / $course->classContents->count()) * 100) }}" max="100"></progress>
+                                            </td>
                                         </tr>
                                         @endforeach
 
