@@ -87,6 +87,7 @@
                                     </tfoot>
                                 </table>
                                 <hr>
+                                <h3 class="text-center">@translate(Course Details)</h3>
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -103,6 +104,29 @@
                                             <td>{{ $course->seenContents->count() }}</td>
                                         </tr>
                                         @endforeach
+
+                                    </tbody>
+                                    <tfoot>
+                                    </tfoot>
+                                </table>
+                                <hr>
+                                <h3 class="text-center">@translate(Exam Details)</h3>
+                                <table class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>@translate(Exam)</th>
+                                        <th>@translate(Exam Degree)</th>
+                                        <th>@translate(Student Degree)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($each_student->exams as $exam)
+                                        <tr>
+                                            <td>{{ $exam->exam->name }}</td>
+                                            <td>{{ $exam->exam->degree }}</td>
+                                            <td>{{ $exam->degree}}</td>
+                                        </tr>
+                                    @endforeach
 
                                     </tbody>
                                     <tfoot>
