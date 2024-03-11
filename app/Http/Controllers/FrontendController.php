@@ -1349,25 +1349,11 @@ class FrontendController extends Controller
                 $demo->url = route('start', [$content->quiz_id, $content->id]);
             }
         } else {
-//            $demo->provider = $content->content_type;
-//            $demo->description = $content->description;
-//            $demo->item1 = translate('Content document');
-//            $demo->item2 = translate('Download');
-//            $demo->url = filePath($content->file);
-//            $file = filePath($content->file); // Ensure this is the path to your PDF file
-//            $extension = pathinfo($file, PATHINFO_EXTENSION);
-//
-//            if ($extension === 'pdf') {
-//                $parser = new Parser();
-//                $pdf = $parser->parseFile($file);
-//                $pdfText = $pdf->getText();
-//            }
             $demo->provider = $content->content_type;
             $demo->description = $content->description;
             $demo->item1 = translate('Content document');
             $demo->item2 = translate('Download');
             $demo->url = filePath($content->file);
-
         }
 
         $course_id = Classes::where('id', $content->class_id)->first()->course_id;
