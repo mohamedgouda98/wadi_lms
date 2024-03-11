@@ -729,6 +729,7 @@
                     console.log(result);
                     $('#videoId').empty();
                     $('.course-content').empty();
+                    console.log(result);
                     if (result.provider == "Youtube") {
                         playYoutube(result.url)
                     } else if (result.provider == "Vimeo") {
@@ -792,25 +793,25 @@
         }
 
         /*fot document*/
-        // function playDoc(data, item1, item2, description) {
-        //
-        //     $('#videoId').append('<div class="card text-center document-height w-100">\n' +
-        //         '  <div class="card-header">' + item1 + '  </div>\n' +
-        //         '  <div class="card-body">\n' +
-        //         '  <p class="card-body">' + description + '</p>\n' +
-        //         '    <a href="' + data + '" class="btn btn-success btn-lg fa fa-download" target="_blank">  ' + item2 + '</a>\n' +
-        //         '  </p>\n' +
-        //         '</div>');
-        // }
-        function playDoc(data, item1, description) {
+        function playDoc(data, item1, item2, description) {
+
             $('#videoId').append('<div class="card text-center document-height w-100">\n' +
                 '  <div class="card-header">' + item1 + '  </div>\n' +
                 '  <div class="card-body">\n' +
                 '  <p class="card-body">' + description + '</p>\n' +
-                '    <iframe src="' + data + '" style="width:100%;height:500px;" frameborder="0"></iframe>\n' +
+                '    <a href="' + data + '" class="btn btn-success btn-lg fa fa-download" target="_blank">  ' + item2 + '</a>\n' +
                 '  </p>\n' +
                 '</div>');
         }
+        // function playDoc(data, item1, description) {
+        //     $('#videoId').append('<div class="card text-center document-height w-100">\n' +
+        //         '  <div class="card-header">' + item1 + '  </div>\n' +
+        //         '  <div class="card-body">\n' +
+        //         '  <p class="card-body">' + description + '</p>\n' +
+        //         '    <iframe src="' + data + '" style="width:100%;height:500px;" frameborder="0"></iframe>\n' +
+        //         '  </p>\n' +
+        //         '</div>');
+        // }
         /*seen content checked*/
         function seenContend() {
             var url = $('#seenList').val();
