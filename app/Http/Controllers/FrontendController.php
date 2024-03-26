@@ -1351,8 +1351,8 @@ class FrontendController extends Controller
         } else {
             $demo->provider = $content->content_type;
             $demo->description = $content->description;
-            $demo->item1 = translate('Content document');
-            $demo->item2 = translate('Download');
+//            $demo->item1 = translate('Content document');
+//            $demo->item2 = translate('Download');
             $demo->url = filePath($content->file);
         }
 
