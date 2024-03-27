@@ -52,6 +52,20 @@ class StudentExamController extends Controller
 
         $totalClassesCount = $exam->specific_class ? ClassContent::where(['course_id' => $exam->course_id, 'class_id' => $exam->class_id])->count() : ClassContent::where(['course_id', $exam->course_id])->count();
 
+        if ($exam->specific_class) {
+            $classes = ClassContent::where(['course_id' => $exam->course_id, 'class_id' => $exam->class_id])->count();
+            $seenClassesCount = SeenContent::where([
+                'user_id' => $userId,
+                'course_id' => $exam->course_id,
+                'class_id' => $exam->class_id])
+                ->count();
+            if ($classes == $seenClassesCount) {
+                return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
+        } else {
+                alert()->warning('You must complete the content before taking the exam');
+                return back();
+            }
+        }
         // Determine if the user is eligible for the exam
         $eligibleForExam = $exam->specific_class
             ? ($seenClassesCount == $totalClassesCount)
@@ -61,7 +75,7 @@ class StudentExamController extends Controller
             return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
         } else {
             alert()->error('You must finish the content before taking the exam');
-            return redirect()->route('course.single', $exam->course->slug);
+            return back();
         }
     }
 
