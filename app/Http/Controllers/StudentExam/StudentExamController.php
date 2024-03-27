@@ -33,25 +33,13 @@ class StudentExamController extends Controller
             ->where('exam_id', $exam->id)
             ->where('is_marked', 1)
             ->first();
-        dd($studentExam);
+
         if ($studentExam) {
             alert()->warning('You have already attempted this exam before');
             return back();
         }
         $userId = auth()->id();
 
-        // Count of all seen contents for the course
-        $seenContentsCount = SeenContent::where('user_id', $userId)
-            ->where('course_id', $exam->course_id)
-            ->count();
-
-        // Count of distinct classes for which content has been seen
-        $seenClassesCount = SeenContent::where('user_id', $userId)
-            ->where('course_id', $exam->course_id)
-            ->distinct('class_id')
-            ->count('class_id');
-
-        $totalClassesCount = $exam->specific_class ? ClassContent::where(['course_id' => $exam->course_id, 'class_id' => $exam->class_id])->count() : ClassContent::where(['course_id', $exam->course_id])->count();
 
         if ($exam->specific_class) {
             $classes = ClassContent::where(['course_id' => $exam->course_id, 'class_id' => $exam->class_id])->count();
@@ -60,24 +48,18 @@ class StudentExamController extends Controller
                 'course_id' => $exam->course_id,
                 'class_id' => $exam->class_id])
             ->count();
-            if ($classes == $seenClassesCount) {
-                    return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
-            } else {
-                    alert()->warning('You must complete the content before taking the exam');
-                    return back();
-            }
         }else{
             $classes = ClassContent::where(['course_id' => $exam->course_id])->count();
             $seenClassesCount = SeenContent::where([
                 'user_id' => $userId,
                 'course_id' => $exam->course_id])
             ->count();
-            if ($classes == $seenClassesCount) {
-                    return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
-            } else {
-                    alert()->warning('You must complete the content before taking the exam');
-                    return back();
-            }
+        }
+        if ($classes == $seenClassesCount) {
+                return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
+        } else {
+                alert()->warning('You must complete the content before taking the exam');
+                return back();
         }
 //        // Determine if the user is eligible for the exam
 //        $eligibleForExam = $exam->specific_class
