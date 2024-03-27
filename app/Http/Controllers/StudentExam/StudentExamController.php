@@ -52,7 +52,7 @@ class StudentExamController extends Controller
         $eligibleForExam = $exam->specific_class
             ? ($seenClassesCount == $totalClassesCount)
             : ($seenContentsCount == $totalClassesCount);
-        dd($seenClassesCount, $totalClassesCount);
+
         if ($eligibleForExam) {
             return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
         } else {
