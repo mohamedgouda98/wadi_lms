@@ -4,6 +4,7 @@ namespace App\Http\Controllers\StudentExam;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Answer\StudentAnswerRequest;
+use App\Models\ClassContent;
 use App\Models\Course;
 use App\Models\Exam;
 use App\Models\ExamQuestion;
@@ -45,7 +46,7 @@ class StudentExamController extends Controller
             ->distinct('class_id')
             ->count('class_id');
 
-        $totalClassesCount = $exam->course->classes->count();
+        $totalClassesCount = $exam->specific_class ? ClassContent::where(['course_id' => $exam->course_id, 'class_id' => $exam->class_id])->count() : ClassContent::where(['course_id', $exam->course_id])->count();
 
         // Determine if the user is eligible for the exam
         $eligibleForExam = $exam->specific_class
