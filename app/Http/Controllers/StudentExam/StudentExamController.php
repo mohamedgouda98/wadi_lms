@@ -32,7 +32,11 @@ class StudentExamController extends Controller
             ->where('exam_id', $exam->id)
             ->where('is_marked', 1)
             ->first();
-        dd($studentExam);
+
+        if ($studentExam) {
+            alert()->error('You have already attempted this exam');
+            return back();
+        }
         $userId = auth()->id();
 
         // Count of all seen contents for the course
