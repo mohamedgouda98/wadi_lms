@@ -28,7 +28,7 @@ class StudentExamController extends Controller
     {
         $questions = ExamQuestion::where(['exam_id' => $exam->id, 'active' => 1])
             ->inRandomOrder()->limit($exam->limit_questions)->get();
-        dd($questions);
+        dd($exam);
         $studentExam = StudentExam::where('student_id', auth()->user()->student->id)
             ->where('exam_id', $exam->id)
             ->where('is_marked', 1)
