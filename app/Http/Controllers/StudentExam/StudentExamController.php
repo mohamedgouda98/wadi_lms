@@ -61,17 +61,7 @@ class StudentExamController extends Controller
                 alert()->warning('You must complete the content before taking the exam');
                 return back();
         }
-//        // Determine if the user is eligible for the exam
-//        $eligibleForExam = $exam->specific_class
-//            ? ($seenClassesCount == $totalClassesCount)
-//            : ($seenContentsCount == $totalClassesCount);
-//
-//        if ($eligibleForExam) {
-//            return view('frontend.StudentExam.exam', compact('questions', 'exam', 'studentExam'));
-//        } else {
-//            alert()->error('You must finish the content before taking the exam');
-//            return back();
-//        }
+
     }
 
     public function storeStudentAnswers(StudentAnswerRequest $request)
