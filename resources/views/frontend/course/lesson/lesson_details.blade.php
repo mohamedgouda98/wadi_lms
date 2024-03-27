@@ -13,7 +13,7 @@
                                title="{{ getSystemSetting('type_name')->value }}">
                                 <img
                                     src="{{ filePath(getSystemSetting('footer_logo')->value) }}"
-                                    alt="{{ getSystemSetting('type_name')->value }}" class="w-75"></a>
+                                    alt="{{ getSystemSetting('type_name')->value }}" class="w-75" height="75px"></a>
                         </div>
                         <div class="course-dashboard-title">
                             <a href="{{ route('course.single',$s_course->slug) }}">{{ $s_course->title }}</a>
