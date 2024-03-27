@@ -32,7 +32,7 @@ class StudentExamController extends Controller
             ->where('exam_id', $exam->id)
             ->where('is_marked', 1)
             ->first();
-
+        dd($studentExam);
         $userId = auth()->id();
 
         // Count of all seen contents for the course
