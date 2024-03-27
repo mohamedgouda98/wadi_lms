@@ -34,7 +34,7 @@ class StudentExamController extends Controller
             ->first();
 
         if ($studentExam) {
-            alert()->error('You have already attempted this exam');
+            alert()->warning('You have already attempted this exam before');
             return back();
         }
         $userId = auth()->id();
